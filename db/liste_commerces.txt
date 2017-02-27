@@ -1,0 +1,124 @@
+I. ALIMENTATION1
+110 Alimentation générale
+111 Epicerie
+112 Crémerie
+113 Fruits - légumes
+114 Primeurs
+115 Champignons
+
+120 Boucherie
+121 Boucherie - Charcuterie
+122 Charcuterie
+123 Gibiers - Volailles
+124 Traiteur
+125 Poissonnerie
+126 Fruits de mer - Huîtres
+
+130 Boulangerie - Pâtisserie sans salon de consommation
+131 Boulangerie - Pâtisserie avec salon de consommation
+132 Pâtisserie sans salon de consommation
+133 Pâtisserie avec salon de consommation
+134 Confiserie - Pralines
+135 Glacier
+136 Sandwichs (pizzas…) à emporter
+
+140 Liqueurs - Vins
+141 Cafés - Thés - Biscuits
+142 Epices - Moutardes
+143 Diététique
+144 Spécialités étrangères
+
+II. EQUIPEMENT DE LA PERSONNE
+210 Confection générale
+211 Confection pour hommes
+212 Confection pour dames
+213 Confection pour enfants
+214 Vêtements futures mamans
+215 Vêtements daim, cuir
+216 Vêtements sports
+217 Jeans et pantalons
+218 Fourreur
+219 Vêtements de travail
+220 Vêtements exotiques
+221 Vêtements de seconde main adultes
+222 Vêtements de seconde main enfants
+223 Stock américain
+224 Tailleur (si boutique)
+225 Couturière (si boutique)
+
+230 Laines
+231 Tissus
+232 Mercerie
+233 Peaux et articles en cuir
+
+240 Chemiserie hommes
+241 Bonneterie - Pulls
+242 Lingerie
+243 Gaines
+244 Bas
+
+250 Chaussures adultes
+251 Chaussures enfants
+
+260 Maroquinerie
+261 Parapluies
+262 Chapellerie - Modiste
+263 Ganterie
+264 Colifichets (foulards)
+265 Bijouterie - Montres
+266 Horlogerie - Bijouterie - Orfèvrerie
+267 Bijouterie fantaisie
+268 Perruques
+
+III. EQUIPEMENT DE LA MAISON ET DE LA PROFESSION
+380 Articles souvenirs et cadeaux
+381 Articles de luxe
+382 Orfèvrerie
+383 Horlogerie
+384 Faïence - Porcelaine
+385 Poterie - Céramique
+386 Chinoiseries
+387 Minéraux - Fossiles
+388 Cuivres - Etains - Fers forgés
+389 Bougies
+390 Vannerie
+391 Artisanat
+392 Cadres
+393 Galerie d'art
+394 Articles religieux
+395 Articles funéraires (y compris monuments)
+396 Fleuriste
+397 Listes de mariage
+
+V. ENTRETIEN DE LA PERSONNE2
+510 Pharmacie
+511 Bandagiste - Vêtements médicaux
+512 Optique
+513 Appareils acoustiques
+514 Orthopédiste
+515 Herboristerie
+516 Produits vétérinaires
+517 Laboratoire dentaire (si accès au public)
+
+520 Parfumerie
+
+VIII. HORECA (Hôtels - Restaurants - Cafés)
+810 Café
+811 Café - Restaurant
+812 Cafétéria
+813 Salon de thé
+814 Milkbar
+815 Glacier avec salon de consommation
+816 Crêperie
+817 Snack-bar - Petite restauration
+818 Friterie
+819 Fast-food
+820 Restaurant
+821 Restaurant italien
+822 Restaurant grec ou turc
+823 Restaurant espagnol ou portugais
+824 Restaurant maghrébin
+825 Restaurant asiatique
+826 Restaurant végétarien
+827 Autre restaurant étranger
+828 Restaurant self-service
