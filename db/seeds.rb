@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+User.destroy_all
+
+user = User.new(email: 'adrienpoly@gmail.com', password: '123456')
+user.save
+
+user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
+user.save
+
+categories = ["Plateaux Apéro", "Plateaux Découverte", "Portions", "Extras",
+  "Vins", "Champagnes"]
+
+categories.each do |categorie|
+  ProductCategory.create(name: categorie)
+end
+
