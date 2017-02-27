@@ -25,6 +25,46 @@ ActiveRecord::Schema.define(version: 20170227152313) do
     t.index ["shop_id"], name: "index_opening_hours_on_shop_id", using: :btree
   end
 
+  create_table "ordered_products", force: :cascade do |t|
+    t.integer  "product_id"
+    t.float    "quantity"
+    t.float    "order_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["product_id"], name: "index_ordered_products_on_product_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.float    "total_price"
+    t.integer  "ordered_product_id"
+    t.datetime "pick_up_at"
+    t.integer  "user_id"
+    t.text     "instructions"
+    t.string   "status"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["ordered_product_id"], name: "index_orders_on_ordered_product_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "product_category_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "short_description"
+    t.float    "price"
+    t.string   "measurement_units"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -56,5 +96,9 @@ ActiveRecord::Schema.define(version: 20170227152313) do
   end
 
   add_foreign_key "opening_hours", "shops"
+  add_foreign_key "ordered_products", "products"
+  add_foreign_key "orders", "ordered_products"
+  add_foreign_key "orders", "users"
+  add_foreign_key "products", "product_categories"
   add_foreign_key "shops", "users"
 end
