@@ -8,3 +8,6 @@ public/assets
 
 # Ignore application configuration
 /config/application.yml
+
+#ignore git configuration
+*.byebug_history
