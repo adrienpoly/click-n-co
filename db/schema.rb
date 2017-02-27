@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170227155401) do
 
   # These are extensions that must be enabled in order to support this database
@@ -67,7 +68,7 @@ ActiveRecord::Schema.define(version: 20170227155401) do
 
   create_table "shops", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "address"
     t.string   "phone_number"
     t.string   "category"
