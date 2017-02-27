@@ -53,6 +53,27 @@ ActiveRecord::Schema.define(version: 20170227155401) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
+  create_table "opening_hours", force: :cascade do |t|
+    t.string   "day"
+    t.time     "open_time"
+    t.time     "closed_time"
+    t.integer  "shop_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["shop_id"], name: "index_opening_hours_on_shop_id", using: :btree
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "address"
+    t.string   "phone_number"
+    t.string   "category"
+    t.string   "color_theme"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_shops_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,4 +102,6 @@ ActiveRecord::Schema.define(version: 20170227155401) do
   add_foreign_key "orders", "ordered_products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_categories"
+  add_foreign_key "opening_hours", "shops"
+  add_foreign_key "shops", "users"
 end
