@@ -24,14 +24,40 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
+$wagon_red: rgba(210, 51, 51, 1);
+$teal_blue: rgba(47, 113, 146, 1);
+$sunny: rgba(255, 242, 117, 1);
+$big_foot_feet: rgba(234, 140, 85, 1);
+$grey_platinum: rgba(225, 230, 225, 1);
+
+$brand-color: $wagon_red;
+//color palette from main picture
+$weldon_blue: #6B92AE;
+$artichoke: #9A9277;
+$rasin_black: #1C2127;
+$timberwolf: #DBDCD4;
+$outer_space: #45494E;
+$metallic_seeweed: #177E89; //turquoise blue
+
 
 $red: #EE5F5B;
-$blue: #469AE0;
-$yellow: #FDB631;
-$orange: #E67E22;
-$green: #32B796;
-$gray: #000000;
+$blue: $teal_blue;
+$yellow: #e3cf7a;
+$orange: $big_foot_feet;
+$green: #06BA63;
+
+
+// Gray scale
+$gray-darker:  lighten(#000, 13.5%); // #222
+$gray-dark:    lighten(#000, 20%);   // #333
+$gray:         lighten(#000, 33.5%); // #555
+$gray-light:   lighten(#000, 46.7%); // #777
+$gray-lighter: lighten(#000, 93.5%); // #eee
+
+
+//shadow
+$thin-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+$border-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 
 
 $footer-bg-color: #888;

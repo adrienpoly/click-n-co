@@ -1,17 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 Shop.destroy_all
+User.destroy_all
+Product.destroy_all
+ProductCategory.destroy_all
+
+owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
+owner.save
+
+user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
+user.save
+
+
 shop = Shop.new(name: "LA CARAVELLE DES SAVEURS",
   description: "Après avoir longtemps travaillé dans le milieu de la Mode, Paula s’est reconvertie avec succès dans le monde de la gastronomie. Fière de ses origines portugaises, elle souhaitait pouvoir faire découvrir les nombreuses spécialités du pays de ses parents et c’est chose faite depuis 2015 avec cette épicerie fine de qualité !",
   address: "12, rue du Faubourg Saint-Martin 75010 Paris",
   phone_number: "01 98 98 98 98",
   category: "111 Epicerie")
+shop.user = owner
 shop.save!
 puts shop.name
 shop = Shop.new(name: "FROMAGERIE LÉAUTEY",
@@ -21,6 +25,7 @@ shop = Shop.new(name: "FROMAGERIE LÉAUTEY",
   address: "81, avenue de Saint-Ouen 75017 Paris",
   phone_number: "01 01 98 99 98",
   category: "112 Crémerie")
+shop.user = owner
 shop.save!
 puts shop.name
 shop = Shop.new(name: "BOUCHERIE DES GRAVILLIERS",
@@ -30,6 +35,7 @@ shop = Shop.new(name: "BOUCHERIE DES GRAVILLIERS",
   address: "28, rue des Gravilliers 75003 Paris",
   phone_number: "01 99 98 99 98",
   category: "121 Boucherie - Charcuterie")
+shop.user = owner
 shop.save!
 puts shop.name
 shop = Shop.new(name: "LES PETITS MITRONS",
@@ -41,6 +47,7 @@ shop = Shop.new(name: "LES PETITS MITRONS",
   address: "26, rue Lepic 75018 Paris",
   phone_number: "01 98 01 98 01",
   category: "130 Boulangerie - Pâtisserie sans salon de consommation")
+shop.user = owner
 shop.save!
 puts shop.name
 shop = Shop.new(name: "LE CHAMP DES RÊVES",
@@ -49,6 +56,7 @@ shop = Shop.new(name: "LE CHAMP DES RÊVES",
   address: "25, rue de la Jonquière 75017 Paris",
   phone_number: "01 01 01 98 99",
   category: "114 Primeurs")
+shop.user = owner
 shop.save!
 puts shop.name
 shop = Shop.new(name: "CÔTÉ CÉPAGE",
@@ -60,20 +68,12 @@ shop = Shop.new(name: "CÔTÉ CÉPAGE",
   address: "96, rue Legendre 75017 Paris",
   phone_number: "01 20 01 01 98",
   category: "140 Liqueurs - Vins")
+shop.user = owner
 shop.save!
 puts shop.name
 
 
-User.destroy_all
 
-Product.destroy_all
-ProductCategory.destroy_all
-
-user = User.new(email: 'adrienpoly@gmail.com', password: '123456')
-user.save
-
-user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
-user.save
 
 categories = ["Plateaux Apéro", "Plateaux Découverte", "Portions", "Extras",
   "Vins", "Champagnes"]
@@ -92,14 +92,18 @@ def read_csv
   products
 end
 
-p products = read_csv
+products = read_csv
+shops = Shop.all
+shops.each do |shop|
+  products.each do |product|
+    product_category = ProductCategory.where(name: product[:product_category]).first
+    new_product = Product.new()
+    new_product.name = product[:name]
+    new_product.short_description = product[:short_description]
+    new_product.price = product[:price]
+    new_product.product_category = product_category
+    new_product.shop = shop
+    new_product.save
+  end
 
-products.each do |product|
-  product_category = ProductCategory.where(name: product[:product_category]).first
-  new_product = Product.new()
-  new_product.name = product[:name]
-  new_product.short_description = product[:short_description]
-  new_product.price = product[:price]
-  new_product.product_category = product_category
-  new_product.save
 end
