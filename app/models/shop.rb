@@ -1,6 +1,6 @@
 class Shop < ApplicationRecord
   belongs_to :user
-  has_many :opening_hour
+  has_many :opening_hours
   has_many :products
   validates :name, presence: true
   validates :address, presence: true
