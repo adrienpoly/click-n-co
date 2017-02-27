@@ -1,12 +1,11 @@
 I. ALIMENTATION1
-Alimentation générale
 110 Alimentation générale
 111 Epicerie
 112 Crémerie
 113 Fruits - légumes
 114 Primeurs
 115 Champignons
-Viandes - Poissons
+
 120 Boucherie
 121 Boucherie - Charcuterie
 122 Charcuterie
@@ -14,7 +13,7 @@ Viandes - Poissons
 124 Traiteur
 125 Poissonnerie
 126 Fruits de mer - Huîtres
-Pain - Sucreries
+
 130 Boulangerie - Pâtisserie sans salon de consommation
 131 Boulangerie - Pâtisserie avec salon de consommation
 132 Pâtisserie sans salon de consommation
@@ -22,7 +21,7 @@ Pain - Sucreries
 134 Confiserie - Pralines
 135 Glacier
 136 Sandwichs (pizzas…) à emporter
-Divers alimentation
+
 140 Liqueurs - Vins
 141 Cafés - Thés - Biscuits
 142 Epices - Moutardes
@@ -30,7 +29,6 @@ Divers alimentation
 144 Spécialités étrangères
 
 II. EQUIPEMENT DE LA PERSONNE
-Vêtements
 210 Confection générale
 211 Confection pour hommes
 212 Confection pour dames
@@ -47,21 +45,21 @@ Vêtements
 223 Stock américain
 224 Tailleur (si boutique)
 225 Couturière (si boutique)
-Articles textiles
+
 230 Laines
 231 Tissus
 232 Mercerie
 233 Peaux et articles en cuir
-Linge personnel
+
 240 Chemiserie hommes
 241 Bonneterie - Pulls
 242 Lingerie
 243 Gaines
 244 Bas
-Chaussures
+
 250 Chaussures adultes
 251 Chaussures enfants
-Accessoires
+
 260 Maroquinerie
 261 Parapluies
 262 Chapellerie - Modiste
@@ -73,7 +71,6 @@ Accessoires
 268 Perruques
 
 III. EQUIPEMENT DE LA MAISON ET DE LA PROFESSION
-Décoration
 380 Articles souvenirs et cadeaux
 381 Articles de luxe
 382 Orfèvrerie
@@ -94,7 +91,6 @@ Décoration
 397 Listes de mariage
 
 V. ENTRETIEN DE LA PERSONNE2
-Santé
 510 Pharmacie
 511 Bandagiste - Vêtements médicaux
 512 Optique
@@ -103,11 +99,10 @@ Santé
 515 Herboristerie
 516 Produits vétérinaires
 517 Laboratoire dentaire (si accès au public)
-Beauté
+
 520 Parfumerie
 
 VIII. HORECA (Hôtels - Restaurants - Cafés)
-Restauration
 810 Café
 811 Café - Restaurant
 812 Cafétéria
