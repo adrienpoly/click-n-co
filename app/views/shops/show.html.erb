@@ -1,0 +1,25 @@
+<!-- banner du shop
+Catégorie de produits
+Produits
+Panier -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <h3>catégories</h3>
+        <%=  @shop.product_categories.distinct.each do |product_category| %>
+          <li>
+            <%= product_category %>
+          </li>
+        <% end %>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <h3>produits</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <h3>panier</h3>
+    </div>
+  </div>
+</div>

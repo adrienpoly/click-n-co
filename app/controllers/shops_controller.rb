@@ -12,6 +12,6 @@ class ShopsController < ApplicationController
   private
 
   def find_shop
-    @shop = Shop.find(params[:shop_id])
+    @shop = Shop.find(params[:id])
   end
 end
