@@ -7,11 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+
+    <%#= render 'application/favicon' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div id="wrapper-layout">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <div id="content">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
+    </div>
+    <%=  javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_MAPS']}" %>
+    <%#= javascript_include_tag "https://maps.google.com/maps/api/js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+
     <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
+    <%= cloudinary_js_config %>
   </body>
 </html>
