@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 20170227155401) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "opening_hours", force: :cascade do |t|
+    t.string   "day"
+    t.time     "open_time"
+    t.time     "closed_time"
+    t.integer  "shop_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["shop_id"], name: "index_opening_hours_on_shop_id", using: :btree
+  end
+
   create_table "ordered_products", force: :cascade do |t|
     t.integer  "product_id"
     t.float    "quantity"
@@ -53,14 +63,6 @@ ActiveRecord::Schema.define(version: 20170227155401) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
-  create_table "opening_hours", force: :cascade do |t|
-    t.string   "day"
-    t.time     "open_time"
-    t.time     "closed_time"
-    t.integer  "shop_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["shop_id"], name: "index_opening_hours_on_shop_id", using: :btree
   end
 
   create_table "shops", force: :cascade do |t|
@@ -98,10 +100,10 @@ ActiveRecord::Schema.define(version: 20170227155401) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "opening_hours", "shops"
   add_foreign_key "ordered_products", "products"
   add_foreign_key "orders", "ordered_products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_categories"
-  add_foreign_key "opening_hours", "shops"
   add_foreign_key "shops", "users"
 end
