@@ -1,0 +1,79 @@
+<% content_for :title_tag do %>
+  Search for the best local shops around you
+<% end %>
+
+<!-- div class="container text-center index-shop">
+  <form class="form-shop">
+    <div class="form-dates">
+      <Label>Where</Label>
+      <input type="text" class="form-control input-lg" id="where" name="where" value= <%= params[:where] %> >
+    </div> <! end LOCATION
+    <! <div class="form-dates">
+                <! <div> -->
+      <!-- <Label>Dates</Label> -->
+     <!--  <Label>Km around</Label>
+                <! </div> -->
+      <!-- <div class="form-checkinout">
+        <input type="number" class="form-control input-lg" id="dist" name="dist" placeholder="insert a distance">
+      </div> -->
+          <!-- <input type="text" class="form-control datepicker input-lg" data-provide='datepicker' name="checkin" value= <%#= params[:checkin] %> >
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <input type="text" class="form-control input-lg" id="checkout" name="checkout" placeholder="checkout"> -->
+   <!--  </div> -->
+    <!-- <div class="form-guests">
+      <Label>Guests</Label>
+      <select class="form-control input-lg" id="nbguest" name="guests">
+        <option value="1">1 guest</option>
+        <option value="2">2 guests</option>
+        <option value="3">3 guests</option>
+      </select>
+    </div> -->
+   <!--  <div class="form-search">
+      <button type="submit" class="btn btn-success btn-lg">Search</button>
+    </div>
+  </form>
+</div>  <! end CONTAINER -->
+
+<div class="container">
+  <div id="map" style="width: 100%; height: 400px;"></div>
+  <div class="row">
+
+      <% @shops.each do |shop|  %>
+        <div class="col-sm-4 card">
+          <%= link_to shop_path(shop) do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spa.photo.path, quality: "auto:eco", crop: :fill unless spa.photo.nil? %>');">
+                <div class="shop-category">
+                    <h4><%= shop.name.capitalize %></h4>
+                </div>
+                <%= render 'shared/stars', rating: shop.avg_rating.nil? ? 0 : shop.avg_rating %>
+                <div class="card-distance"><%= shop.distance %> km</div>
+                <div class="card-description"><p class="address-shop"><%= shop.address %></p></div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<!-- <script type="text/javascript"
+  src=<%#= "https://maps.googleapis.com/maps/api/js?libraries=places&key=" + ENV['GOOGLE_MAPS'] %>>
+</script> -->
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
