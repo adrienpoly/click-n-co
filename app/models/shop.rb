@@ -6,4 +6,5 @@ class Shop < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :category, presence: true
+  has_many :product_categories, through: :products
 end
