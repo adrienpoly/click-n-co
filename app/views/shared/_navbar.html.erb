@@ -22,7 +22,9 @@
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <i class="fa Example of shopping-cart fa-shopping-cart"></i>
-          <div class="badge badge-blue"><%= session[:cart].size %></div>
+          <% if session[:cart] %>
+            <div class="badge badge-blue"><%= session[:cart].size %></div>
+          <% end %>
         </div>
       <% end %>
 
