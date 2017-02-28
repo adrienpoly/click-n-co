@@ -51,11 +51,8 @@
 
 <!-- Include Google Maps JS API -->
 
-<% content_for(:after_js) do %>
-  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js" %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('.datepicker').datepicker();
-    });
-  </script>
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
 <% end %>
+
+
