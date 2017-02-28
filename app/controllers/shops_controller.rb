@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
   before_action :find_shop, only: [:show]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
     @shops = Shop.all
     # @shops = Shop.near(params['where'], 1000)

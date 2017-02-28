@@ -4,4 +4,5 @@ class PagesController < ApplicationController
   def home
     @categories = Category.all.order('descritpion')
   end
+
 end
