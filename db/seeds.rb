@@ -1,7 +1,7 @@
-Shop.destroy_all
-User.destroy_all
 Product.destroy_all
 ProductCategory.destroy_all
+Shop.destroy_all
+User.destroy_all
 
 owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
 owner.save
@@ -9,6 +9,7 @@ owner.save
 user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
 user.save
 
+p "google API key " + ENV['GOOGLE_MAPS']
 
 shop = Shop.new(name: "LA CARAVELLE DES SAVEURS",
   description: "Après avoir longtemps travaillé dans le milieu de la Mode, Paula s’est reconvertie avec succès dans le monde de la gastronomie. Fière de ses origines portugaises, elle souhaitait pouvoir faire découvrir les nombreuses spécialités du pays de ses parents et c’est chose faite depuis 2015 avec cette épicerie fine de qualité !",
