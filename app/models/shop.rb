@@ -8,3 +8,4 @@ class Shop < ApplicationRecord
   validates :category, presence: true
   has_many :product_categories, through: :products
 end
+

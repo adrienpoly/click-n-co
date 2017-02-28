@@ -3,23 +3,61 @@ Catégorie de produits
 Produits
 Panier -->
 
+<div class="page-header-inner shop">
+  <div class="shop-cover">
+    <div class="cvr" style="background-image:url();"></div>
+  </div>
+  <div class="shop-name">
+    <h1 class="mbottom5">
+      <%= @shop.name %>
+    </h1>
+    <div>
+      <ul class="shop-info">
+        <li class="metadata list-unstyled">
+          <%= @shop.category %>
+        </li>
+        <li class="metadata list-unstyled">
+          <%= @shop.address %>
+        </li>
+        <li class="metadata list-unstyled">
+          <%= @shop.phone_number %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4">
-      <h3>catégories</h3>
-        <%=  @shop.product_categories.distinct.each do |product_category| %>
-          <li>
-            <%= product_category %>
-          </li>
-        <% end %>
+      <div class="shop-show">
+        <h3>catégories</h3>
+          <% @shop.product_categories.distinct.each do |product_category| %>
+            <li class="list-unstyled">
+              <%= product_category.name %>
+            </li>
+          <% end %>
+        </div>
     </div>
 
     <div class="col-xs-12 col-sm-4">
-      <h3>produits</h3>
+      <div class="shop-show">
+        <h3>produits</h3>
+          <ul class="product-items">
+            <% @shop.products.distinct.each do |product| %>
+              <li class="list-unstyled">
+                <%= product.name %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
     </div>
 
     <div class="col-xs-12 col-sm-4">
-      <h3>panier</h3>
+      <div class="shop-show">
+        <h3>panier</h3>
+        <button type="button" class="btn btn-success">Commander</button>
+      </div>
     </div>
   </div>
 </div>
