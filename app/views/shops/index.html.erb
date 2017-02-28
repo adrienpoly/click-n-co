@@ -34,7 +34,7 @@
   </form>
 </div>  <! end CONTAINER -->
 
-<div class="container">
+<div class="container padded">
   <div id="map" style="width: 100%; height: 400px;"></div>
   <div class="row">
 
@@ -55,9 +55,6 @@
     </div>
 </div>
 
-<!-- <script type="text/javascript"
-  src=<%#= "https://maps.googleapis.com/maps/api/js?libraries=places&key=" + ENV['GOOGLE_MAPS'] %>>
-</script> -->
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
