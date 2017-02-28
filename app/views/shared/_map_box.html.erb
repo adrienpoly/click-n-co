@@ -1,0 +1,11 @@
+<div class="box-info">
+  <div class="photo-icon">
+    <%#= cl_image_tag(spa.photo.path, :width => 250, :height => 70, :crop => :fill) %>
+  </div>
+  <div class="spa-data">
+    <h5>
+      <%= link_to(shop.name, shop_path(shop)) %>
+    </h5>
+    <%= shop.address %>
+  </div>
+</div>
