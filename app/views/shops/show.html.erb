@@ -99,7 +99,14 @@
             <% end %>
           <% end %>
         </p>
-        <button type="button" class="btn btn-success btn-block">Commander</button>
+          <div class="shop-order">
+            <%= simple_form_for Order.new() do |f| %>
+
+              <div class="form-actions">
+                <%= f.button :submit, 'Commander', class: "btn btn-success btn-lg btn-block" %>
+              </div>
+            <% end %>
+          </div>
         </div>
         </nav>
       </div>
