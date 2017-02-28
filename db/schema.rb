@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228112446) do
+ActiveRecord::Schema.define(version: 20170228165655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,19 +37,19 @@ ActiveRecord::Schema.define(version: 20170228112446) do
     t.float    "order_price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "order_id"
+    t.index ["order_id"], name: "index_ordered_products_on_order_id", using: :btree
     t.index ["product_id"], name: "index_ordered_products_on_product_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
     t.float    "total_price"
-    t.integer  "ordered_product_id"
     t.datetime "pick_up_at"
     t.integer  "user_id"
     t.text     "instructions"
     t.string   "status"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["ordered_product_id"], name: "index_orders_on_ordered_product_id", using: :btree
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
@@ -117,7 +117,6 @@ ActiveRecord::Schema.define(version: 20170228112446) do
 
   add_foreign_key "opening_hours", "shops"
   add_foreign_key "ordered_products", "products"
-  add_foreign_key "orders", "ordered_products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_categories"
   add_foreign_key "products", "shops"
