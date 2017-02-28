@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
-  before_action :find_shop, only: [:show]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  before_action :find_shop, only: [:show, :show_ajax]
 
   def index
     @shops = Shop.all
@@ -14,8 +14,12 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @shops = Shop.all
   end
 
+  def show_ajax
+    render 'show_ajax'
+  end
 
   private
 
