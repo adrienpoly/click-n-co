@@ -11,12 +11,12 @@ class OrderedProductsController < ApplicationController
       product = Product.find(params[:id].to_i)
       session[:cart][params[:id]] = { name: product.name, price: product.price, qty: 1 }
     end
-    redirect_to shop2_path(params[:shop_id])
+    redirect_to shop_path(params[:shop_id])
   end
 
   def remove
     session[:cart].delete(params[:id])
-    redirect_to shop2_path(params[:shop_id])
+    redirect_to shop_path(params[:shop_id])
   end
 
   def reduce
@@ -28,6 +28,6 @@ class OrderedProductsController < ApplicationController
         session[:cart].delete(params[:id])
       end
     end
-    redirect_to shop2_path(params[:shop_id])
+    redirect_to shop_path(params[:shop_id])
   end
 end

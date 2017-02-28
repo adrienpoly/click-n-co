@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/style', to: 'pages#bootstrap_components'
   get '/test', to: 'pages#test'
   get '/shop2/:id', to: 'shops#show_ajax', as: 'shop2'
+  resources :orders, only: [ :index, :create] do
 
+  end
 
 end
