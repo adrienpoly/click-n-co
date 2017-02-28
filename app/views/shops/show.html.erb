@@ -1,7 +1,6 @@
-<!-- banner du shop
-Catégorie de produits
-Produits
-Panier -->
+<div class="bouton-retour">
+  <%= link_to "Retour aux résultats", shops_path(@shops), class: 'retour-aux-resultats' %>
+</div>
 
 <div class="page-header-inner shop">
   <div class="shop-cover">
@@ -27,37 +26,101 @@ Panier -->
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="shop-show">
-        <h3>catégories</h3>
-          <% @shop.product_categories.distinct.each do |product_category| %>
-            <li class="list-unstyled">
-              <%= product_category.name %>
-            </li>
-          <% end %>
-        </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="shop-show">
-        <h3>produits</h3>
-          <ul class="product-items">
-            <% @shop.products.distinct.each do |product| %>
-              <li class="list-unstyled">
-                <%= product.name %>
+<div class="shop">
+  <div class="container">
+    <div class="row no-gutter">
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="shop-categories shop-nav" data-spy="affix">
+          <ul class="unstyled-list">
+            <div class="shop-show text-center">
+              <h3 class="categories-title">Catégories</h3>
+              <% @shop.product_categories.distinct.each do |product_category| %>
+              <li class="list-unstyled category-show">
+                <%= product_category.name %>
               </li>
-            <% end %>
+              <% end %>
+            </div>
           </ul>
         </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="shop-show">
-        <h3>panier</h3>
-        <button type="button" class="btn btn-success">Commander</button>
       </div>
-    </div>
-  </div>
+      <div class="col-md-6">
+        <div class="shop-products">
+          <div id="cat-1" class="shop-anchor">
+            <div class="shop-show">
+              <h3 class="text-center">Produits</h3>
+              <h5>catégorie 1</h5>
+              <% @shop.products.distinct.each do |product| %>
+              <div class="product-items">
+                <ul>
+                  <li class="list-unstyled product-name"><%= product.name %></li>
+                  <li class="list-unstyled product-description"><%= product.short_description %></li>
+                </ul>
+                <div class="plus-minus text-right">
+                  <p class="fa fa-plus" aria-hidden="true"></p>
+                  <p class="fa fa-minus" aria-hidden="true"></p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div id="cat-2" class="shop-anchor">
+            <div class="shop-show">
+              <h3 class="text-center">Produits</h3>
+              <h5>catégorie 2</h5>
+              <% @shop.products.distinct.each do |product| %>
+              <div class="product-items">
+                <ul>
+                  <li class="list-unstyled product-name"><%= product.name %></li>
+                  <li class="list-unstyled product-description"><%= product.short_description %></li>
+                </ul>
+                <div class="plus-minus text-right">
+                  <p class="fa fa-plus" aria-hidden="true"></p>
+                  <p class="fa fa-minus" aria-hidden="true"></p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <nav class="bs-docs-sidebar shop-cart shop-nav"  data-spy="affix" >
+        <div class="shop-show text-center">
+          <h3>Panier</h3>
+          <button type="button" class="btn btn-success">Commander</button>
+        </div>
+        </nav>
+      </div>
+    </div>  <!-- row -->
+  </div> <!-- container -->
 </div>
+
+<% content_for(:after_js) do %>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('.shop-nav').affix({
+      offset: {
+        bottom: ($('#footer').outerHeight(true) +
+          $('.application').outerHeight(true)) + 50,
+        top: ($('.navbar-wagon').outerHeight(true) +
+         $('.application').outerHeight(true)) + 270
+      }
+    });
+
+//     var $attribute = $('[data-smart-affix]');
+// $attribute.each(function(){
+//   $(this).affix({
+//     offset: {
+//       top: $(this).offset().top + 120
+//     }
+//   })
+// })
+// $(window).on("resize", function(){
+//   $attribute.each(function(){
+//     $(this).data('bs.affix').options.offset = $(this).offset().top
+//   })
+// })
+});
+</script>
+<% end %>

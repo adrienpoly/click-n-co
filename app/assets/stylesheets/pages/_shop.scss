@@ -1,10 +1,10 @@
 .shop {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 
-  background-color: #EEE;
+  //background-color: #EEE;
   padding-top: 40px;
-  h2 {
+  h2, h3 {
       text-align: center;
       margin-top: 0 !important;
       padding-top: 20px;
@@ -17,12 +17,12 @@
   }
 
   .shop-categories{
-    background-color: #888;
+    //background-color: #888;
     height: calc(100vh - #{$navbar-heigth} );
   }
 
   .shop-cart{
-    background-color: #BBB;
+    //background-color: #BBB;
     height: calc(100vh - #{$navbar-heigth} );
   }
   .no-gutter > [class*='col-'] {
