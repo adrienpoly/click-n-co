@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :find_shop, only: [:show]
+  before_action :find_shop, only: [:show, :show_ajax]
   def index
     @shops = Shop.all
     # @shops = Shop.near(params['where'], 1000)
@@ -14,6 +14,9 @@ class ShopsController < ApplicationController
   def show
   end
 
+  def show_ajax
+    render 'show_ajax'
+  end
 
   private
 
