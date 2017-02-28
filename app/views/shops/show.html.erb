@@ -56,8 +56,12 @@
                   <li class="list-unstyled product-description"><%= product.short_description %></li>
                 </ul>
                 <div class="plus-minus text-right">
-                  <p class="fa fa-plus" aria-hidden="true"></p>
-                  <p class="fa fa-minus" aria-hidden="true"></p>
+                  <%= link_to shop_add_path(@shop, product) do %>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  <% end %>
+                  <%= link_to shop_reduce_path(@shop, product) do %>
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                  <% end %>
                 </div>
               </div>
               <% end %>
@@ -87,7 +91,15 @@
         <nav class="bs-docs-sidebar shop-cart shop-nav"  data-spy="affix" >
         <div class="shop-show text-center">
           <h3>Panier</h3>
-          <button type="button" class="btn btn-success">Commander</button>
+          <% session[:cart].each do |product_id, product| %>
+          <p>
+            <%= "#{product['qty']} x #{product['name']} " %>
+            <%= link_to shop_remove_path(@shop, product_id) do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        </p>
+        <button type="button" class="btn btn-success btn-block">Commander</button>
         </div>
         </nav>
       </div>
