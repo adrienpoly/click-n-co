@@ -12,10 +12,10 @@
 
           <div class="form-guests">
             <Label>Catégorie</Label>
-            <select class="form-control input-lg" id="nbguest" name="guests">
-              <option value="1">Fromager</option>
-              <option value="2">Boulanger</option>
-              <option value="3">Primeur</option>
+            <select class="form-control input-lg" id="shop_categ" name="category">
+              <% @categories.length.times do |i| %>
+                <option value="<%= i + 1 %>"><%= @categories[i].descritpion %></option>
+              <% end %>
             </select>
           </div>
           <div class="form-search">
