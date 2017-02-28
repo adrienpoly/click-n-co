@@ -1,4 +1,5 @@
 class Shop < ApplicationRecord
+  attr_accessor :distance
   belongs_to :user
   has_many :opening_hours
   has_many :products

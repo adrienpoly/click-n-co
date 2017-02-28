@@ -1,0 +1,87 @@
+<div class="shop">
+  <div class="container">
+    <div class="row no-gutter">
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="shop-categories shop-nav" data-spy="affix">
+          <h2>Categories</h2>
+          <ul class="unstyled-list">
+            <li><a href="#cat-1">categorie 1</a></li>
+            <li><a href="#cat-2">categorie 2</a></li>
+            <li><a href="#cat-3">categorie 3</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="shop-products">
+          <h2>Products</h2>
+          <div id="cat-1" class="shop-anchor">
+            <h3>catégorie 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis quis numquam temporibus in neque officia eaque natus aspernatur, nam unde soluta earum itaque dicta amet magnam dolore, molestias voluptatum aut.</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo vel sint numquam eos voluptate! Doloremque sit magni, dignissimos ad amet distinctio similique quos. Quas hic architecto sed maxime, quis culpa.</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo vel sint numquam eos voluptate! Doloremque sit magni, dignissimos ad amet distinctio similique quos. Quas hic architecto sed maxime, quis culpa.</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo vel sint numquam eos voluptate! Doloremque sit magni, dignissimos ad amet distinctio similique quos. Quas hic architecto sed maxime, quis culpa.</p>
+          </div>
+          <div id="cat-2" class="shop-anchor">
+            <h3>catégorie 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, nisi, illo mollitia reprehenderit aliquam nihil nulla officia porro magni omnis veniam sed inventore, modi aut veritatis velit quis eaque qu
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus velit consequuntur id tempore at blanditiis accusamus laboriosam in ad nostrum, aspernatur maxime dignissimos, iure vitae fuga tenetur. Provident, aut, necessitatibus!</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo vel sint numquam eos voluptate! Doloremque sit magni, dignissimos ad amet distinctio similique quos. Quas hic architecto sed maxime, quis culpa.</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo vel sint numquam eos voluptate! Doloremque sit magni, dignissimos ad amet distinctio similique quos. Quas hic architecto sed maxime, quis culpa.</p>
+          </div>
+          <div id="cat-3" class="shop-anchor">
+            <h3>catégorie 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum sint amet fugiat, cupiditate iste, consectetur quis laboriosam ipsum officiis dicta dolores rerum enim ut! Error adipisci dolorem totam, et laboriosam!
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse repudiandae, reprehenderit velit quisquam eum facere officia cum magnam rerum minus, deleniti magni unde at omnis laudantium et saepe ex perspiciatis!</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo vel sint numquam eos voluptate! Doloremque sit magni, dignissimos ad amet distinctio similique quos. Quas hic architecto sed maxime, quis culpa.</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo vel sint numquam eos voluptate! Doloremque sit magni, dignissimos ad amet distinctio similique quos. Quas hic architecto sed maxime, quis culpa.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <nav class="bs-docs-sidebar shop-cart shop-nav"  data-spy="affix" >
+          <h2>Order</h2>
+        </nav>
+      </div>
+    </div>  <!-- row -->
+  </div> <!-- container -->
+</div>
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    $('.shop-nav').affix({
+      offset: {
+        bottom: ($('#footer').outerHeight(true) +
+              $('.application').outerHeight(true)) + 50,
+         top: ($('.navbar-wagon').outerHeight(true) +
+               $('.application').outerHeight(true)) + 20
+      }
+    });
+
+//     var $attribute = $('[data-smart-affix]');
+// $attribute.each(function(){
+//   $(this).affix({
+//     offset: {
+//       top: $(this).offset().top + 120
+//     }
+//   })
+// })
+// $(window).on("resize", function(){
+//   $attribute.each(function(){
+//     $(this).data('bs.affix').options.offset = $(this).offset().top
+//   })
+// })
+  });
+  </script>
+<% end %>
+
