@@ -14,7 +14,8 @@ class ShopsController < ApplicationController
   end
 
   def show
-    # @shops = Shop.all
+    @shops = Shop.all
+    @today = Date.today
     @cart = session[:cart] || {} #set to empty hash if empty (new cart)
   end
 
