@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228165655) do
+ActiveRecord::Schema.define(version: 20170301104556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20170228165655) do
     t.string   "status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "shop_id"
+    t.index ["shop_id"], name: "index_orders_on_shop_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
@@ -117,6 +119,7 @@ ActiveRecord::Schema.define(version: 20170228165655) do
 
   add_foreign_key "opening_hours", "shops"
   add_foreign_key "ordered_products", "products"
+  add_foreign_key "orders", "shops"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_categories"
   add_foreign_key "products", "shops"
