@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20170301125100) do
 
   create_table "orders", force: :cascade do |t|
     t.float    "total_price"
-    t.integer  "ordered_product_id"
     t.datetime "pick_up_at"
     t.integer  "user_id"
     t.text     "instructions"
@@ -127,5 +126,3 @@ ActiveRecord::Schema.define(version: 20170301125100) do
   add_foreign_key "shops", "products"
   add_foreign_key "shops", "users"
 end
-
-
