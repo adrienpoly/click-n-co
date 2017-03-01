@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :ordered_products
   belongs_to :user
-  has_many :products, through: :ordered_products
+  belongs_to :shop
+  enum status: [:confirmed, :ready, :picked_up, :canceled]
 end

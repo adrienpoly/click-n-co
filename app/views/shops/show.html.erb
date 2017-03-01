@@ -87,20 +87,44 @@
           </div>
         </div>
       </div>
+
       <div class="col-md-3">
-        <nav class="bs-docs-sidebar shop-cart shop-nav"  data-spy="affix" >
+        <nav class="bs-docs-sidebar shop-cart shop-nav" data-spy="affix">
         <div class="shop-show text-center">
           <h3>Panier</h3>
-          <% if session[:cart] %>
-            <% session[:cart].each do |product_id, product| %>
-            <p>
-              <%= "#{product['qty']} x #{product['name']} " %>
-              <%= link_to shop_remove_path(@shop, product_id) do %>
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
+
+            <div class="row text-center">
+              <br><p>Select when pick-up</p>
+              <select class="selectpicker btn btn-primary" aria-expanded="true" style="">
+                <option><%= @today.strftime("%d-%b") %></option>
+                <option><%= @today.next.strftime("%d-%b") %></option>
+                <option><%= @today.next_day(2).strftime("%d-%b") %></option>
+              </select>
+              <select class="selectpicker btn btn-primary" aria-expanded="true" style="">
+                <option>12h - 12h30</option>
+                <option>15h - 15h30</option>
+                <option>16h - 16h30</option>
+                <option>17h - 17h30</option>
+             </select>
+            </div>
+
+
+        </div>
+        <div class="text-center">
+          <button type="button" class="btn btn-success">Commander</button>
+          <% if @cart %>
+            <% @cart.each do |shop_id, orders| %>
+              <p><%= Shop.find(shop_id).name %></p>
+              <% orders.each do |product_id, product| %>
+                <p>
+                  <%= "#{product['qty']} x #{product['name']} " %>
+                  <%= link_to shop_remove_path(@shop, product_id) do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <% end %>
+                </p>
               <% end %>
             <% end %>
           <% end %>
-        </p>
           <div class="shop-order">
             <%= simple_form_for Order.new() do |f| %>
 
