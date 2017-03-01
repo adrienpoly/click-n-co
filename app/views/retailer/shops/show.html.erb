@@ -1,0 +1,6 @@
+<% @shop.user.orders.each do |order| %>
+  <p><%= order.pick_up_date_time %></p>
+  <p><%= order.user.f_name %></p>
+  <p><%= order.user.l_name %></p>
+  <p><%= order.ordered_product.product.name %></p>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Ma liste de commandes</h1>
+
+<% if @shops.empty? %>
+  You have no shops, go buy one
+<% end %>
+
+<% @shops.each do |shop| %>
+  <%= shop.inspect %>
+<% end %>
