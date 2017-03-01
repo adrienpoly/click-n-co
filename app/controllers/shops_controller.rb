@@ -3,22 +3,20 @@ class ShopsController < ApplicationController
   before_action :find_shop, only: [:show, :show_ajax]
 
   def index
-    @shops = Shop.all
-    # @shops = Shop.near(params['where'], 1000)
+    @shops = Shop.near(params['where'], 1000)
+    @shops = Shop.all if @shops.empty?
+
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
       marker.infowindow render_to_string(partial: "/shared/map_box", locals: { shop: shop })
     end
-    find_relative_distances(params['where'])
   end
 
   def show
     @shops = Shop.all
-  end
-
-  def show_ajax
-    render 'show_ajax'
+    @today = Date.today
+    @cart = session[:cart] || {} #set to empty hash if empty (new cart)
   end
 
   private

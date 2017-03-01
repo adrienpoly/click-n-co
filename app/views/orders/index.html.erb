@@ -1,3 +1,6 @@
-<% @orders.each do |order| %>
-  <%= order.id %>
-<% end %>
+<ul>
+  <% @orders.each do |order| %>
+    <li><%= order.id %> <%= order.shop.name %> <%= order.total_price %></li>
+  <% end %>
+
+</ul>
