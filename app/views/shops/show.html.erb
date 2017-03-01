@@ -56,8 +56,12 @@
                   <li class="list-unstyled product-description"><%= product.short_description %></li>
                 </ul>
                 <div class="plus-minus text-right">
-                  <p class="fa fa-plus" aria-hidden="true"></p>
-                  <p class="fa fa-minus" aria-hidden="true"></p>
+                  <%= link_to shop_add_path(@shop, product) do %>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  <% end %>
+                  <%= link_to shop_reduce_path(@shop, product) do %>
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                  <% end %>
                 </div>
               </div>
               <% end %>
@@ -113,6 +117,27 @@
         </div>
         <div class="text-center">
           <button type="button" class="btn btn-success">Commander</button>
+          <% if @cart %>
+            <% @cart.each do |shop_id, orders| %>
+              <p><%= Shop.find(shop_id).name %></p>
+              <% orders.each do |product_id, product| %>
+                <p>
+                  <%= "#{product['qty']} x #{product['name']} " %>
+                  <%= link_to shop_remove_path(@shop, product_id) do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <% end %>
+                </p>
+              <% end %>
+            <% end %>
+          <% end %>
+          <div class="shop-order">
+            <%= simple_form_for Order.new() do |f| %>
+
+              <div class="form-actions">
+                <%= f.button :submit, 'Commander', class: "btn btn-success btn-lg btn-block" %>
+              </div>
+            <% end %>
+          </div>
         </div>
         </nav>
       </div>

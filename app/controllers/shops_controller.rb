@@ -16,10 +16,7 @@ class ShopsController < ApplicationController
   def show
     @shops = Shop.all
     @today = Date.today
-  end
-
-  def show_ajax
-    render 'show_ajax'
+    @cart = session[:cart] || {} #set to empty hash if empty (new cart)
   end
 
   private

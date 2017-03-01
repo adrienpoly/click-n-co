@@ -5,29 +5,35 @@ class OrderedProductsController < ApplicationController
 
   def add
     session[:cart] = {} unless session[:cart]
-    if session[:cart][params[:id]]
-      session[:cart][params[:id]]['qty'] += 1
+    # cart is a hash : primary key is the shop_id (assuming they could be multiple shops in the order
+    # in a key shop_id there are several hash with product id as the main key
+    @cart = session[:cart]
+    @cart[params[:shop_id]] = {} unless @cart[params[:shop_id]]
+
+    if @cart[params[:shop_id]][params[:id]]
+      @cart[params[:shop_id]][params[:id]]['qty'] += 1
     else
       product = Product.find(params[:id].to_i)
-      session[:cart][params[:id]] = { name: product.name, price: product.price, qty: 1 }
+      @cart[params[:shop_id]][params[:id]] = { name: product.name, price: product.price, qty: 1 }
     end
-    redirect_to shop2_path(params[:shop_id])
+    redirect_to shop_path(params[:shop_id])
   end
 
   def remove
-    session[:cart].delete(params[:id])
-    redirect_to shop2_path(params[:shop_id])
+    session[:cart][params[:shop_id]].delete(params[:id])
+    redirect_to shop_path(params[:shop_id])
   end
 
   def reduce
     # product = Product.find(params[:id].to_i)
-    if session[:cart][params[:id]]
-      if session[:cart][params[:id]]['qty'] > 1
-        session[:cart][params[:id]]['qty'] -= 1
+    @cart = session[:cart][params[:shop_id]] || {} #set to empty hash if empty (new cart)
+    if session[:cart][params[:shop_id]][params[:id]]
+      if session[:cart][params[:shop_id]][params[:id]]['qty'] > 1
+        session[:cart][params[:shop_id]][params[:id]]['qty'] -= 1
       else
-        session[:cart].delete(params[:id])
+        session[:cart][params[:shop_id]].delete(params[:id])
       end
     end
-    redirect_to shop2_path(params[:shop_id])
+    redirect_to shop_path(params[:shop_id])
   end
 end
