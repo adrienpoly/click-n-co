@@ -15,16 +15,19 @@ class OrdersController < ApplicationController
       order.save
 
       orders.each do |product_id, product|
-        ordered_product = OrderedProduct.new()
-        ordered_product.order = order
-        ordered_product.product_id = product_id
-        ordered_product.quantity = product['qty']
-        ordered_product.order_price = product['price']
+        ordered_product = OrderedProduct.new(order: order,
+          product_id: product_id, quantity: product['qty'],
+          order_price: product['price'])
+        # ordered_product.order = order
+        # ordered_product.product_id = product_id
+        # ordered_product.quantity = product['qty']
+        # ordered_product.order_price = product['price']
         ordered_product.save
         sum += ordered_product.order_price * ordered_product.quantity
       end
 
     order.total_price = sum
+    order.confirmed!
     order.save
     end
     session[:cart] = {}
