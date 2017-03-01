@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+
+
+      <% @shop.user.orders.each do |order| %>
+        <div class="order-infos">
+          <p><%= order.pick_up_at %></p>
+          <p><%= order.user.f_name %></p>
+          <p><%= order.user.l_name %></p>
+          <p>Utilisateur : <%= order.user.email %></p>
+          <p>Prix : <%= order.total_price %>€</p>
+          <h4>Produits :</h4>
+
+          <div class="ordered-products-infos">
+            <div class="ordered_products">
+              <% order.ordered_products.each do |ordered_product| %>
+                <p><%= ordered_product.product.name %> : <%= ordered_product.quantity %></p>
+                <div class="measurement_unit">
+                  <p><%= ordered_product.product.measurement_units %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

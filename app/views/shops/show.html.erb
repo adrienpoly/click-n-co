@@ -13,7 +13,7 @@
     <div>
       <ul class="shop-info">
         <li class="metadata list-unstyled">
-          <%= @shop.category.descritpion %>
+          <%= @shop.category.try(:descritpion) %>
         </li>
         <li class="metadata list-unstyled">
           <%= @shop.address %>
@@ -96,7 +96,6 @@
           <p>Select when pick-up</p>
         </div>
 
-
         <div class="text-center">
           <% if @cart %>
             <% @cart.each do |shop_id, orders| %>
@@ -110,8 +109,8 @@
                 </p>
               <% end %>
             <% end %>
-          <% end %> <!-- end if -->
-
+            <h3>Prix total : <%= cart_total @cart %></h3>
+          <% end %>
           <div class="shop-order">
             <%= simple_form_for Order.new() do |f| %>
               <%= simple_fields_for :other do |o| %>
@@ -160,3 +159,5 @@
 });
 </script>
 <% end %>
+
+
