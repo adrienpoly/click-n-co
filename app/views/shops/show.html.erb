@@ -13,7 +13,7 @@
     <div>
       <ul class="shop-info">
         <li class="metadata list-unstyled">
-          <%= @shop.category.descritpion %>
+          <%= @shop.category.try(:descritpion) %>
         </li>
         <li class="metadata list-unstyled">
           <%= @shop.address %>
@@ -124,6 +124,7 @@
                 </p>
               <% end %>
             <% end %>
+            <h3>Prix total : <%= cart_total @cart %></h3>
           <% end %>
           <div class="shop-order">
             <%= simple_form_for Order.new() do |f| %>
