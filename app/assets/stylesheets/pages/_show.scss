@@ -6,6 +6,10 @@
   padding-bottom: 3px;
 }
 
+.shop-name ul,li {
+  margin: 0;
+  padding: 0;
+}
 
 
 .shop-show {
@@ -52,10 +56,13 @@
 }
 
 .retour-aux-resultats {
-  color: #06BA63;
+  color: $green;
   margin: 20px;
   &:hover {
-    color: #05a156;
+    color: $green;
+
+    // color: #05a156;
+    opacity: 0.6;
     text-decoration: none;
   }
 }

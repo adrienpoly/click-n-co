@@ -3,26 +3,27 @@
   <div class="banner-content">
     <h1>CLICK N CO</h1>
     <p> Explorez vos commerces de proximité</p>
-      <div class="container relaxing-moment text-center">
-        <form class="form-searchbar" action=<%= shops_path %>>
-          <div class="form-location">
-            <Label>0ù</Label>
-            <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Lyon, Bordeaux, Toulouse">
-          </div>
+    <div class="container relaxing-moment text-center">
+      <form class="form-searchbar" action=<%= shops_path %>>
+        <div class="form-location">
+          <Label>0ù</Label>
+          <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Lyon, Bordeaux, Toulouse">
+        </div>
 
-          <div class="form-guests">
-            <Label>Catégorie</Label>
-            <select class="form-control input-lg" id="shop_categ" name="category">
-              <% @categories.length.times do |i| %>
-                <option value="<%= i + 1 %>"><%= @categories[i].descritpion %></option>
-              <% end %>
-            </select>
-          </div>
-          <div class="form-search">
-            <button type="submit" class="btn btn-success btn-lg">Search</button>
-          </div>
-        </form>
-      </div>
+        <div class="form-guests">
+          <Label>Catégorie</Label>
+          <select class="form-control input-lg" id="shop_categ" name="category">
+            <% @categories.length.times do |i| %>
+              <option value="<%= i + 1 %>"><%= @categories[i].descritpion %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-search">
+          <button type="submit" class="btn btn-success btn-lg">Search</button>
+        </div>
+      </form>
+    </div>
+
   </div>
 </div>
 
