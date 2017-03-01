@@ -3,7 +3,7 @@ function initializeAutocomplete(id) {
   if (element) {
     var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'],
     componentRestrictions: {country: 'fr'} });
-    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    //google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
   }
 }
 
