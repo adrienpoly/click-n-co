@@ -7,11 +7,14 @@ Rails.application.routes.draw do
     get 'remove/:id', to: 'ordered_products#remove', as: 'remove'
     get 'reduce/:id', to: 'ordered_products#reduce', as: 'reduce'
   end
-  get '/style', to: 'pages#bootstrap_components'
-  get '/test', to: 'pages#test'
-  get '/shop2/:id', to: 'shops#show_ajax', as: 'shop2'
+
+
+  namespace :retailer do
+    resources :shops, only: [:index, :show] do
+    end
+  end
   resources :orders, only: [ :index, :create] do
 
   end
-
+  get '/style', to: 'pages#bootstrap_components'
 end
