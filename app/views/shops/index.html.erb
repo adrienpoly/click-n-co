@@ -46,7 +46,7 @@
                     <h4><%= shop.name.capitalize %></h4>
                 </div>
                 <%#= render 'shared/stars', rating: shop.avg_rating.nil? ? 0 : shop.avg_rating %>
-                <div class="card-distance"><%= shop.distance %> km</div>
+                <div class="card-distance"><%= distance shop.try(:distance) %></div>
                 <div class="card-description"><p class="address-shop"><%= shop.address %></p></div>
             </div>
           <% end %>

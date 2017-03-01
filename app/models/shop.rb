@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  attr_accessor :distance
+  # attr_accessor :distance
   belongs_to :user
   belongs_to :category
   has_many :opening_hours
@@ -15,5 +15,6 @@ class Shop < ApplicationRecord
   geocoded_by :address
 
   after_validation :geocode, if: :address_changed?
+
 end
 
