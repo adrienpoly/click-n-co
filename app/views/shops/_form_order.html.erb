@@ -1,0 +1,10 @@
+<%= simple_form_for Order.new() do |f| %>
+  <%= simple_fields_for :other do |o| %>
+    <%= o.input :day, collection: [@today.strftime("%d-%b-%y"), @today.next.strftime("%d-%b-%y"), @today.next_day(2).strftime("%d-%b-%y")], class: "btn btn-primary" %>
+    <%= o.input :hour, collection: ["12h - 12h30", "15h - 15h30", "16h - 16h30"] %>
+  <% end %>
+  <div class="form-actions">
+
+    <%= f.button :submit, 'Commander', class: "btn btn-success btn-lg btn-block" %>
+  </div>
+<% end %>

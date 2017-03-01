@@ -1,0 +1,14 @@
+<% if cart %>
+  <% cart.each do |shop_id, orders| %>
+    <p><%= Shop.find(shop_id).name %></p>
+    <% orders.each do |product_id, product| %>
+      <p>
+        <%= "#{product['qty']} x #{product['name']} " %>
+        <%= link_to shop_remove_path(@shop, product_id) do %>
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <% end %>
+      </p>
+    <% end %>
+  <% end %>
+  <h3>Prix total : <%= cart_total cart %></h3>
+<% end %>
