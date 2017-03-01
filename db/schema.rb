@@ -126,3 +126,5 @@ ActiveRecord::Schema.define(version: 20170228165655) do
   add_foreign_key "shops", "products"
   add_foreign_key "shops", "users"
 end
+
+

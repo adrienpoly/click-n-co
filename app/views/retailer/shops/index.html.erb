@@ -5,5 +5,7 @@
 <% end %>
 
 <% @shops.each do |shop| %>
-  <%= shop.inspect %>
+  <%= link_to retailer_shop_path(shop) do %>
+  <p><%= shop.name %></p>
+  <% end %>
 <% end %>

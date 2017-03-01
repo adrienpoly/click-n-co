@@ -13,7 +13,7 @@
     <div>
       <ul class="shop-info">
         <li class="metadata list-unstyled">
-          <%= @shop.category %>
+          <%= @shop.category.descritpion %>
         </li>
         <li class="metadata list-unstyled">
           <%= @shop.address %>
@@ -91,11 +91,13 @@
         <nav class="bs-docs-sidebar shop-cart shop-nav"  data-spy="affix" >
         <div class="shop-show text-center">
           <h3>Panier</h3>
-          <% session[:cart].each do |product_id, product| %>
-          <p>
-            <%= "#{product['qty']} x #{product['name']} " %>
-            <%= link_to shop_remove_path(@shop, product_id) do %>
-              <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <% if session[:cart] %>
+            <% session[:cart].each do |product_id, product| %>
+            <p>
+              <%= "#{product['qty']} x #{product['name']} " %>
+              <%= link_to shop_remove_path(@shop, product_id) do %>
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
             <% end %>
           <% end %>
         </p>
@@ -143,3 +145,5 @@
 });
 </script>
 <% end %>
+
+
