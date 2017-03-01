@@ -15,6 +15,7 @@ class ShopsController < ApplicationController
 
   def show
     @shops = Shop.all
+    @today = Date.today
   end
 
   def show_ajax
