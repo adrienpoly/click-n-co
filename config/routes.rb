@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :shops, only: [:index, :show]  do
     get 'add/:id', to: 'ordered_products#add', as: 'add'
@@ -13,5 +15,7 @@ Rails.application.routes.draw do
   resources :orders, only: [ :index, :create] do
 
   end
+
+
 
 end
