@@ -14,11 +14,8 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shops = Shop.all
-  end
-
-  def show_ajax
-    render 'show_ajax'
+    # @shops = Shop.all
+    @cart = session[:cart] || {} #set to empty hash if empty (new cart)
   end
 
   private
