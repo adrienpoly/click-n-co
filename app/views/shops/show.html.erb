@@ -90,33 +90,14 @@
 
       <div class="col-md-3">
         <nav class="bs-docs-sidebar shop-cart shop-nav" data-spy="affix">
-        <div class="shop-show text-center">
+        <div class="shop-show form-group text-center">
           <h3>Panier</h3>
-
-
-            <div class="row text-center">
-              <br><p>Select when pick-up</p>
-              <select class="selectpicker btn btn-primary" aria-expanded="true" style="">
-                <option><%= @today.strftime("%d-%b") %></option>
-                <option><%= @today.next.strftime("%d-%b") %></option>
-                <option><%= @today.next_day(2).strftime("%d-%b") %></option>
-              </select>
-              <select class="selectpicker btn btn-primary" aria-expanded="true" style="">
-                <option>12h - 12h30</option>
-                <option>15h - 15h30</option>
-                <option>16h - 16h30</option>
-                <option>17h - 17h30</option>
-             </select>
-            </div>
-
-
-
-
-
-
+          <br>
+          <p>Select when pick-up</p>
         </div>
+
+
         <div class="text-center">
-          <button type="button" class="btn btn-success">Commander</button>
           <% if @cart %>
             <% @cart.each do |shop_id, orders| %>
               <p><%= Shop.find(shop_id).name %></p>
@@ -129,11 +110,16 @@
                 </p>
               <% end %>
             <% end %>
-          <% end %>
+          <% end %> <!-- end if -->
+
           <div class="shop-order">
             <%= simple_form_for Order.new() do |f| %>
-
+              <%= simple_fields_for :other do |o| %>
+                <%= o.input :day, collection: [@today.strftime("%d-%b-%y"), @today.next.strftime("%d-%b-%y"), @today.next_day(2).strftime("%d-%b-%y")], class: "btn btn-primary" %>
+                <%= o.input :hour, collection: ["12h - 12h30", "15h - 15h30", "16h - 16h30"] %>
+              <% end %>
               <div class="form-actions">
+
                 <%= f.button :submit, 'Commander', class: "btn btn-success btn-lg btn-block" %>
               </div>
             <% end %>
