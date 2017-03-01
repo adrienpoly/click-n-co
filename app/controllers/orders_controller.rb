@@ -38,9 +38,21 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def update
+    order = Order.find(params[:id])
+    order.update(order_params)
+    redirect_to retailer_shop_path(order.shop)
+  end
+
   private
 
   def find_order
     @order = Order.find(params[:order_id])
   end
+
+  def order_params
+    params.require(:order).permit(:status)
+  end
 end
+
+
