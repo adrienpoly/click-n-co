@@ -3,7 +3,7 @@ class ShopsController < ApplicationController
   before_action :find_shop, only: [:show, :show_ajax]
 
   def index
-    @shops = Shop.near(params['where'], 1000)
+    @shops = Shop.near(params['where'], 1000).where("category_id = #{params['category']}")
     @shops = Shop.all if @shops.empty?
 
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
