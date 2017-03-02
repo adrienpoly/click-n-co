@@ -12,7 +12,9 @@
 
         <div class="form-guests">
           <Label>Catégorie</Label>
+
           <select class="form-control input-lg" id="shop_categ" name="category">
+            <option></option>
             <% @categories.each do |i| %>
               <option value="<%= i.id %>"><%= i.descritpion %></option>
             <% end %>

@@ -3,8 +3,8 @@ class ShopsController < ApplicationController
   before_action :find_shop, only: [:show, :show_ajax]
 
   def index
-    if params[:where].nil? and params[:category].nil?
-      @shops = Shop.all
+    if params[:category].empty? || params[:category].nil?
+      params[:where].empty? ? @shops = Shop.all : @shops = Shop.near(params['where'], 1000)
     else
       @shops = Shop.near(params['where'], 1000).where("category_id = #{params['category']}")
     end
