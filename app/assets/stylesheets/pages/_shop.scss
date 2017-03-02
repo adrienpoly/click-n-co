@@ -141,3 +141,21 @@
     }
   }
 }
+
+.comment-order {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+  a {
+    color: $green;
+    text-decoration: none;
+    outline: none;
+    &:hover {
+      color: $green;
+      opacity: 0.6;
+      text-decoration: none;
+    }
+  }
+}
+
+
