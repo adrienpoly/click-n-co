@@ -1,11 +1,10 @@
 <div class="container back-to-search">
-  <%= link_to  shops_path(@shops) do %>
+  <%= link_to :back do %>
     <i class="fa fa-chevron-left" aria-hidden="true"></i> Retour aux résultats
   <% end %>
 </div>
 
 <%= render 'shop_banner', shop: @shop %>
-
 
 <div class="shop">
   <div class="container">
