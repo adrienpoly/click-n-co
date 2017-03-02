@@ -38,6 +38,8 @@
 }
 
 .order-infos {
+   display: flex;
+   justify-content: space-between;
    border-style: solid;
    border-color: #cacccc;
    border-width: 1px 0px;
@@ -46,3 +48,8 @@
    padding: 20px;
 }
 
+.ordered_products {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}

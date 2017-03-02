@@ -3,32 +3,43 @@
     <div class="col-xs-4">
 
 
-      <% Order.all.each do |order| %>
-        <div class="order-infos">
-          <p><%= order.pick_up_at %></p>
-          <p><%= order.user.f_name %></p>
-          <p><%= order.user.l_name %></p>
-          <p>Utilisateur : <%= order.user.email %></p>
-          <p>Prix total : <%= order.total_price %>€</p>
-          <h4>Produits :</h4>
+        <% Order.all.each do |order| %>
+          <div class="order-infos">
+            <div class="order-text">
+              <p>Date : <%= order.pick_up_at %></p>
+              <p><%= order.user.f_name %></p>
+              <p><%= order.user.l_name %></p>
+              <p>Utilisateur : <%= order.user.email %></p>
+              <p>Instructions : <%= order.instructions %></p>
+              <p>Prix total : <%= order.total_price %>€</p>
+              <h4>Produits :</h4>
 
-          <div class="ordered-products-infos">
-            <div class="ordered_products">
-              <% order.ordered_products.each do |ordered_product| %>
-                <p><%= ordered_product.product.name %> : <%= ordered_product.quantity %> <%= ordered_product.product.measurement_units %></p>
-              <% end %>
-              <%= link_to order_path(order, order: {status: :ready}), method: :patch,
-                class: "btn btn-success btn-block ", data:{confirm: "Are you sure?"} do %>
-                 Confirmer
-              <% end %>
-                <%= link_to order_path(order, order: {status: :canceled}), method: :patch,
-                class: "btn btn-danger btn-block ", data:{confirm: "Are you sure?"} do %>
-                 Annuler
-              <% end %>
-            </div>
+              <div class="ordered-products-infos">
+                <div class="ordered_products">
+                  <% order.ordered_products.each do |ordered_product| %>
+                    <p><%= ordered_product.product.name %> : <%= ordered_product.quantity %> <%= ordered_product.product.measurement_units %></p>
+                  <% end %>
+                </div>
+              </div>
+
+                  <div class="order-buttons">
+                    <%= link_to order_path(order, order: {status: :ready}), method: :patch,
+                      class: "btn btn-success btn-block ", data:{confirm: "Are you sure?"} do %>
+                       Confirmer
+                    <% end %>
+                      <%= link_to order_path(order, order: {status: :canceled}), method: :patch,
+                      class: "btn btn-danger btn-block ", data:{confirm: "Are you sure?"} do %>
+                       Annuler
+                    <% end %>
+                  </div>
+
+                </div>
+
           </div>
-        </div>
+
       <% end %>
     </div>
   </div>
 </div>
+
+

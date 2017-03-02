@@ -1,12 +1,17 @@
-<h1>Ma liste de commandes</h1>
 
-<% if @shops.empty? %>
-  You have no shops, go buy one
-<% end %>
+
+  <% if @shops.empty? %>
+    You have no shops, go buy one
+  <% end %>
 
 <% @shops.each do |shop| %>
-  <%= link_to retailer_shop_path(shop) do %>
-  <p><%= shop.name %></p>
-  <% end %>
+  <div class="retailer-shops">
+    <%= link_to retailer_shop_path(shop), class: "shop-name-address" do %>
+    <h3><%= shop.name %></h3>
+    <p><%= shop.address %></p>
+    <% end %>
+  </div>
 <% end %>
+
+
 
