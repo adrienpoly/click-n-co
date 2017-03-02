@@ -1,36 +1,39 @@
-<div class="container back-to-search">
-  <%= link_to  shops_path(@shops) do %>
-    <i class="fa fa-chevron-left" aria-hidden="true"></i> Retour aux résultats
-  <% end %>
-</div>
+<div class="show-body">
+  <div class="container back-to-search">
+    <%= link_to :back do %>
+      <i class="fa fa-chevron-left" aria-hidden="true"></i> Retour aux résultats
+   <% end %>
+  </div>
 
-<%= render 'shop_banner', shop: @shop %>
+  <%= render 'shop_banner', shop: @shop %>
 
 
-<div class="shop">
-  <div class="container">
-    <div class="row no-gutter">
-      <div class="col-md-3 hidden-xs hidden-sm">
-        <%= render 'product_categories', shop: @shop %>
-      </div>
-      <div class="col-md-6">
-        <%= render 'products', shop: @shop %>
-      </div>
-
-      <div class="col-md-3">
-        <div class="shop-cart shop-nav" data-spy="affix">
-
-          <h3>Votre commande</h3>
-
-          <%= render 'cart', cart: @cart %>
-
-          <%= render 'form_order' %>
-
+  <div class="shop">
+    <div class="container">
+      <div class="row no-gutter">
+        <div class="col-md-3 hidden-xs hidden-sm">
+          <%= render 'product_categories', shop: @shop %>
         </div>
-      </div>
-    </div>  <!-- row -->
-  </div> <!-- container -->
-</div>
+        <div class="col-md-6">
+          <%= render 'products', shop: @shop %>
+        </div>
+
+       <div class="col-md-3">
+          <div class="shop-cart shop-nav" data-spy="affix">
+
+            <h3>Votre commande</h3>
+
+            <div id="mycart">
+              <%= render 'cart' %>
+            </div>
+
+            <%= render 'form_order' %>
+
+          </div>
+        </div>
+      </div>  <!-- row -->
+    </div> <!-- container -->
+  </div>
 
 
 <div class="modal fade" id="CommentOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

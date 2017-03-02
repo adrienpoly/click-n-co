@@ -6,8 +6,11 @@ Shop.destroy_all
 Category.destroy_all
 User.destroy_all
 
+
+
 owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
 owner.save
+
 
 user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
 user.save
