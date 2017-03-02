@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :shops, only: [:index, :show]  do
-    get 'add/:id', to: 'ordered_products#add', as: 'add'
-    get 'remove/:id', to: 'ordered_products#remove', as: 'remove'
-    get 'reduce/:id', to: 'ordered_products#reduce', as: 'reduce'
+    get 'add/:id',    to: 'ordered_products#add',     as: 'add'
+    get 'remove/:id', to: 'ordered_products#remove',  as: 'remove'
+    get 'reduce/:id', to: 'ordered_products#reduce',  as: 'reduce'
   end
 
 

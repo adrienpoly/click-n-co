@@ -14,19 +14,18 @@ class OrderedProductsController < ApplicationController
       @cart[params[:shop_id]][params[:id]]['qty'] += 1
     else
       product = Product.find(params[:id].to_i)
-      @cart[params[:shop_id]][params[:id]] = { name: product.name, price: product.price, qty: 1 }
+      @cart[params[:shop_id]][params[:id]] = { 'name' => product.name, 'price' => product.price, 'qty' =>  1 }
     end
-    redirect_to shop_path(params[:shop_id])
   end
 
   def remove
+    @cart = session[:cart]
     session[:cart][params[:shop_id]].delete(params[:id])
-    redirect_to shop_path(params[:shop_id])
+    # redirect_to shop_path(params[:shop_id])
   end
 
   def reduce
-    # product = Product.find(params[:id].to_i)
-    @cart = session[:cart][params[:shop_id]] || {} #set to empty hash if empty (new cart)
+    # @cart = session[:cart][params[:shop_id]] || {} #set to empty hash if empty (new cart)
     if session[:cart][params[:shop_id]][params[:id]]
       if session[:cart][params[:shop_id]][params[:id]]['qty'] > 1
         session[:cart][params[:shop_id]][params[:id]]['qty'] -= 1
@@ -34,6 +33,7 @@ class OrderedProductsController < ApplicationController
         session[:cart][params[:shop_id]].delete(params[:id])
       end
     end
-    redirect_to shop_path(params[:shop_id])
+    @cart = session[:cart]
+    # redirect_to shop_path(params[:shop_id])
   end
 end
