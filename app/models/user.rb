@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-
+  after_create :send_welcome_email
 
 
   def self.find_for_facebook_oauth(auth)
@@ -30,5 +30,10 @@ class User < ApplicationRecord
     return user
   end
 
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 
 end
