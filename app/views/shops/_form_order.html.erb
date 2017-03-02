@@ -18,8 +18,27 @@
       </div>
     <% end %>
 
+    <div class="comment-order">
+    <%= link_to "Ajouter un commentaire à ma commande", '#', :id => 'comment', "data-toggle" => "modal", 'data-target' => '#CommentOrder' %>
+    </div>
+
     <div class="form-actions">
       <%= f.button :submit, 'Commander', class: "btn btn-success btn-lg btn-block" %>
     </div>
   <% end %>
 </div>
+
+
+
+      <!-- <button class="btn btn-success btn-block text-left bnt-lg comment" data-toggle="modal" data-target="#instructions">
+        <i class="fa fa-edit"></i> Ajouter un commentaire
+      </button>
+ -->
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+
