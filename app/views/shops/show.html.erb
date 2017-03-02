@@ -1,12 +1,14 @@
-<div class="page-header-inner shop">
-  <%= render 'shop_banner', shop: @shop %>
+<div class="container back-to-search">
+  <%= link_to  shops_path(@shops) do %>
+    <i class="fa fa-chevron-left" aria-hidden="true"></i> Retour aux résultats
+  <% end %>
 </div>
+
+<%= render 'shop_banner', shop: @shop %>
+
 
 <div class="shop">
   <div class="container">
-    <div class="bouton-retour">
-      <%= link_to "Retour aux résultats", shops_path(@shops), class: 'retour-aux-resultats' %>
-    </div>
     <div class="row no-gutter">
       <div class="col-md-3 hidden-xs hidden-sm">
         <%= render 'product_categories', shop: @shop %>
@@ -16,17 +18,15 @@
       </div>
 
       <div class="col-md-3">
-        <nav class="bs-docs-sidebar shop-cart shop-nav" data-spy="affix">
-        <div class="shop-show form-group text-center">
-          <h3>Panier</h3>
-        </div>
-        <div class="text-center">
+        <div class="shop-cart shop-nav" data-spy="affix">
+
+          <h3>Votre commande</h3>
+
           <%= render 'cart', cart: @cart %>
-          <div class="shop-order">
-            <%= render 'form_order' %>
-          </div>
+
+          <%= render 'form_order' %>
+
         </div>
-        </nav>
       </div>
     </div>  <!-- row -->
   </div> <!-- container -->
@@ -38,12 +38,12 @@
 
     $('.shop-nav').affix({
       offset: {
-        bottom: ($('#footer').outerHeight(true) +
-          $('.application').outerHeight(true)) + 50,
+        // bottom: ($('#footer').outerHeight(true) + $('.application').outerHeight(true)) + 50,
         // top: ($('.navbar-wagon').outerHeight(true) + $('.application').outerHeight(true)) + 204
         top: $('#product-categories').offset().top - $('.navbar-wagon').outerHeight(true)
       }
     });
+    console.log($('#product-categories').offset().top - $('.navbar-wagon').outerHeight(true));
   });
 </script>
 <% end %>

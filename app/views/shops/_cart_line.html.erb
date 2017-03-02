@@ -1,0 +1,16 @@
+<div class="cart-line" id="<%= "product-#{id}" %>">
+  <div class="cart-line-content">
+    <span class="cart-line-quantity">
+      <%= product['qty']%> x
+    </span>
+    <span class="cart-product-name">
+      <%= product['name'] %>
+    </span>
+  </div>
+  <div class="cart-line-price">
+    <%= product['price'] %> €
+  </div>
+  <%= link_to shop_remove_path(@shop, id), class: 'cart-line-controls' do %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
+</div>

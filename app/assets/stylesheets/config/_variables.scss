@@ -28,7 +28,7 @@ $wagon_red: rgba(210, 51, 51, 1);
 $teal_blue: rgba(47, 113, 146, 1);
 $sunny: rgba(255, 242, 117, 1);
 $big_foot_feet: rgba(234, 140, 85, 1);
-$grey_platinum: rgba(225, 230, 225, 1);
+$grey_platinum: #E8EBEB;
 
 $brand-color: $wagon_red;
 //color palette from main picture
@@ -65,3 +65,5 @@ $footer-font-color: white;
 
 
 $navbar-heigth: 70px;
+
+//(?<color_name>\$.*):\s*(?<color>.*);
