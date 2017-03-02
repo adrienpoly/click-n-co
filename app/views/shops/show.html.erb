@@ -35,22 +35,6 @@
     </div> <!-- container -->
   </div>
 
-  <% content_for(:after_js) do %>
-  <script type="text/javascript">
-   $(document).ready(function(){
-
-      $('.shop-nav').affix({
-       offset: {
-         // bottom: ($('#footer').outerHeight(true) + $('.application').outerHeight(true)) + 50,
-         // top: ($('.navbar-wagon').outerHeight(true) + $('.application').outerHeight(true)) + 204
-          top: $('#product-categories').offset().top - $('.navbar-wagon').outerHeight(true)
-        }
-     });
-      console.log($('#product-categories').offset().top - $('.navbar-wagon').outerHeight(true));
-   });
-  </script>
-  <% end %>
-</div>
 
 <div class="modal fade" id="CommentOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
@@ -73,8 +57,32 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-success">Ajouter</button>
+        <button type="button" class="btn btn-success" onclick="instruction();">Ajouter</button>
       </div>
     </div>
   </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('.shop-nav').affix({
+      offset: {
+        // bottom: ($('#footer').outerHeight(true) + $('.application').outerHeight(true)) + 50,
+        // top: ($('.navbar-wagon').outerHeight(true) + $('.application').outerHeight(true)) + 204
+        top: $('#product-categories').offset().top - $('.navbar-wagon').outerHeight(true)
+      }
+    });
+    // console.log($('#product-categories').offset().top - $('.navbar-wagon').outerHeight(true));
+  });
+  function instruction() {
+    var MessageText = $('#message-text').val()
+    $("#instructions").val(MessageText);
+    $("#CommentOrder").modal('hide');
+    $("#instruction-text").text(MessageText);
+    $("#comment").text('Éditer');
+  };
+</script>
+<% end %>
