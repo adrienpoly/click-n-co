@@ -1,0 +1,18 @@
+.retailer-shops {
+  margin-left: 20px;
+  border-style: solid;
+  border-color: #cacccc;
+  border-width: 1px 0px;
+  border-top: none;
+  border-bottom: 1px solid #e8ebeb;
+  padding: 20px;
+}
+
+
+.shop-name-address {
+  color: #626666;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
