@@ -41,7 +41,13 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update(order_params)
+    if order.ready?
+      OrderMailer.ready(order).deliver_now
+    elsif order.canceled?
+      OrderMailer.canceled(order).deliver_now
+    end
     redirect_to retailer_shop_path(order.shop)
+    #notice: 'Your booking was successfully cancelled. hope to see you back soon!'
   end
 
   def clear_session_cart
