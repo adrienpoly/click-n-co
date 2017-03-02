@@ -1,10 +1,11 @@
 .page-header-inner {
   // background-color: #E5E7E6;
-  background-color: $grey_platinum;
+  background-color: white;
   // padding-left: 42px;
   // padding-right: 15px;
-  padding-top: 30px;
+  // padding-top: 30px;
   padding-bottom: 30px;
+  margin-top: 57px;
 }
 
 .shop-name ul,li {
@@ -35,8 +36,10 @@
 }
 
 .back-to-search {
-  margin-top: 20px;
+
   a{
+    position: absolute;
+    margin-top: 33px;
     color: $green;
     &:hover {
       color: $green;
@@ -46,10 +49,14 @@
   }
 }
 
-
+.image-show {
+  position: absolute;
+  margin-left: 716px;
+  margin-top: -182px;
+}
 
 .show-body {
   height: 100%;
   width: 100%;
-  background-color: #cacccc;
+  background-color: $grey_platinum;
 }
