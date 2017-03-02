@@ -1,0 +1,7 @@
+<div class="shop-categories shop-nav" data-spy="affix" id="product-categories">
+  <% shop.product_categories.distinct.each do |product_category| %>
+    <%= link_to anchor: "cat-#{product_category.id}" do %>
+      <p><%= product_category.name %></p>
+    <% end %>
+  <% end %>
+</div>

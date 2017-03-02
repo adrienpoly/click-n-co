@@ -1,15 +1,9 @@
-# Category.destroy_all
-# file ='db/liste_commerces.txt'
-# File.readlines(file).each do |line|
-# cat = Category.new
-# cat.descritpion = line.gsub(/\A\d*\s/, "")
-# cat.save
-# puts cat.descritpi1end
-
-
+OrderedProduct.destroy_all
+Order.destroy_all
 Product.destroy_all
 ProductCategory.destroy_all
 Shop.destroy_all
+Category.destroy_all
 User.destroy_all
 
 owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
@@ -18,13 +12,23 @@ owner.save
 user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
 user.save
 
+file ='db/liste_commerces.txt'
+File.readlines(file).each do |line|
+  cat = Category.new
+  cat.descritpion = line.gsub(/\A\d*\s/, "")
+  cat.save
+  puts cat.descritpion
+end
+
+cats = Category.all
+
 p "google API key " + ENV['GOOGLE_MAPS']
 
 shop = Shop.new(name: "LA CARAVELLE DES SAVEURS",
   description: "Après avoir longtemps travaillé dans le milieu de la Mode, Paula s’est reconvertie avec succès dans le monde de la gastronomie. Fière de ses origines portugaises, elle souhaitait pouvoir faire découvrir les nombreuses spécialités du pays de ses parents et c’est chose faite depuis 2015 avec cette épicerie fine de qualité !",
   address: "12, rue du Faubourg Saint-Martin 75010 Paris",
   phone_number: "01 98 98 98 98",
-  category_id: 4)
+  category_id: cats.sample.id)
 shop.user = owner
 shop.save!
 puts shop.name
@@ -34,7 +38,7 @@ shop = Shop.new(name: "FROMAGERIE LÉAUTEY",
     Quelques variétés de fromages étrangers comme le pecorino à la truffe, la burrata…",
   address: "81, avenue de Saint-Ouen 75017 Paris",
   phone_number: "01 01 98 99 98",
-  category_id: 4)
+  category_id: cats.sample.id)
 shop.user = owner
 shop.save!
 puts shop.name
@@ -44,7 +48,7 @@ shop = Shop.new(name: "BOUCHERIE DES GRAVILLIERS",
     Charcuterie : jambon blanc Maison, rillettes de porc, terrines de campagne  100\% Maison (lapin, canard…), chipolatas, saucisses de Toulouse, merguez…",
   address: "28, rue des Gravilliers 75003 Paris",
   phone_number: "01 99 98 99 98",
-  category_id: 4)
+  category_id: cats.sample.id)
 shop.user = owner
 shop.save!
 puts shop.name
@@ -56,7 +60,7 @@ shop = Shop.new(name: "LES PETITS MITRONS",
     Belle gamme de confitures et miel et sucreries pour les petits et grands enfants",
   address: "26, rue Lepic 75018 Paris",
   phone_number: "01 98 01 98 01",
-  category_id: 4)
+  category_id: cats.sample.id)
 shop.user = owner
 shop.save!
 puts shop.name
@@ -65,7 +69,7 @@ shop = Shop.new(name: "LE CHAMP DES RÊVES",
     Produits en circuits courts, en direct de petits producteurs ou coopératives d’Île-de-France et des régions voisines (Picardie, Normandie, Bretagne, Centre) !",
   address: "25, rue de la Jonquière 75017 Paris",
   phone_number: "01 01 01 98 99",
-  category_id: 4)
+  category_id: cats.sample.id)
 shop.user = owner
 shop.save!
 puts shop.name
@@ -77,7 +81,7 @@ shop = Shop.new(name: "CÔTÉ CÉPAGE",
     Spiritueux (Cognac, Armagnac, Bas-Armagnac, whiskys…)",
   address: "96, rue Legendre 75017 Paris",
   phone_number: "01 20 01 01 98",
-  category_id: 4)
+  category_id: cats.sample.id)
 shop.user = owner
 shop.save!
 puts shop.name

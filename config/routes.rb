@@ -12,11 +12,10 @@ Rails.application.routes.draw do
 
 
   namespace :retailer do
-    resources :shops, only: [:index, :show] do
-    end
+    resources :shops, only: [:index, :show]
   end
-  resources :orders, only: [ :index, :create] do
-
-  end
+  resources :orders, only: [:index, :create, :update]
   get '/style', to: 'pages#bootstrap_components'
+  get '/clear-session', to: 'orders#clear_session_cart'
+
 end

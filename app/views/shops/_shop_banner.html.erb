@@ -1,0 +1,26 @@
+<div class="page-header-inner">
+  <div class="container">
+    <div class="shop-cover">
+        <div class="cvr" style="background-image:url();">
+        </div>
+    </div>
+    <div class="shop-name">
+      <h1 class="mbottom5">
+        <%= shop.name %>
+      </h1>
+      <div>
+        <ul class="shop-info">
+          <li class="metadata list-unstyled">
+            <%= shop.category.try(:descritpion) %>
+          </li>
+          <li class="metadata list-unstyled">
+            <%= shop.address %>
+          </li>
+          <li class="metadata list-unstyled">
+            <%= shop.phone_number %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
