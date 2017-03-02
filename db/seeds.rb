@@ -1,15 +1,9 @@
-Category.destroy_all
-file ='db/liste_commerces.txt'
-File.readlines(file).each do |line|
-cat = Category.new
-cat.descritpion = line.gsub(/\A\d*\s/, "")
-cat.save
-puts cat.descritpi1end
-cats = Catergory.all
-
+OrderedProduct.destroy_all
+Order.destroy_all
 Product.destroy_all
 ProductCategory.destroy_all
 Shop.destroy_all
+Category.destroy_all
 User.destroy_all
 
 owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
@@ -17,6 +11,16 @@ owner.save
 
 user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
 user.save
+
+file ='db/liste_commerces.txt'
+File.readlines(file).each do |line|
+  cat = Category.new
+  cat.descritpion = line.gsub(/\A\d*\s/, "")
+  cat.save
+  puts cat.descritpion
+end
+
+cats = Category.all
 
 p "google API key " + ENV['GOOGLE_MAPS']
 
