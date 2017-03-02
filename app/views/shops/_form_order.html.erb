@@ -17,10 +17,14 @@
         </div>
       </div>
     <% end %>
+    <%= f.input :instructions, input_html: { id: 'instructions' }, :as => "hidden" %>
 
-    <div class="comment-order">
+  <div class="comment-order">
+    <span id="instruction-text"></span>
+    <span class="comment-link">
     <%= link_to "Ajouter un commentaire à ma commande", '#', :id => 'comment', "data-toggle" => "modal", 'data-target' => '#CommentOrder' %>
-    </div>
+    </span>
+  </div>
 
     <div class="form-actions">
       <%= f.button :submit, 'Commander', class: "btn btn-success btn-lg btn-block" %>

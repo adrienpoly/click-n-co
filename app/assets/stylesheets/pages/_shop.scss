@@ -142,10 +142,10 @@
   }
 }
 
-.comment-order {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  text-align: center;
+.comment-link {
+  // margin-bottom: 20px;
+  // margin-top: 20px;
+  // text-align: center;
   a {
     color: $green;
     text-decoration: none;
@@ -158,4 +158,11 @@
   }
 }
 
+.comment-order {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  text-align: center;
+}
 
