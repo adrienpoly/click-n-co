@@ -24,6 +24,7 @@ gem 'omniauth-facebook'
 gem "gmaps4rails"
 gem "geocoder"
 gem 'bootsy'
+gem 'turbolinks', '~> 5.0.0'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
