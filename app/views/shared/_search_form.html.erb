@@ -1,0 +1,28 @@
+<div class="container relaxing-moment text-center">
+
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
+      <form class="form-searchbar" action=<%= shops_path %>>
+        <div class="form-location">
+          <Label>0ù</Label>
+          <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Lyon, Bordeaux, Toulouse">
+        </div>
+
+        <div class="form-guests hidden-xs hidden-sm">
+          <Label>Catégorie</Label>
+
+          <select class="form-control input-lg" id="shop_categ" name="category">
+            <option></option>
+            <% @categories.each do |i| %>
+              <option value="<%= i.id %>"><%= i.descritpion %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-search">
+          <button type="submit" class="btn btn-success btn-lg">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
