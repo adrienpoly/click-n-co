@@ -1,6 +1,8 @@
 class OrderedProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :add, :remove, :reduce ]
+
   def index
-    @ordered_products = OrderedProduct.all
+    # @ordered_products = OrderedProduct.all
   end
 
   def add
@@ -21,11 +23,9 @@ class OrderedProductsController < ApplicationController
   def remove
     @cart = session[:cart]
     session[:cart][params[:shop_id]].delete(params[:id])
-    # redirect_to shop_path(params[:shop_id])
   end
 
   def reduce
-    # @cart = session[:cart][params[:shop_id]] || {} #set to empty hash if empty (new cart)
     if session[:cart][params[:shop_id]][params[:id]]
       if session[:cart][params[:shop_id]][params[:id]]['qty'] > 1
         session[:cart][params[:shop_id]][params[:id]]['qty'] -= 1
@@ -34,6 +34,5 @@ class OrderedProductsController < ApplicationController
       end
     end
     @cart = session[:cart]
-    # redirect_to shop_path(params[:shop_id])
   end
 end
