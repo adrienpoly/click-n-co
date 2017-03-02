@@ -44,6 +44,11 @@ class OrdersController < ApplicationController
     redirect_to retailer_shop_path(order.shop)
   end
 
+  def clear_session_cart
+    session[:cart] = {}
+    redirect_to root_path, notice: 'Session was successfully cleared.'
+  end
+
   private
 
   def find_order
