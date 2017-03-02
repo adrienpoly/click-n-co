@@ -3,29 +3,70 @@
   // margin-bottom: 30px;
 
   //background-color: #EEE;
+  background-color: $grey_platinum;
+
   padding-top: 40px;
+  margin-top: 20px;
+
   padding-bottom: 30px;
 
   h2, h3 {
-      text-align: center;
-      margin-top: 0 !important;
-      padding-top: 20px;
+    margin-top: 0 !important;
+    padding-top: 0px;
+    text-align: left;
+    font-weight: 700;
   }
   .shop-categories, .shop-products, .shop-cart{
     padding-right: 20px;
     padding-left: 20px;
-  }
-  .shop-products{
+    padding-top: 40px;
+
   }
 
   .shop-categories{
-    //background-color: #888;
-    height: calc(100vh - #{$navbar-heigth} );
-  }
+    background-color: white;
 
-  .shop-cart{
-    //background-color: #BBB;
     height: calc(100vh - #{$navbar-heigth} );
+    h3 {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    a, a:hover {
+      text-decoration: none;
+    }
+  }
+  .shop-products{
+    background-color: white;
+
+  }
+  .shop-cart{
+    background-color: $grey_platinum;
+    height: calc(100vh - #{$navbar-heigth} );
+    .cart-lines{
+      padding-bottom: 20px;
+    }
+    .cart-line{
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: $gray;
+      .cart-line-content{
+        flex: 1 1 auto;
+      }
+      .cart-line-price{
+        text-align: right;
+        flex: 1 0 50px;
+      }
+      .cart-line-controls{
+        margin-right: -14px;
+        padding-left: 10px;
+        color: $red;
+        visibility: hidden;
+      }
+      &:hover .cart-line-controls{
+        visibility: visible;
+      }
+    }
   }
   .no-gutter > [class*='col-'] {
       padding-right:0;
@@ -58,5 +99,45 @@
     display: block;
     height: 60px;
     margin: -60px 0 0;
+  }
+
+  .products-block{
+    padding-bottom: 70px;
+  }
+
+  .product-items {
+    // border-style: solid;
+    // border-color: #cacccc;
+    // border-width: 1px 0px;
+    // border-top: none;
+    border-bottom: 1px solid #e8ebeb;
+    border-top: 1px solid #e8ebeb;
+
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    &:hover{
+      background-color: #EEE;
+    }
+    // justify-content: space-between;
+    ul, li{
+      margin: 0;
+      padding: 0;
+    }
+    .plus-minus {
+      display: flex;
+      flex: 0 0;
+      flex-direction: column;
+      padding-left: 20px;
+    }
+    .product-price{
+      flex: 0 0 70px;
+      padding-left: 10px;
+      font-size: 16px;
+      color: $gray-darker;
+    }
+    .product-content{
+      flex: 1 1 auto;
+    }
   }
 }

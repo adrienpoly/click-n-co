@@ -1,12 +1,7 @@
 <div class="shop-categories shop-nav" data-spy="affix" id="product-categories">
-  <ul class="unstyled-list">
-    <div class="shop-show text-center">
-      <h3 class="categories-title">Catégories</h3>
-      <% shop.product_categories.distinct.each do |product_category| %>
-      <li class="list-unstyled category-show">
-        <%= product_category.name %>
-      </li>
-      <% end %>
-    </div>
-  </ul>
+  <% shop.product_categories.distinct.each do |product_category| %>
+    <%= link_to anchor: "cat-#{product_category.id}" do %>
+      <p><%= product_category.name %></p>
+    <% end %>
+  <% end %>
 </div>

@@ -9,6 +9,8 @@
   // align-items: center;
   // justify-content: space-between;
   // flex-wrap: wrap;
+  z-index: 1000;
+  position: absolute;
   background: $footer-bg-color;
   padding: 30px 0;
   color: $footer-font-color;
