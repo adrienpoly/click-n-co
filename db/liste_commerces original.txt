@@ -1,10 +1,17 @@
+110 Alimentation générale
 111 Epicerie
 112 Crémerie
+113 Fruits - légumes
 114 Primeurs
+115 Champignons
+120 Boucherie
 121 Boucherie - Charcuterie
+122 Charcuterie
+123 Gibiers - Volailles
 124 Traiteur
 125 Poissonnerie
-130 Boulangerie
+126 Fruits de mer - Huîtres
+130 Boulangerie - Pâtisserie sans salon de consommation
 131 Boulangerie - Pâtisserie avec salon de consommation
 132 Pâtisserie sans salon de consommation
 133 Pâtisserie avec salon de consommation
