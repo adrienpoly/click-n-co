@@ -1,55 +1,41 @@
-//.ordered-products-infos {
-//   display: flex;
-//   justify-content: space-between;
-//  .ordered-quantities {
-//    display: flex;
-//    flex-direction: column;
- // }
-// }
-.order-card {
-  height: 250px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-color: #6A6B83;
-  color: white;
-  position: relative;
-  border-radius: 5px;
-  margin-bottom: 20px;
+.retailer-order-view {
+  background-color: $grey_platinum;;
+  min-height: 100vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-.order-category {
-  position: absolute;
-  top: 20px;
-  left: 10px;
-  padding: 0px 20px;
-  font-size: 20px;
-  p {
-    font-size: 26px;
-  }
-}
-
-.order-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  p {
-    font-size: 26px;
-  }
-}
-
-.order-infos {
-   display: flex;
-   justify-content: space-between;
-   border-style: solid;
-   border-color: #cacccc;
-   border-width: 1px 0px;
-   border-top: none;
-   border-bottom: 1px solid #e8ebeb;
-   padding: 20px;
-}
-
-.ordered_products {
+.order-show {
+  background-color: white;
+  border-radius: 10px;
   display: flex;
-  justify-content: space-between;
-  text-align: center;
+  // position: absolute;
+  flex-direction: column;
+  // width: 100%;
+  //margin-top: 60px;
+  margin-left: 60px;
+  margin-right: 60px;
+  .user-infos {
+    flex-direction: row;
+    position: relative;
+    margin: 20px;
+  }
+  .order-details {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    // position: relative;
+    p {
+      flex: 1 1 33%;
+    }
+  }
+  .order-status {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    // position: relative;
+  }
+  .product-details {
+    margin: 20px;
+  }
 }

@@ -1,5 +1,6 @@
 class Retailer::ShopsController < ApplicationController
   def index
+
     if current_user.shops.one?
       redirect_to retailer_shop_path(current_user.shops.first)
       return
@@ -10,6 +11,7 @@ class Retailer::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @orders = @shop.orders
   end
 
 end
