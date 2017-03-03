@@ -1,5 +1,11 @@
+<% if @orders.empty? %>
+    You have no order yet!
+  <% end %>
+
+
+
 <div class="container">
-  <table class="table table-bordered">
+  <table class="table table-bordered order-table">
     <thead>
       <tr>
         <th class="text-center col-sm-1">N°</th>

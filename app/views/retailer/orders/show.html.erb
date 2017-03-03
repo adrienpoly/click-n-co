@@ -16,10 +16,19 @@
 
     <div class="order-status">
       <p><strong>Statut</strong> : <%= @order.status %></p>
+      <div class="progress">
+      <i class="fa fa-circle done" aria-hidden="true"></i>
+      <span class="bar done"></span>
+      <i class="fa fa-circle done" aria-hidden="true"></i>
+      <span class="bar"></span>
+      <i class="fa fa-circle-o" aria-hidden="true"></i>
+      <span class="bar"></span>
+      <i class="fa fa-circle-o" aria-hidden="true"></i>
+      </div>
     </div>
 
     <div class="product-details">
-      <h4><strong>Produits</strong> :</h4>
+      <p><strong>Produits</strong> :</p>
         <% @order.ordered_products.each do |ordered_product| %>
           <p><%= ordered_product.product.name %> : <%= ordered_product.quantity %> <%= ordered_product.product.measurement_units %></p>
         <% end %>

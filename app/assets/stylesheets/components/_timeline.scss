@@ -1,0 +1,21 @@
+.bar {
+ width: 150px;
+ border: 1px dashed #626666;
+ height: 1px;
+}
+
+.bar.done{
+   border: 2px solid #00ccbc;
+}
+.progress{
+ display:flex;
+ align-items: center;
+ font-size: 20px;
+ background-color: white;
+ box-shadow: none;
+ margin-left: 80px;
+ color: #626666;
+}
+.done{
+ color: #00ccbc;
+}
