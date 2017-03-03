@@ -9,6 +9,7 @@ User.destroy_all
 
 
 owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
+owner.admin = true
 owner.save
 
 
