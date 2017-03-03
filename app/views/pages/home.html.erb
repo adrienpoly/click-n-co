@@ -22,6 +22,17 @@
 <!-- Include Google Maps JS API -->
 
 <%= content_for(:after_js) do %>
+  <script>
+    function geoCodeUser() {
+      navigator.geolocation.getCurrentPosition(setGeoCookie);
+    }
+
+
+    function setGeoCookie(position) {
+     var console_val = position.coords.latitude + "|" + position.coords.longitude;
+     document.cookie = "lat_lng=" + escape(console_val);
+    }
+</script>
 <% end %>
 
 

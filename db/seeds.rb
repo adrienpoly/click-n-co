@@ -9,6 +9,7 @@ User.destroy_all
 
 
 owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
+owner.admin = true
 owner.save
 
 
@@ -18,9 +19,9 @@ user.save
 file ='db/liste_commerces.txt'
 File.readlines(file).each do |line|
   cat = Category.new
-  cat.descritpion = line.gsub(/\A\d*\s/, "")
+  cat.name = line.gsub(/\A\d*\s/, "")
   cat.save
-  puts cat.descritpion
+  puts cat.name
 end
 
 cats = Category.all

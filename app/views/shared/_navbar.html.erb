@@ -31,7 +31,7 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% avatar_url = current_user.facebook_picture_url || 'avatar.png' %>
+          <% avatar_url = current_user.facebook_picture_url || 'sylvain.png' %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -40,8 +40,8 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <%= link_to orders_path do %>
+                <i class="fa fa-shopping-cart"></i>  <%= t(".profile", default: "Mes commandes") %>
               <% end %>
             </li>
             <li>
@@ -61,7 +61,7 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%#= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
