@@ -11,6 +11,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 767px){
+    padding: 0px 15px;
+
+  }
 }
 
 /* Optional class to fix the navbar on top */
@@ -35,6 +39,9 @@
   font-weight: bold;
   font-size: 25px;
   color: $green;
+  a{
+    text-decoration: none;
+  }
 }
 
 
@@ -51,6 +58,15 @@
   flex: 0 1 auto;
   cursor: pointer;
   padding: 0 20px;
+  @media (max-width: 767px){
+    padding: 0px 5px;
+    font-size: 24px;
+    color: $green;
+
+  }
+  i{
+    color: $gray-light
+  }
 }
 
 /* Navbar standard link */
@@ -116,9 +132,11 @@
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
+  width: 100%;
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;

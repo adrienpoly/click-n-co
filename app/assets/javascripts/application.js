@@ -7,5 +7,5 @@
 //= require gmaps/google
 //= require bootsy
 //= require attachinary
-//= require turbolinks
+// require turbolinks
 //= require_tree .

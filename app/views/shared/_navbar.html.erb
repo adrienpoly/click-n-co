@@ -5,7 +5,7 @@
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right ">
 
     <!-- Search form -->
     <form action="" class="navbar-wagon-search">
@@ -15,21 +15,36 @@
       </button>
     </form>
 
+    <!-- <%#= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+      <div class="badge-container">
+        <i class="fa fa-shopping-cart"></i>
+        <%# if session[:cart] %>
+          <div class="badge badge-blue"><%#= session[:cart].size %></div>
+        <%# end %>
+      </div>
+    <%# end %> -->
+
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <i class="fa fa-shopping-cart fa-2x dropdown-toggle" data-toggle="dropdown"></i>
+        <% if session[:cart] %>
+          <div class="badge badge-blue" id="cart-badge"><%= session[:cart].size %></div>
+        <% end %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu shop-cart shop-cart-dropdown">
+
+          <%= render 'shops/cart', cart: session[:cart] %>
+
+          <%= link_to 'Poursuivre ma commande', shop_path(session[:cart].keys[0]), class: "btn btn-success btn-block" %>
+        </ul>
+      </div>
+    </div>
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa Example of shopping-cart fa-shopping-cart"></i>
-          <% if session[:cart] %>
-            <div class="badge badge-blue"><%= session[:cart].size %></div>
-          <% end %>
-        </div>
-      <% end %>
 
       <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
+      <div class="navbar-wagon-item hidden-xs hidden-sm">
         <div class="dropdown">
           <% avatar_url = current_user.facebook_picture_url || 'sylvain.png' %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -69,9 +84,21 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li>
+          <%= link_to "#" do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to orders_path do %>
+            <i class="fa fa-shopping-cart"></i>  <%= t(".profile", default: "Mes commandes") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
