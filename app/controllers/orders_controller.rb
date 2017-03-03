@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.where(user: current_user)
+    @orders_in  = @orders.where("pick_up_at > ?", Date.today )
+    @orders_out = @orders.where("pick_up_at < ?", Date.today )
   end
 
   def create
