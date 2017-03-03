@@ -34,31 +34,29 @@
   </form>
 </div>  <! end CONTAINER -->
 
-<div class="container padded">
-  <div id="map" style="width: 100%; height: 400px;"></div>
-  <div class="row">
+<div class="map-wrapper">
+  <div class="container padded">
+    <!-- <div id="map" style="width: 100%; height: 400px;"></div> -->
+    <div class="row">
 
-      <% @shops.each do |shop|  %>
-        <div class="col-sm-4 card">
-          <%= link_to shop_path(shop) do %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%#= cl_image_path spa.photo.path, quality: "auto:eco", crop: :fill unless spa.photo.nil? %>');">
-                <div class="shop-category">
-                    <h4><%= shop.name.capitalize %></h4>
-                </div>
-                <%#= render 'shared/stars', rating: shop.avg_rating.nil? ? 0 : shop.avg_rating %>
-                <div class="card-distance"><%= distance shop.try(:distance) %></div>
-                <div class="card-description"><p class="address-shop"><%= shop.address %></p></div>
+      <div class="col-md-8">
+        <div class="row">
+          <% @shops.each do |shop|  %>
+            <div class="col-sm-4 card">
+              <%= render 'card', shop: shop %>
             </div>
           <% end %>
         </div>
-      <% end %>
+      </div>
+      <div class="col-md-4" id="map">
+
+      </div>
     </div>
+  </div>
 </div>
 
-
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-
+  <script>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -72,5 +70,5 @@
         }
       });
     });
-  <% end %>
+  </script>
 <% end %>

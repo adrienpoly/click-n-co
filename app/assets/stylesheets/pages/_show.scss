@@ -36,10 +36,12 @@
 }
 
 .back-to-search {
+  display: flex;
+  align-items : center;
 
   a{
     position: absolute;
-    margin-top: 33px;
+    margin-top: 28px;
     color: $green;
     &:hover {
       color: $green;
