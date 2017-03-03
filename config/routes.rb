@@ -13,7 +13,10 @@ Rails.application.routes.draw do
 
 
   namespace :retailer do
-    resources :shops, only: [:index, :show]
+    resources :shops, only: [:index, :show] do
+      resources :orders, only: [:show, :update]
+    end
+
   end
   resources :orders, only: [:index, :create, :update]
   get '/style', to: 'pages#bootstrap_components'

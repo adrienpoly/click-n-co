@@ -13,6 +13,5 @@ class Shop < ApplicationRecord
 
   after_validation :geocode, if: :address_changed?
   has_many :product_categories, through: :products
-  has_many :orders, through: :users
 end
 

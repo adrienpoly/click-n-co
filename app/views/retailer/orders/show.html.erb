@@ -1,0 +1,33 @@
+<div class="retailer-order-view">
+  <div class="order-show">
+    <div class="user-infos">
+      <% avatar_url = current_user.facebook_picture_url || 'avatar.png' %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <p><%= @order.user.f_name %></p>
+      <p><%= @order.user.l_name %></p>
+      <p><strong>Utilisateur</strong> : <%= @order.user.email %></p>
+    </div>
+
+    <div class="order-details">
+      <p><strong>Date</strong> : <%= @order.pick_up_at %></p>
+      <p><strong>Instructions</strong> : <%= @order.instructions %></p>
+      <p><strong>Prix total</strong> : <%= @order.total_price %>€</p>
+    </div>
+
+    <div class="order-status">
+      <p><strong>Statut</strong> : <%= @order.status %></p>
+    </div>
+
+    <div class="product-details">
+      <h4><strong>Produits</strong> :</h4>
+        <% @order.ordered_products.each do |ordered_product| %>
+          <p><%= ordered_product.product.name %> : <%= ordered_product.quantity %> <%= ordered_product.product.measurement_units %></p>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
