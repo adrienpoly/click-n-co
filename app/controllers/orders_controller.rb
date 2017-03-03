@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
     hour = hour + "h" unless hour.end_with?("h")
     date = DateTime.parse(day + "T" + hour)
   end
-  
+
   def order_params
     params.require(:order).permit(:status)
   end

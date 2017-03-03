@@ -6,7 +6,7 @@ class ShopsController < ApplicationController
     if params[:category].empty? || params[:category].nil?
       params[:where].empty? ? @shops = Shop.all : @shops = Shop.near(params['where'], 1000)
     else
-      @shops = Shop.near(params['where'], 1000).where("category_id = #{params['category']}")
+      @shops = Shop.near(params['where'], 1000).where(category_id: params[:category])
     end
 
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
@@ -19,6 +19,8 @@ class ShopsController < ApplicationController
   def show
     @shops = Shop.all
     @today = Date.today
+    @open_hours = OpeningHour.where(shop_id: params[:id])
+    @collection = OpenHourSort.new(@open_hours).call  ## unless @open_hours.empty?
     @cart = session[:cart] || {} #set to empty hash if empty (new cart)
   end
 
@@ -36,4 +38,5 @@ class ShopsController < ApplicationController
       end
     end
   end
+
 end
