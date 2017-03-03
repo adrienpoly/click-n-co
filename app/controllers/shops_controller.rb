@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-  before_action :find_shop, only: [:show, :show_ajax]
+  before_action :find_shop, only: [:show]
 
   def index
     if params[:category].nil? || params[:category].empty?
@@ -17,7 +17,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shops = Shop.all
+    @shops = Shop.near(@shop,5).limit(5).last(4)
     @today = Date.today
     @cart = session[:cart] || {} #set to empty hash if empty (new cart)
   end

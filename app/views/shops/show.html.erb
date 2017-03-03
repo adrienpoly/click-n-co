@@ -14,7 +14,21 @@
     <div class="container">
       <div class="row no-gutter">
         <div class="col-md-3 hidden-xs hidden-sm">
-          <%= render 'product_categories', shop: @shop %>
+          <div class="shop-categories shop-nav" data-spy="affix" id="product-categories">
+
+            <%= render 'product_categories', shop: @shop %>
+            <div class="shops-nearby">
+              <h4>Autres commerces proches</h4>
+              <% @shops.each do |shop| %>
+                <%# dist = distance shop.try(:distance) %>
+                <div class="shop-nearby">
+                  <%= link_to "#{shop.name.capitalize} (#{distance shop.try(:distance)})",
+                   shop_path(shop) %>
+                  <p class="text-muted"><%= shop.category.name %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
         <div class="col-md-6">
           <%= render 'products', shop: @shop %>
