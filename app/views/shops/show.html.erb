@@ -24,7 +24,7 @@
                 <div class="shop-nearby">
                   <%= cl_image_tag "click-n-co/background2.jpg", width: 40, height: 45, quality: "auto:eco", crop: :fill %>
                   <div class="shop-nearby-content">
-                    <%= link_to "#{shop.name.capitalize})",
+                    <%= link_to "#{shop.name.capitalize}",
                      shop_path(shop) %>
                     <p class="text-muted"><%= "#{shop.category.name} (#{distance shop.try(:distance)})" %></p>
 
