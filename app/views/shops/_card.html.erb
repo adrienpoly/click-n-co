@@ -1,5 +1,5 @@
 <%= link_to shop_path(shop) do %>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%#= cl_image_path spa.photo.path, quality: "auto:eco", crop: :fill unless spa.photo.nil? %>');">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path shop.photo.path, quality: "auto:eco", crop: :fill unless shop.photo.nil? %>');">
       <div class="card-category">
           <h4><%= shop.name.capitalize %></h4>
       </div>
