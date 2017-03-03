@@ -5,8 +5,8 @@
   //background-color: #EEE;
   background-color: $grey_platinum;
 
-  padding-top: 40px;
-  margin-top: 20px;
+  padding-top: 30px;
+  // margin-top: 20px;
 
   // padding-bottom: 30px;
 
@@ -20,7 +20,30 @@
     padding-right: 20px;
     padding-left: 20px;
     padding-top: 40px;
+    h4{
+      font-size: 17px;
+    }
 
+  }
+
+  .shops-nearby{
+    border-top: 1px solid #e8ebeb;
+
+    padding-top: 10px;
+    margin-top: 20px;
+
+    .shop-nearby{
+      padding-top: 10px;
+      a{
+        font-size: 14px;
+      }
+      p{
+        font-size: 14px;
+        color: $gray;
+        margin: 0;
+        padding: 0;
+      }
+    }
   }
 
   .shop-categories{
