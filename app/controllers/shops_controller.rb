@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
 
   def index
     if params[:category].nil? || params[:category].empty?
-      params[:where].empty? ? @shops = Shop.all : @shops = Shop.near(params['where'], 1000)
+      params[:where].blank? ? @shops = Shop.all : @shops = Shop.near(params['where'], 1000)
     else
       @shops = Shop.near(params['where'], 1000).where("category_id = #{params['category']}")
     end
