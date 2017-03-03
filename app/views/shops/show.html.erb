@@ -22,9 +22,13 @@
               <% @shops.each do |shop| %>
                 <%# dist = distance shop.try(:distance) %>
                 <div class="shop-nearby">
-                  <%= link_to "#{shop.name.capitalize} (#{distance shop.try(:distance)})",
-                   shop_path(shop) %>
-                  <p class="text-muted"><%= shop.category.name %></p>
+                  <%= cl_image_tag "click-n-co/background2.jpg", width: 40, height: 0, quality: "auto:eco", crop: :fill %>
+                  <div class="shop-nearby-content">
+                    <%= link_to "#{shop.name.capitalize})",
+                     shop_path(shop) %>
+                    <p class="text-muted"><%= "#{shop.category.name} (#{distance shop.try(:distance)})" %></p>
+
+                  </div>
                 </div>
               <% end %>
             </div>
@@ -40,7 +44,7 @@
             <h3>Votre commande</h3>
 
             <div id="mycart">
-              <%= render 'cart', cart: @cart %>
+              <%= render 'show_cart', cart: @cart %>
             </div>
 
             <%= render 'form_order' %>
