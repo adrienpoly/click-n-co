@@ -16,6 +16,8 @@ module ShopsHelper
     sum
   end
 
+
+
   def cart_sub_total(cart)
     sum = 0
     cart.each do |product_id, product|

@@ -29,13 +29,13 @@
         <i class="fa fa-shopping-cart fa-2x dropdown-toggle" data-toggle="dropdown"></i>
         <% if session[:cart] %>
           <div class="badge badge-blue" id="cart-badge"><%= session[:cart].size %></div>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu shop-cart shop-cart-dropdown">
+
+            <%= render 'shops/cart', cart: session[:cart] %>
+
+            <%= link_to 'Poursuivre ma commande', shop_path(session[:cart].keys[0]), class: "btn btn-success btn-block" %>
+          </ul>
         <% end %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu shop-cart shop-cart-dropdown">
-
-          <%= render 'shops/cart', cart: session[:cart] %>
-
-          <%= link_to 'Poursuivre ma commande', shop_path(session[:cart].keys[0]), class: "btn btn-success btn-block" %>
-        </ul>
       </div>
     </div>
     <!-- Different navigation if login or not -->
