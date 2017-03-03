@@ -1,0 +1,29 @@
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center col-sm-1">N°</th>
+        <th class="text-center col-sm-3">Shop</th>
+        <th class="text-center col-sm-2">Date de retrait</th>
+        <th class="text-center col-sm-2">Prix</th>
+        <th class="text-center col-sm-2">Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% order.each do |order| %>
+      <tr>
+        <th class="text-center" scope="row"><%= order.id %></th>
+        <td class="text-center"><%= order.shop.name.capitalize %>
+          <p></p>
+          <%= order.shop.address %>
+        </td>
+        <td class="text-center"><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</td>
+        <td class="text-center"><%= order.total_price %>€</td>
+        <td>
+          <% order.ordered_products.each do |ordprods| %>
+            <%= ordprods.product.name %> x <%= ordprods.quantity %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

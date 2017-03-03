@@ -1,0 +1,31 @@
+<div class="orders-info">
+  <div class="text-center">
+    <h1>Liste des toutes mes commandes</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <ul>
+        <% @orders.each do |order| %>
+          <div class="col-md-8 order-infos order-card">
+            <div class="order-category">
+              <p>#<%= order.id %> : <%= order.shop.name.capitalize %>
+              <br><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h  (<%= order.total_price %> Eur)</p>
+            </div>
+            <div class="order-description">
+              <%= order.shop.address %>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="order-category">
+              <% order.ordered_products.each do |ordprods| %>
+                <li><%= ordprods.product.name %> x <%= ordprods.quantity %> qty.</li>
+              <% end %>
+
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>  <!-- end row -->
+  </div>
+</div>
