@@ -14,6 +14,12 @@ class Shop < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   has_many :product_categories, through: :products
   has_attachment :photo
+  after_create :set_owner
 
+  private
+
+  def set_owner
+    self.user.owner! unless self.user.owner?
+  end
 end
 

@@ -9,6 +9,19 @@ class User < ApplicationRecord
   after_create :send_welcome_email
 
 
+  def owner!
+    self.owner = true
+    save
+  end
+
+  def owner?
+    owner
+  end
+
+  def admin?
+    admin
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

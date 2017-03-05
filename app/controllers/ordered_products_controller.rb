@@ -23,6 +23,7 @@ class OrderedProductsController < ApplicationController
   def remove
     @cart = session[:cart]
     session[:cart][params[:shop_id]].delete(params[:id])
+    session[:cart].delete(params[:shop_id]) if session[:cart][params[:shop_id]].blank?
   end
 
   def reduce
