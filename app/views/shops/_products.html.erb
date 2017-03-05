@@ -2,7 +2,7 @@
 <div class="shop-products">
   <% @product_hash.each_with_index do |(product_category, products), index| %>
     <div class="products-block">
-      <h3 id="<%= "cat-#{index}" %>"><%= product_category %></h3>
+      <h3 id="<%= "cat-#{index}" %>" style="padding-top: 70px; margin-top: -70px;"><%= product_category %></h3>
       <% products.each do |product| %>
         <div class="product-items">
           <div class="product-content">
