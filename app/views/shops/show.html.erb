@@ -16,7 +16,7 @@
         <div class="col-md-3 hidden-xs hidden-sm">
           <div class="shop-categories shop-nav" data-spy="affix" id="product-categories">
 
-            <%= render 'product_categories', shop: @shop %>
+            <%= render 'product_categories' %>
             <div class="shops-nearby">
               <h4>Autres commerces proches</h4>
               <% @shops.each do |shop| %>
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <%= render 'products', shop: @shop %>
+          <%= render 'products' %>
         </div>
 
        <div class="col-md-3">
@@ -44,7 +44,7 @@
             <h3>Votre commande</h3>
 
             <div id="mycart">
-              <%= render 'show_cart', cart: @cart %>
+              <%= render 'show_cart' %>
             </div>
 
             <%= render 'form_order' %>

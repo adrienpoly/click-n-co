@@ -16,6 +16,15 @@ class Shop < ApplicationRecord
   has_attachment :photo
   after_create :set_owner
 
+  def to_hash
+    categories = self.product_categories.distinct
+    hash = {}
+    categories.each do |category|
+      products = self.products.where(product_category: category)
+      hash[category.name] = products
+    end
+    hash
+  end
   private
 
   def set_owner
