@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
 
   def owner!
-    owner = true
+    self.owner = true
     save
   end
 

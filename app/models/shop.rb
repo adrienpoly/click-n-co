@@ -19,7 +19,7 @@ class Shop < ApplicationRecord
   private
 
   def set_owner
-    user.owner! unless user.owner?
+    self.user.owner! unless self.user.owner?
   end
 end
 
