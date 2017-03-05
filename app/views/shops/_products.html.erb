@@ -11,10 +11,10 @@
           </div>
           <div class="product-price"><%= product.price %> €</div>
           <div class="plus-minus text-right">
-            <%= link_to shop_add_path(@shop, product), remote: true do %>
+            <%= link_to shop_add_path(product.shop, product), remote: true do %>
               <i class="fa fa-plus" aria-hidden="true"></i>
             <% end %>
-            <%= link_to shop_reduce_path(@shop, product), remote: true do %>
+            <%= link_to shop_reduce_path(product.shop, product), remote: true do %>
               <i class="fa fa-minus" aria-hidden="true"></i>
             <% end %>
           </div>

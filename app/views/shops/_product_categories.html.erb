@@ -1,6 +1,8 @@
-<h4>Catégories de produits</h4>
-<% @product_hash.keys.each_with_index do |product_category, index| %>
-  <%= link_to anchor: "cat-#{index}" do %>
-    <p><%= product_category %></p>
+<div class="shop-cat">
+  <h4>Catégories de produits</h4>
+  <% @product_hash.keys.each_with_index do |product_category, index| %>
+    <%= link_to anchor: "cat-#{index}" do %>
+      <p><%= product_category %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
