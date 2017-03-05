@@ -60,6 +60,13 @@
               <% end %>
             </li>
             <li>
+              <% if current_user.owner? %>
+                <%= link_to retailer_shops_path do %>
+                  <i class="fa fa-home"></i>  Mon commerces
+                <% end %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
