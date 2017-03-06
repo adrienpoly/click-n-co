@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
       order.user = current_user
       order.shop_id = shop_id
       order.pick_up_at = build_date(params[:other][:day], params[:other][:hour])
+      order.instructions = params[:order][:instructions]
       order.save
       orders.each do |product_id, product|
         ordered_product = OrderedProduct.new(
@@ -66,8 +67,10 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:order).permit(:status, :instructions)
   end
 end
+
+
 
 
