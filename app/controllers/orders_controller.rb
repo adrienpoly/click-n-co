@@ -28,9 +28,12 @@ class OrdersController < ApplicationController
       order.total_price = sum
       order.confirmed!
       order.save
+      OrderMailer.register(order).deliver_now
+      # redirect_to orders_path, notice: 'Order was successfully created.'
     end
     session[:cart] = {}
-    redirect_to orders_path, notice: 'Order was successfully created.'
+    redirect_to root_path
+
   end
 
   def show
