@@ -44,13 +44,15 @@ ActiveRecord::Schema.define(version: 20170303123344) do
 
   create_table "orders", force: :cascade do |t|
     t.float    "total_price"
+    t.integer  "ordered_product_id"
     t.datetime "pick_up_at"
     t.integer  "user_id"
     t.text     "instructions"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "shop_id"
-    t.integer  "status",       default: 0, null: false
+    t.integer  "status",             default: 0, null: false
+    t.index ["ordered_product_id"], name: "index_orders_on_ordered_product_id", using: :btree
     t.index ["shop_id"], name: "index_orders_on_shop_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -127,6 +129,7 @@ ActiveRecord::Schema.define(version: 20170303123344) do
 
   add_foreign_key "opening_hours", "shops"
   add_foreign_key "ordered_products", "products"
+  add_foreign_key "orders", "ordered_products"
   add_foreign_key "orders", "shops"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_categories"
