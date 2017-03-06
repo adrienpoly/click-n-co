@@ -28,6 +28,8 @@ gem "gmaps4rails"
 gem "geocoder"
 gem 'bootsy'
 gem 'turbolinks', '~> 5.0.0'
+gem 'money-rails', '1.8.0'
+gem 'stripe'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
