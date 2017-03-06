@@ -14,6 +14,7 @@ owner.save
 
 
 user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
+user.admin = true
 user.save
 
 file ='db/liste_commerces.txt'
