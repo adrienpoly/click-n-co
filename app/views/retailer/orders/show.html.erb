@@ -35,18 +35,14 @@
             <p><%= ordered_product.product.name %> : <%= ordered_product.quantity %> <%= ordered_product.product.measurement_units %></p>
           <% end %>
       </div>
-      <div class="action-buttons">
-        <%= link_to order_path(order, order: {status: :ready}), method: :patch,
+      <div class="action-buttons text-center">
+        <%= link_to order_path(@order, order: {status: :ready}), method: :patch,
           class: "btn btn-success btn-block ", data:{confirm: "Are you sure?"} do %>
            Confirmer
         <% end %>
-        <%= link_to order_path(order, order: {status: :canceled}), method: :patch,
+        <%= link_to order_path(@order, order: {status: :canceled}), method: :patch,
           class: "btn btn-danger btn-block ", data:{confirm: "Are you sure?"} do %>
            Annuler
-        <% end %>
-        <%= link_to retailer_shop_order_path(@shop, order),
-          class: "btn btn-primary btn-block " do %>
-           Voir détails
         <% end %>
       </div>
     </div>

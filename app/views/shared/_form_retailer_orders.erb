@@ -1,0 +1,31 @@
+<div class="container">
+  <table class="table table-bordered order-table">
+    <thead>
+      <tr>
+        <th class="text-center col-sm-1">N°</th>
+        <th class="text-center col-sm-3">Client</th>
+        <th class="text-center col-sm-2">Date de retrait</th>
+        <th class="text-center col-sm-2">Prix</th>
+        <th class="text-center col-sm-2">Statut</th>
+        <th class="text-center col-sm-2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.each do |order| %>
+      <tr>
+        <th scope="row"><%= order.id %></th>
+        <td><%= order.user.email %></td>
+        <td><%= order.pick_up_at %></td>
+        <td><%= order.total_price %>€</td>
+        <td><%= order.status %></td>
+        <td>
+        <%= link_to retailer_shop_order_path(@shop, order),
+          class: "btn btn-primary btn-block " do %>
+           Voir détails
+        <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
