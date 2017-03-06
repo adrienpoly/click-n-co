@@ -1,7 +1,7 @@
 <div class="retailer-order-view">
   <div class="order-show">
     <div class="user-infos">
-      <% avatar_url = current_user.facebook_picture_url || 'avatar.png' %>
+      <% avatar_url = current_user.facebook_picture_url || 'sylvain.png' %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
       <p><%= @order.user.f_name %></p>
       <p><%= @order.user.l_name %></p>
@@ -9,21 +9,42 @@
     </div>
 
     <div class="order-details">
-      <p><strong>Date</strong> : <%= @order.pick_up_at %></p>
+      <p><strong>Date</strong> : <%= @order.pick_up_at.strftime('%A %d %b - %H%M') %>h</p>
       <p><strong>Instructions</strong> : <%= @order.instructions %></p>
       <p><strong>Prix total</strong> : <%= @order.total_price %>€</p>
     </div>
 
     <div class="order-status">
       <p><strong>Statut</strong> : <%= @order.status %></p>
-      <div class="progress">
-      <i class="fa fa-circle done" aria-hidden="true"></i>
-      <span class="bar done"></span>
-      <i class="fa fa-circle done" aria-hidden="true"></i>
-      <span class="bar"></span>
-      <i class="fa fa-circle-o" aria-hidden="true"></i>
-      <span class="bar"></span>
-      <i class="fa fa-circle-o" aria-hidden="true"></i>
+      <div class="progres">
+
+        <% if !@order.canceled? %>
+        <div class="bar-label">
+          <i class="fa fa-circle done" aria-hidden="true"> </i>
+          <div class="bar-text">pending</div>
+        </div>
+
+
+          <% @nbr_circles.times do |i| %>
+            <span class="bar done"></span>
+            <div class="bar-label">
+              <i class="fa fa-circle done" aria-hidden="true"> </i>
+            <div class="bar-text"><%= @tab_status[i+1] %></div>
+        </div>
+
+
+          <% end %>
+
+          <% (3 - @nbr_circles).times do %>
+            <span class="bar"></span>
+            <i class="fa fa-circle-o" aria-hidden="true"></i>
+          <% end %>
+
+        <% else %>
+
+          <div class="label label-warning">Canceled</div>
+        <% end %>
+
       </div>
     </div>
 
@@ -44,10 +65,13 @@
           class: "btn btn-danger btn-block ", data:{confirm: "Are you sure?"} do %>
            Annuler
         <% end %>
+
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 
