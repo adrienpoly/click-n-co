@@ -1,0 +1,22 @@
+<div class="content_mail">
+  <h1 class="title_mail">Bonjour <%= @user.email %></h1>
+
+  <p class="body_mail text-center">
+    Votre commande est bien enregistrée !
+
+    Récapitulatif:
+
+    <ul><%= @order.shop.name %></ul>
+    <ul><%= @order.shop.address %></ul>
+    <ul><%= @order.pick_up_at.strftime('%A %d %b - %H%M') %>h</ul>
+    <ul><%= @order.total_price %>€</ul>
+    <ul><% @order.ordered_products.each do |ordprods| %>
+        <%= ordprods.product.name %> x <%= ordprods.quantity %>
+        <% end %></ul>
+
+
+    Nous vous prévenons dès que celle-ci est prête!
+
+    A très bientôt!
+  </p>
+</div>

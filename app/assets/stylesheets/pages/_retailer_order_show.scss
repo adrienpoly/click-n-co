@@ -42,14 +42,29 @@
     margin: 20px;
     // position: relative;
   }
-  .product-details {
-    margin: 20px;
-    border-top: 1px solid #e8ebeb;
-    padding-right: 10px;
-    padding-top: 30px;
+  // .product-details {
+  //   margin: 20px;
+  //   border-top: 1px solid #e8ebeb;
+  //   padding-right: 10px;
+  //   padding-top: 30px;
 
-  }
+  // }
 }
 
+.product-and-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  border-top: 1px solid #e8ebeb;
+  padding-right: 10px;
+  padding-top: 30px;
+}
 
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  padding-right: 80px;
+  width: 200px;
+  //padding-top: 30px;
+}
 

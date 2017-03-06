@@ -5,7 +5,7 @@
       <form class="form-searchbar" action=<%= shops_path %>>
         <div class="form-location">
           <Label>0ù</Label>
-          <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Lyon, Bordeaux, Toulouse">
+          <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Lyon, Bordeaux, Toulouse" value="<%= session[:address] %>">
         </div>
 
         <div class="form-guests hidden-xs hidden-sm">

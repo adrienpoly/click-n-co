@@ -11,6 +11,13 @@ class OrderMailer < ApplicationMailer
   #   mail to: "to@example.org"
   # end
 
+  def register(order)
+    @order = order
+    @user = @order.user
+
+    mail(to: @user.email, subject: 'Vous avez passez commande !')
+  end
+
   def ready(order)
     @order = order
     @user = @order.user  # Instance variable => available in view
@@ -26,3 +33,4 @@ class OrderMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Votre commande a été annulée !')
   end
 end
+

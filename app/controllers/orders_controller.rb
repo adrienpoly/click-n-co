@@ -25,8 +25,11 @@ class OrdersController < ApplicationController
         ordered_product.save
         sum += ordered_product.order_price * ordered_product.quantity
       end
-      @order.total_price = sum
-      @order.save
+      order.total_price = sum
+      order.confirmed!
+      order.save
+      OrderMailer.register(order).deliver_now
+      # redirect_to orders_path, notice: 'Order was successfully created.'
     end
     @order.pending!
     session[:cart] = {}

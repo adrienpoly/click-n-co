@@ -8,7 +8,7 @@ class ShopsController < ApplicationController
     else
       @shops = Shop.near(params['where'], 1000).where(category_id: params[:category])
     end
-
+    session[:address] = params['where']
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
