@@ -1,9 +1,9 @@
 
 <div class="shop-products">
-  <% shop.product_categories.distinct.each do |product_category| %>
+  <% @product_hash.each_with_index do |(product_category, products), index| %>
     <div class="products-block">
-      <h3 id="<%= "cat-#{product_category.id}" %>"><%= product_category.name %></h3>
-      <% shop.products.where(product_category: product_category).each do |product| %>
+      <h3 id="<%= "cat-#{index}" %>" style="padding-top: 70px; margin-top: -70px;"><%= product_category %></h3>
+      <% products.each do |product| %>
         <div class="product-items">
           <div class="product-content">
             <div class="product-name"><%= product.name %></div>
@@ -11,10 +11,10 @@
           </div>
           <div class="product-price"><%= product.price %> €</div>
           <div class="plus-minus text-right">
-            <%= link_to shop_add_path(shop, product), remote: true do %>
+            <%= link_to shop_add_path(product.shop, product), remote: true do %>
               <i class="fa fa-plus" aria-hidden="true"></i>
             <% end %>
-            <%= link_to shop_reduce_path(shop, product), remote: true do %>
+            <%= link_to shop_reduce_path(product.shop, product), remote: true do %>
               <i class="fa fa-minus" aria-hidden="true"></i>
             <% end %>
           </div>

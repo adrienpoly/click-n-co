@@ -8,9 +8,9 @@
   <div class="navbar-wagon-right ">
 
     <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
+    <form action="/products" class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" name="search" placeholder="Search something">
+      <button type="submit" class="navbar-wagon-search-btn" >
         <i class="fa fa-search"></i>
       </button>
     </form>
@@ -27,10 +27,9 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <i class="fa fa-shopping-cart fa-2x dropdown-toggle" data-toggle="dropdown"></i>
-        <% if session[:cart] %>
+        <% unless session[:cart].blank? %>
           <div class="badge badge-blue" id="cart-badge"><%= session[:cart].size %></div>
-        <% end %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu shop-cart shop-cart-dropdown">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu shop-cart shop-cart-dropdown">
 
           <%= render 'shops/cart', cart: session[:cart] %>
           <% unless session[:cart].blank? %>
@@ -38,6 +37,7 @@
             <%= link_to 'Poursuivre ma commande', shop_path(session[:cart].keys[0]), class: "btn btn-success btn-block" %>
           <% end %>
         </ul>
+            
       </div>
     </div>
     <!-- Different navigation if login or not -->
@@ -59,6 +59,13 @@
             <li>
               <%= link_to orders_path do %>
                 <i class="fa fa-shopping-cart"></i>  <%= t(".profile", default: "Mes commandes") %>
+              <% end %>
+            </li>
+            <li>
+              <% if current_user.owner? %>
+                <%= link_to retailer_shops_path do %>
+                  <i class="fa fa-home"></i>  Mon commerces
+                <% end %>
               <% end %>
             </li>
             <li>

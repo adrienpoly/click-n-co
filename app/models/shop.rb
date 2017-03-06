@@ -13,5 +13,22 @@ class Shop < ApplicationRecord
 
   after_validation :geocode, if: :address_changed?
   has_many :product_categories, through: :products
+  has_attachment :photo
+  after_create :set_owner
+
+  def to_hash
+    categories = self.product_categories.distinct
+    hash = {}
+    categories.each do |category|
+      products = self.products.where(product_category: category)
+      hash[category.name] = products
+    end
+    hash
+  end
+  private
+
+  def set_owner
+    self.user.owner! unless self.user.owner?
+  end
 end
 

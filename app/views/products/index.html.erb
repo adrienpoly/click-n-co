@@ -1,13 +1,4 @@
-<div class="show-body">
-  <div class="container">
-    <div class="back-to-search">
-      <%= link_to :back do %>
-        <i class="fa fa-chevron-left" aria-hidden="true"></i> Retour aux résultats
-      <% end %>
-    </div>
-  </div>
 
-  <%= render 'shop_banner', shop: @shop %>
 
 
   <div class="shop">
@@ -16,7 +7,7 @@
         <div class="col-md-3 hidden-xs hidden-sm">
           <div class="shop-categories shop-nav" data-spy="affix" id="product-categories">
 
-            <%= render 'product_categories' %>
+            <%= render 'shops/product_categories' %>
             <div class="shops-nearby">
               <h4>Autres commerces proches</h4>
               <% @shops.each do |shop| %>
@@ -35,7 +26,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <%= render 'products' %>
+          <%= render 'shops/products' %>
         </div>
 
        <div class="col-md-3">
@@ -44,10 +35,10 @@
             <h3>Votre commande</h3>
 
             <div id="mycart">
-              <%= render 'show_cart' %>
+              <%= render 'shops/show_cart' %>
             </div>
 
-            <%= render 'form_order' %>
+            <%= render 'shops/form_order' %>
 
           </div>
         </div>

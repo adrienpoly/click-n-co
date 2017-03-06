@@ -1,20 +1,22 @@
-<div class="container">
+<div class="padded">
+  <div class="container">
 
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#futur" data-toggle="tab">Commandes à retirer</a></li>
-    <li role="presentation"><a href="#past" data-toggle="tab">Commandes passées</a></li>
-  </ul>
-  <p></p>
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="futur">
-      <% if @orders_in.size %>
-        <%= render 'shared/form_active_orders', order: @orders_in, futur: true %>
-      <% end %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="past">
-      <% if @orders_out.size %>
-        <%= render 'shared/form_active_orders', order: @orders_out, past: true %>
-      <% end %>
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#futur" data-toggle="tab">Commandes à retirer</a></li>
+      <li role="presentation"><a href="#past" data-toggle="tab">Commandes passées</a></li>
+    </ul>
+    <p></p>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="futur">
+        <% if @orders_in.size %>
+          <%= render 'shared/form_active_orders', order: @orders_in, futur: true %>
+        <% end %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="past">
+        <% if @orders_out.size %>
+          <%= render 'shared/form_active_orders', order: @orders_out, past: true %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

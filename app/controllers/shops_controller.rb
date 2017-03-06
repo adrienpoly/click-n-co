@@ -17,11 +17,12 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shops = Shop.near(@shop,5).limit(5).last(4)
+    @shops = Shop.near(@shop,5).limit(4).offset(1)
     @today = Date.today
     @open_hours = OpeningHour.where(shop_id: params[:id])
     @collection = OpenHourSort.new(@open_hours).call  ## unless @open_hours.empty?
     @cart = session[:cart] || {} #set to empty hash if empty (new cart)
+    @product_hash = @shop.to_hash
   end
 
   private
