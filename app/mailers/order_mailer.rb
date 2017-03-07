@@ -18,7 +18,7 @@ class OrderMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Vous avez passez commande !')
   end
 
-  def ready(order)
+  def prête(order)
     @order = order
     @user = @order.user  # Instance variable => available in view
 
@@ -26,11 +26,13 @@ class OrderMailer < ApplicationMailer
     # This will render a view in `app/views/user_mailer`!
   end
 
-  def canceled(order)
+  def annulée(order)
     @order = order
     @user = @order.user  # Instance variable => available in view
 
     mail(to: @user.email, subject: 'Votre commande a été annulée !')
   end
+
+
 end
 

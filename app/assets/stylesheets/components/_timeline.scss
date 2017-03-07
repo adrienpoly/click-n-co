@@ -26,10 +26,11 @@
 
 .bar-text {
   position: absolute;
-  bottom: -50px;
-  left: 0px;
-  color: red;
+  bottom: -20px;
+  left: -30px;
+  //color: black;
   z-index: 100;
+  font-size: 15px;
 }
 
 // .canceled {
