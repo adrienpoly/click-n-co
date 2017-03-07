@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :ordered_products
+  has_many :ordered_products, dependent: :destroy
   belongs_to :user
   belongs_to :shop
   #enum status: [:pending, :confirmed, :ready, :picked_up, :canceled]
@@ -11,6 +11,8 @@ class Order < ApplicationRecord
     :annulée => 5
   }
   #[:en_attente, :en_cours_de_préparation, :commande_prête, :commande_récupérée, :commande_annulée]
+  monetize :total_price_cents
+
 end
 
 

@@ -1,128 +1,116 @@
-OrderedProduct.destroy_all
-Order.destroy_all
-Product.destroy_all
-ProductCategory.destroy_all
-Shop.destroy_all
-Category.destroy_all
-User.destroy_all
 
-
-
-owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
-owner.admin = true
-owner.save
-
-
-user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
-user.admin = true
-user.save
-
-file ='db/liste_commerces.txt'
-File.readlines(file).each do |line|
-  cat = Category.new
-  cat.name = line.gsub(/\A\d*\s/, "")
-  cat.save
-  puts cat.name
+def clean_database
+  OrderedProduct.destroy_all
+  Order.destroy_all
+  Product.destroy_all
+  ProductCategory.destroy_all
+  Shop.destroy_all
+  Category.destroy_all
+  User.destroy_all
 end
 
-cats = Category.all
-
-p "google API key " + ENV['GOOGLE_MAPS']
-
-shop = Shop.new(name: "LA CARAVELLE DES SAVEURS",
-  description: "Après avoir longtemps travaillé dans le milieu de la Mode, Paula s’est reconvertie avec succès dans le monde de la gastronomie. Fière de ses origines portugaises, elle souhaitait pouvoir faire découvrir les nombreuses spécialités du pays de ses parents et c’est chose faite depuis 2015 avec cette épicerie fine de qualité !",
-  address: "12, rue du Faubourg Saint-Martin 75010 Paris",
-  phone_number: "01 98 98 98 98",
-  category_id: cats.sample.id)
-shop.user = owner
-shop.save!
-puts shop.name
-shop = Shop.new(name: "FROMAGERIE LÉAUTEY",
-  description: "Large gamme de fromages : faîtes votre choix parmi près de 400 variétés!
-    Ici, on fait la part belle aux fromages français! Vache, chèvre, brebis… Il y en a pour tous les goûts !
-    Quelques variétés de fromages étrangers comme le pecorino à la truffe, la burrata…",
-  address: "81, avenue de Saint-Ouen 75017 Paris",
-  phone_number: "01 01 98 99 98",
-  category_id: cats.sample.id)
-shop.user = owner
-shop.save!
-puts shop.name
-shop = Shop.new(name: "BOUCHERIE DES GRAVILLIERS",
-  description: "Boucherie Charcuterie Traiteur,  100\% artisanal
-    Boucherie : côtes de bœuf, rosbifs, biftecks… Races de viande de qualité : Blonde d’Aquitaine, Parthenaise, Limousine. Mais aussi côtes de porc, rôtis de porc, brochettes de veau / bœuf / agneau des Pays d’Oc…
-    Charcuterie : jambon blanc Maison, rillettes de porc, terrines de campagne  100\% Maison (lapin, canard…), chipolatas, saucisses de Toulouse, merguez…",
-  address: "28, rue des Gravilliers 75003 Paris",
-  phone_number: "01 99 98 99 98",
-  category_id: cats.sample.id)
-shop.user = owner
-shop.save!
-puts shop.name
-shop = Shop.new(name: "LES PETITS MITRONS",
-  description: "Entre 10 et 15 variétés de tartes sucrées, LA spécialité Maison, disponible en 3 tailles
-    Large choix de tartes salées, quiches et pizzas, pour se faire plaisir sur le pouce ou à table
-    Des cookies à tomber par terre (chocolat noir, blanc, caramel, figues-raisins, noix de pécan, pistache, cranberry…)
-    Des viennoiseries Maison (croissants, pains au chocolat, chaussons aux pommes, brioches…)
-    Belle gamme de confitures et miel et sucreries pour les petits et grands enfants",
-  address: "26, rue Lepic 75018 Paris",
-  phone_number: "01 98 01 98 01",
-  category_id: cats.sample.id)
-shop.user = owner
-shop.save!
-puts shop.name
-shop = Shop.new(name: "LE CHAMP DES RÊVES",
-  description: "Primeur : fruits et légumes 100\% de saison, issus principalement de l’agriculture biologique et biodynamique (Label Demeter)
-    Produits en circuits courts, en direct de petits producteurs ou coopératives d’Île-de-France et des régions voisines (Picardie, Normandie, Bretagne, Centre) !",
-  address: "25, rue de la Jonquière 75017 Paris",
-  phone_number: "01 01 01 98 99",
-  category_id: cats.sample.id)
-shop.user = owner
-shop.save!
-puts shop.name
-shop = Shop.new(name: "CÔTÉ CÉPAGE",
-  description: "Vins gourmands, opulents ou astringents : il y en a pour tous les goûts !
-    Vins de pays et vins AOC
-    Vins de petits domaines (visités par Nicole !) : Mas de l’Oncle, Domaine des Homs, Domaine du Château la Borie…
-    Vins pétillants (Crémant de Bourgogne…) et Champagnes (Veuve Fourny et Joseph Perrier)
-    Spiritueux (Cognac, Armagnac, Bas-Armagnac, whiskys…)",
-  address: "96, rue Legendre 75017 Paris",
-  phone_number: "01 20 01 01 98",
-  category_id: cats.sample.id)
-shop.user = owner
-shop.save!
-puts shop.name
+def create_users
+  owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
+  owner.admin = true
+  owner.save
 
 
+  user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
+  user.admin = true
+  user.save
 
+  user = User.new(email: 'triboy.m@gmail.com', password: '123456')
+  user.admin = true
+  user.save
 
-categories = ["Plateaux Apéro", "Plateaux Découverte", "Portions", "Extras",
-  "Vins", "Champagnes"]
-
-categories.each do |categorie|
-  ProductCategory.create(name: categorie)
+  user = User.new(email: ' piergiovanni@cegetel.net', password: '123456')
+  user.admin = true
+  user.save
+  owner
 end
+
+def create_shops(owner)
+  shops_by_cat = JSON.parse(open("db/yelp_shops.json","r").read)
+
+
+  shops_by_cat.each do |category, shops|
+    new_cat = Category.create!(name: category)
+    if Rails.env = "development"
+      shops = shops.first(4)
+    end
+    shops.each do |shop|
+      new_shop = Shop.new(
+        name: shop['name'],
+        address: shop['address'],
+        phone_number: shop['phone']
+        )
+      new_shop.category = new_cat
+      new_shop.user = owner
+      new_shop.send(:photo_url=, shop['image_url'],
+       folder: 'click-n-co', use_filename: true, image_metadata: true)
+      # new_shop.photo_url = shop['image_url']
+      if new_shop.save
+        p "#{new_shop.name} added"
+      end
+    end
+  end
+end
+
+
+  # categories = ["Plateaux Apéro", "Plateaux Découverte", "Portions", "Extras",
+  #   "Vins", "Champagnes"]
+
+  # categories.each do |categorie|
+  #   ProductCategory.create(name: categorie)
+  # end
 
 def read_csv
-  products = []
+  products = {}
   csv_options = { col_sep: ';', quote_char: '"', headers: true, header_converters: :symbol }
   CSV.foreach('db/products.csv', csv_options) do |row|
     params = row.to_hash.delete_if { |key, _value| key.nil? }
-    products << params
+    # products << params
+    products[row[:shop_category]] = {} if products[row[:shop_category]].nil?
+    products[row[:shop_category]][row[:product_category]] = [] if products[row[:shop_category]][row[:product_category]].nil?
+    product = { name: row[:name], short_description: row[:short_description], price: (row[:price].to_f / 100) }
+    products[row[:shop_category]][row[:product_category]] << product
+    # products[row[:shop_category]][row[:product_category]] = 1
   end
   products
 end
 
-products = read_csv
-shops = Shop.all
-shops.each do |shop|
-  products.each do |product|
-    product_category = ProductCategory.where(name: product[:product_category]).first
-    new_product = Product.new()
-    new_product.name = product[:name]
-    new_product.short_description = product[:short_description]
-    new_product.price = product[:price]
-    new_product.product_category = product_category
-    new_product.shop = shop
-    new_product.save
-  end
+def create_products
+  p products = read_csv
 
+  shops = Shop.all
+  shops.each do |shop|
+    shop_category = shop.category.name
+    # products.each do |shop_category, product_catgories|
+    unless products[shop_category].blank?
+      products[shop_category].each do |product_category, products|
+        new_product_category = ProductCategory.create!(name: product_category)
+        products.each do |product|
+          new_product = Product.new(
+            name: product[:name],
+            price: product[:price],
+            short_description: product[:short_description])
+          # new_product.name = product[:name]
+          # new_product.short_description = product[:short_description]
+          # new_product.price = product[:price]
+          new_product.product_category = new_product_category
+          new_product.shop = shop
+          if new_product.save
+            p "#{new_product.name} created"
+          else
+            p "error creating products #{prodcut}"
+          end
+        end
+      end
+    end
+  end
 end
+
+clean_database
+owner = create_users
+create_shops(owner)
+create_products

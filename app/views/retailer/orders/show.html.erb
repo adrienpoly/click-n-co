@@ -68,20 +68,14 @@
           class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
            Annuler
         <% end %>
+
         <%= link_to order_path(@order, order: {status: :récupérée}), method: :patch,
           class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
            Commande récupérée
         <% end %>
+
+
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-

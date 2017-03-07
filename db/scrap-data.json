@@ -1,0 +1,881 @@
+{
+  "total": 22,
+  "region": {
+    "center": {
+      "longitude": -0.5743789672851562,
+      "latitude": 44.839679151246266
+    }
+  },
+  "businesses": [
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "24 place de la Ferme de Richemont",
+        "display_address": [
+          "24 place de la Ferme de Richemont",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "meats",
+          "title": "Meat Shops"
+        },
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        },
+        {
+          "alias": "french",
+          "title": "French"
+        }
+      ],
+      "review_count": 6,
+      "rating": 5.0,
+      "coordinates": {
+        "longitude": -0.57292,
+        "latitude": 44.8356
+      },
+      "distance": 476.515435158,
+      "display_phone": "+33 5 56 48 79 00",
+      "url": "https://www.yelp.com/biz/my-terroir-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "My Terroir",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/KKTnp2raLFoCoZ5Uda5bDA/o.jpg",
+      "is_closed": false,
+      "phone": "+33556487900",
+      "id": "my-terroir-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "66 rue du Pas-Saint-Georges",
+        "display_address": [
+          "66 rue du Pas-Saint-Georges",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 19,
+      "rating": 4.5,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.57183,
+        "latitude": 44.8382988
+      },
+      "distance": 257.301520601,
+      "display_phone": "+33 5 57 83 04 15",
+      "url": "https://www.yelp.com/biz/fromagerie-deruelle-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Fromagerie Deruelle",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/irTgKN4oQ5dTQSev7EEw8w/o.jpg",
+      "is_closed": false,
+      "phone": "+33557830415",
+      "id": "fromagerie-deruelle-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "73 quai des Chartrons",
+        "display_address": [
+          "73 quai des Chartrons",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "bistros",
+          "title": "Bistros"
+        },
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 34,
+      "rating": 4.0,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.56792,
+        "latitude": 44.85241
+      },
+      "distance": 1504.2765877364,
+      "display_phone": "+33 5 56 93 03 18",
+      "url": "https://www.yelp.com/biz/le-bistrot-du-fromager-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Le Bistrot du Fromager",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/xs1VUpu6IXAqUMUyLoPAVA/o.jpg",
+      "is_closed": false,
+      "phone": "+33556930318",
+      "id": "le-bistrot-du-fromager-bordeaux"
+    },
+    {
+      "location": {
+        "address2": null,
+        "zip_code": "33000",
+        "address3": null,
+        "address1": "4 rue Montesquieu",
+        "display_address": [
+          "4 rue Montesquieu",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 28,
+      "rating": 4.0,
+      "price": "€€€",
+      "coordinates": {
+        "longitude": -0.57819,
+        "latitude": 44.8426199
+      },
+      "distance": 435.27252492319997,
+      "display_phone": "+33 5 56 44 29 66",
+      "url": "https://www.yelp.com/biz/jean-d-alos-bordeaux-2?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Jean d'Alos",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/oAfOIoWz0OTGaubzsFoRHQ/o.jpg",
+      "is_closed": false,
+      "phone": "+33556442966",
+      "id": "jean-d-alos-bordeaux-2"
+    },
+    {
+      "location": {
+        "address2": "Place des Capucins",
+        "zip_code": "33800",
+        "address3": "",
+        "address1": "Marché des Capucins",
+        "display_address": [
+          "Marché des Capucins",
+          "Place des Capucins",
+          "33800 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "tapas",
+          "title": "Tapas Bars"
+        },
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        },
+        {
+          "alias": "delicatessen",
+          "title": "Delicatessen"
+        }
+      ],
+      "review_count": 7,
+      "rating": 4.5,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.567575,
+        "latitude": 44.830839
+      },
+      "distance": 1116.3146676499998,
+      "display_phone": "+33 5 56 88 59 92",
+      "url": "https://www.yelp.com/biz/maison-du-pata-negra-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Maison du Pata Negra",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/jCOIL7DzPc_ivMz8SgPm7Q/o.jpg",
+      "is_closed": false,
+      "phone": "+33556885992",
+      "id": "maison-du-pata-negra-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "8 bis rue Michel Montaigne",
+        "display_address": [
+          "8 bis rue Michel Montaigne",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 8,
+      "rating": 4.5,
+      "price": "€€€",
+      "coordinates": {
+        "longitude": -0.57695,
+        "latitude": 44.843441
+      },
+      "distance": 464.8816128584,
+      "display_phone": "+33 9 54 86 80 03",
+      "url": "https://www.yelp.com/biz/beillevaire-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Beillevaire",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/-lIxcNrneJXmZHdqtzELEA/o.jpg",
+      "is_closed": false,
+      "phone": "+33954868003",
+      "id": "beillevaire-bordeaux"
+    },
+    {
+      "location": {
+        "address2": null,
+        "zip_code": "33000",
+        "address3": null,
+        "address1": "8 Place Charles Gruet",
+        "display_address": [
+          "8 Place Charles Gruet",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        },
+        {
+          "alias": "convenience",
+          "title": "Convenience Stores"
+        }
+      ],
+      "review_count": 6,
+      "rating": 4.0,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.58018,
+        "latitude": 44.84596
+      },
+      "distance": 834.6574276757999,
+      "display_phone": "+33 5 56 79 02 51",
+      "url": "https://www.yelp.com/biz/le-lion-de-venise-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Le Lion De Venise",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/0QGE93cZe5iF0CV_uTd1uQ/o.jpg",
+      "is_closed": false,
+      "phone": "+33556790251",
+      "id": "le-lion-de-venise-bordeaux"
+    },
+    {
+      "location": {
+        "address2": null,
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "3 rue Louis Combes",
+        "display_address": [
+          "3 rue Louis Combes",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "meats",
+          "title": "Meat Shops"
+        },
+        {
+          "alias": "delicatessen",
+          "title": "Delicatessen"
+        },
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 5,
+      "rating": 5.0,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.57548136,
+        "latitude": 44.84191954
+      },
+      "distance": 263.7250241836,
+      "display_phone": "+33 5 57 83 46 92",
+      "url": "https://www.yelp.com/biz/l-epicerie-jamon-jamon-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "L'Epicerie Jamon Jamon",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/-Uy6kmdXqS9AycHXBQ6c_Q/o.jpg",
+      "is_closed": false,
+      "phone": "+33557834692",
+      "id": "l-epicerie-jamon-jamon-bordeaux"
+    },
+    {
+      "location": {
+        "address2": null,
+        "zip_code": "33800",
+        "address3": null,
+        "address1": "Marché des Capucins",
+        "display_address": [
+          "Marché des Capucins",
+          "33800 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 3,
+      "rating": 4.5,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.56753,
+        "latitude": 44.83048
+      },
+      "distance": 1156.899888907,
+      "display_phone": "+33 5 56 31 35 85",
+      "url": "https://www.yelp.com/biz/la-ronde-des-fromages-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "La Ronde des Fromages",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/ZZhB2UcJgUzHfan12MkZIA/o.jpg",
+      "is_closed": false,
+      "phone": "+33556313585",
+      "id": "la-ronde-des-fromages-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "40 Rue Fondaudège",
+        "display_address": [
+          "40 Rue Fondaudège",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 7,
+      "rating": 4.5,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.58064,
+        "latitude": 44.8469505
+      },
+      "distance": 947.5382572696,
+      "display_phone": "+33 5 35 31 78 92",
+      "url": "https://www.yelp.com/biz/aux-dix-vins-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Aux Dix Vins",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/jQhsOgl_ayNdE42DVww7BA/o.jpg",
+      "is_closed": false,
+      "phone": "+33535317892",
+      "id": "aux-dix-vins-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "Place des Capucins",
+        "zip_code": "33800",
+        "address3": null,
+        "address1": "Marché des Capucins",
+        "display_address": [
+          "Marché des Capucins",
+          "Place des Capucins",
+          "33800 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 2,
+      "rating": 5.0,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.56706,
+        "latitude": 44.83024
+      },
+      "distance": 1187.63900711,
+      "display_phone": "+33 6 18 11 16 39",
+      "url": "https://www.yelp.com/biz/guillaume-jocelyne-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Guillaume Jocelyne",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/vAJIPhKssPCAVj5P54mSbQ/o.jpg",
+      "is_closed": false,
+      "phone": "+33618111639",
+      "id": "guillaume-jocelyne-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "49 cours de la Martinique",
+        "display_address": [
+          "49 cours de la Martinique",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        },
+        {
+          "alias": "organic_stores",
+          "title": "Organic Stores"
+        },
+        {
+          "alias": "wine_bars",
+          "title": "Wine Bars"
+        }
+      ],
+      "review_count": 9,
+      "rating": 5.0,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.571513697504997,
+        "latitude": 44.8540406079902
+      },
+      "distance": 1612.9130566679999,
+      "display_phone": "+33 5 57 89 50 32",
+      "url": "https://www.yelp.com/biz/%C3%A9picerie-o-merveilleux-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Épicerie O Merveilleux",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/KSVnP3tgmcih132I0hef1Q/o.jpg",
+      "is_closed": false,
+      "phone": "+33557895032",
+      "id": "épicerie-o-merveilleux-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "11 place des Martyrs de la Résistance",
+        "display_address": [
+          "11 place des Martyrs de la Résistance",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 5,
+      "rating": 4.5,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.58399,
+        "latitude": 44.84172
+      },
+      "distance": 791.6413466289999,
+      "display_phone": "+33 9 52 84 45 31",
+      "url": "https://www.yelp.com/biz/tout-un-fromage-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Tout un Fromage",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/-__ANlRwmCmb9V6B5BEayg/o.jpg",
+      "is_closed": false,
+      "phone": "+33952844531",
+      "id": "tout-un-fromage-bordeaux"
+    },
+    {
+      "location": {
+        "address2": null,
+        "zip_code": "33000",
+        "address3": null,
+        "address1": "77 rue Condillac",
+        "display_address": [
+          "77 rue Condillac",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        },
+        {
+          "alias": "butcher",
+          "title": "Butcher"
+        }
+      ],
+      "review_count": 6,
+      "rating": 4.5,
+      "price": "€€€",
+      "coordinates": {
+        "longitude": -0.57766,
+        "latitude": 44.84461
+      },
+      "distance": 606.019990562,
+      "display_phone": "+33 5 56 52 38 76",
+      "url": "https://www.yelp.com/biz/pierre-oteiza-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Pierre Oteiza",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/LpaXcvn2RG9isCexhEERhA/o.jpg",
+      "is_closed": false,
+      "phone": "+33556523876",
+      "id": "pierre-oteiza-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "5 cours Portal",
+        "display_address": [
+          "5 cours Portal",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 2,
+      "rating": 4.5,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.57353,
+        "latitude": 44.8523799
+      },
+      "distance": 1416.23127005,
+      "display_phone": "+33 5 56 06 78 07",
+      "url": "https://www.yelp.com/biz/fromagerie-beillevaire-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Fromagerie Beillevaire",
+      "image_url": "",
+      "is_closed": false,
+      "phone": "+33556067807",
+      "id": "fromagerie-beillevaire-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "Place des Capucins",
+        "zip_code": "33800",
+        "address3": "",
+        "address1": "Marché Capucins",
+        "display_address": [
+          "Marché Capucins",
+          "Place des Capucins",
+          "33800 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 1,
+      "rating": 5.0,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.57263,
+        "latitude": 44.851847
+      },
+      "distance": 1360.12404496,
+      "display_phone": "+33 6 22 61 08 70",
+      "url": "https://www.yelp.com/biz/karine-fromages-fins-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Karine Fromages Fins",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/S5RQxI_qWJsybcsaU7qmwg/o.jpg",
+      "is_closed": false,
+      "phone": "+33622610870",
+      "id": "karine-fromages-fins-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "43 Cours Portal",
+        "display_address": [
+          "43 Cours Portal",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 2,
+      "rating": 4.0,
+      "price": "€€€",
+      "coordinates": {
+        "longitude": -0.57262145,
+        "latitude": 44.85370427
+      },
+      "distance": 1573.645482536,
+      "display_phone": "",
+      "url": "https://www.yelp.com/biz/la-fromagerie-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "La Fromagerie",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/tIY7OHE32BV-P3n2NavZhA/o.jpg",
+      "is_closed": false,
+      "phone": "",
+      "id": "la-fromagerie-bordeaux"
+    },
+    {
+      "location": {
+        "address2": null,
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "27 rue Edmond Costedoat",
+        "display_address": [
+          "27 rue Edmond Costedoat",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        },
+        {
+          "alias": "delicatessen",
+          "title": "Delicatessen"
+        }
+      ],
+      "review_count": 2,
+      "rating": 5.0,
+      "price": "€€",
+      "coordinates": {
+        "longitude": -0.5783,
+        "latitude": 44.831089
+      },
+      "distance": 994.1759970523999,
+      "display_phone": "+33 5 33 05 86 92",
+      "url": "https://www.yelp.com/biz/chez-francois-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Chez Francois",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/6N5tW7TwGtv0Or_GsMymDw/o.jpg",
+      "is_closed": false,
+      "phone": "+33533058692",
+      "id": "chez-francois-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33000",
+        "address3": "",
+        "address1": "43 Cours Portal",
+        "display_address": [
+          "43 Cours Portal",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 1,
+      "rating": 4.0,
+      "coordinates": {
+        "longitude": -0.57287,
+        "latitude": 44.85331
+      },
+      "distance": 1520.237120626,
+      "display_phone": "+33 5 56 52 46 22",
+      "url": "https://www.yelp.com/biz/fromages-fromages-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Fromages Fromages",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/RsHPU6yFDeiwXW6x0sUbyQ/o.jpg",
+      "is_closed": false,
+      "phone": "+33556524622",
+      "id": "fromages-fromages-bordeaux"
+    },
+    {
+      "location": {
+        "address2": null,
+        "zip_code": "33000",
+        "address3": null,
+        "address1": "Galerie Grands Hommes",
+        "display_address": [
+          "Galerie Grands Hommes",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 1,
+      "rating": 3.0,
+      "price": "€€€",
+      "coordinates": {
+        "longitude": -0.57722,
+        "latitude": 44.84294
+      },
+      "distance": 1141.30288983,
+      "display_phone": "+33 5 56 44 54 73",
+      "url": "https://www.yelp.com/biz/la-s%C3%A9lection-fromag%C3%A8re-bordeaux-2?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "La Sélection Fromagère",
+      "image_url": "",
+      "is_closed": false,
+      "phone": "+33556445473",
+      "id": "la-sélection-fromagère-bordeaux-2"
+    },
+    {
+      "location": {
+        "address2": null,
+        "zip_code": "33000",
+        "address3": null,
+        "address1": "5 Place Louis Barthou",
+        "display_address": [
+          "5 Place Louis Barthou",
+          "33000 Bordeaux",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bordeaux"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        }
+      ],
+      "review_count": 1,
+      "rating": 3.0,
+      "coordinates": {
+        "longitude": -0.5825083,
+        "latitude": 44.8214964
+      },
+      "distance": 2121.230176764,
+      "display_phone": "+33 5 56 92 36 27",
+      "url": "https://www.yelp.com/biz/maison-durand-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "Maison Durand",
+      "image_url": "",
+      "is_closed": false,
+      "phone": "+33556923627",
+      "id": "maison-durand-bordeaux"
+    },
+    {
+      "location": {
+        "address2": "",
+        "zip_code": "33110",
+        "address3": "",
+        "address1": "36 avenue de La Libération",
+        "display_address": [
+          "36 avenue de La Libération",
+          "33110 Bouscat (Le)",
+          "France"
+        ],
+        "country": "FR",
+        "state": "33",
+        "city": "Bouscat (Le)"
+      },
+      "categories": [
+        {
+          "alias": "cheese",
+          "title": "Cheese Shops"
+        },
+        {
+          "alias": "delicatessen",
+          "title": "Delicatessen"
+        }
+      ],
+      "review_count": 8,
+      "rating": 5.0,
+      "price": "€€€",
+      "coordinates": {
+        "longitude": -0.59445,
+        "latitude": 44.85445
+      },
+      "distance": 2280.622107176,
+      "display_phone": "+33 5 56 43 10 93",
+      "url": "https://www.yelp.com/biz/o-pr%C3%A9-du-fromage-bouscat-le?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ",
+      "name": "O Pré du Fromage",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/OlvJsy8d8pKk0XNk-9jmJw/o.jpg",
+      "is_closed": false,
+      "phone": "+33556431093",
+      "id": "o-pré-du-fromage-bouscat-le"
+    }
+  ]
+}
