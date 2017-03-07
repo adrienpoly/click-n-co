@@ -24,9 +24,9 @@ en:
     attributes:
       order:
         statuses:
-          pending:    "Pending"
-          processing: "Processing"
-          confirmed:  "Confirmé"
-          ready:      "Ready"
-          picked_up:  "Picked up"
-          canceled:   "Canceled"
+          pending:    "En attente"
+          processing: "En cours"
+          confirmed:  "Confirmée"
+          ready:      "Prête"
+          picked_up:  "Récupérée"
+          canceled:   "Annulée"

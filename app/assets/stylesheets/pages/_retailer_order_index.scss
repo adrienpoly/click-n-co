@@ -1,13 +1,92 @@
-.order-table {
-  margin-top: 50px;
-
+.order-informations {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+    p {
+      background: white;
+    }
+  &.header {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    // margin-right: 200px;
+    background-color: $grey-platinum;
+    * {
+      background-color: $grey-platinum;
+    }
+  }
 }
+
+
+.order-recap {
+  margin-top: 40px;
+}
+
+#content {
+  background-color: $grey-platinum;
+}
+
+
+.order-retailer-numero {
+  //width: 25px;
+  flex: 0 0 40px;
+}
+
+.order-retailer-client {
+  //width: 25px;
+  //flex: 0 0 0px;
+}
+
+.order-retailer-date {
+  //flex: 0 0 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .order-table {
+//   margin-top: 50px;
+//   //border-top: 0px;
+//   td {
+//     text-align: center;
+//     padding: 10px;
+//     background-color: #E8EBEB;
+//   }
+//   th {
+//     padding-bottom: 30px;
+//   }
+//   tbody tr {
+//     margin-bottom: 50px !important;
+//   }
+// }
+
 
 .inactive{
   a{
     color:#626666;
   }
 }
+
+// .table-background {
+//   //background-color: #E8EBEB;
+// }
+
+
 
 
 

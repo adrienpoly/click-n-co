@@ -27,16 +27,16 @@
           <% 5.times do |i| %>
 
             <div class="bar-label">
-              <% if i + 1 <= @index %>
+              <% if i  <= @index %>
                 <i class="fa fa-circle done" aria-hidden="true"> </i>
               <% else %>
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
               <% end %>
               <div class="bar-text"><%= Order.human_enum_name(:status, Order.statuses.keys[i]) %></div>
             </div>
-            <% if i < 5 && i < @index - 1%>
+            <% if i < 5 && i < @index %>
             <span class="bar done"></span>
-            <% elsif i < 4 && i >= @index - 1 %>
+            <% elsif i < 4 && i >= @index  %>
             <span class="bar"></span>
             <%  end %>
           <% end %>
@@ -64,19 +64,20 @@
           class: "btn btn-success btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
            Commande prête
         <% end %>
+        <%= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
+          class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+           Commande récupérée
+        <% end %>
         <%= link_to order_path(@order, order: {status: :canceled}), method: :patch,
           class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
            Annuler
         <% end %>
 
-        <%= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
-          class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-           Commande récupérée
-        <% end %>
-
-
       </div>
     </div>
   </div>
 </div>
+
+
+
 
