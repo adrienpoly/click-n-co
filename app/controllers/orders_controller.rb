@@ -10,12 +10,12 @@ class OrdersController < ApplicationController
   def create
     session[:cart].each do |shop_id, orders|
       sum = 0
-      @order = Order.new()
-      @order.user = current_user
-      @order.shop_id = shop_id
-      @order.pick_up_at = build_date(params[:other][:day], params[:other][:hour])
-      @order.instructions = params[:order][:instructions]
-      @order.save
+      order = Order.new()
+      order.user = current_user
+      order.shop_id = shop_id
+      order.pick_up_at = build_date(params[:other][:day], params[:other][:hour])
+      order.instructions = params[:order][:instructions]
+      order.save
       orders.each do |product_id, product|
         ordered_product = OrderedProduct.new(
           order: @order,
@@ -34,7 +34,6 @@ class OrdersController < ApplicationController
     @order.pending!
     session[:cart] = {}
     redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
-    #redirect_to orders_path, notice: 'Order was successfully created.'
   end
 
   def show
@@ -72,8 +71,10 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:order).permit(:status, :instructions)
   end
 end
+
+
 
 
