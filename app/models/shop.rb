@@ -4,23 +4,20 @@ class Shop < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  has_many :opening_hours
-  has_many :products
-  has_many :orders
+  has_many :opening_hours, dependent: :destroy
+  has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :product_categories, through: :products
+  has_attachment :photo
 
   validates :name, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
+  validates :name, uniqueness: true
+
   geocoded_by :address
-
   after_validation :geocode, if: :address_changed?
-  has_many :product_categories, through: :products
-  has_attachment :photo
   after_create :set_owner
-
-
-  belongs_to :cracker
-  has_many :cheeses, :through => :cracker
 
   pg_search_scope :search_products_shops,
     associated_against: {
