@@ -23,7 +23,8 @@
         </ul>
       </div>
     </div>
-    <%= image_tag 'image-banner-show.jpg', class: 'image-show' %>
+    <%#= image_tag 'image-banner-show.jpg', class: 'image-show' %>
+    <%= cl_image_tag shop.photo.path, width: 350, height: 200, quality: "auto:eco", crop: :fill, class: 'image-show' unless shop.photo.blank? %>
   </div>
 </div>
 
