@@ -18,31 +18,34 @@
       <p><strong>Statut</strong> : <%= @order.status %></p>
       <div class="progres">
 
-        <% if !@order.canceled? %>
+        <% if !@order.annulée? %>
         <div class="bar-label">
-          <i class="fa fa-circle done" aria-hidden="true"> </i>
-          <div class="bar-text">pending</div>
+
         </div>
 
 
-          <% @nbr_circles.times do |i| %>
-            <span class="bar done"></span>
+          <% 4.times do |i| %>
+
             <div class="bar-label">
-              <i class="fa fa-circle done" aria-hidden="true"> </i>
-            <div class="bar-text"><%= @tab_status[i+1] %></div>
-        </div>
-
-
-          <% end %>
-
-          <% (3 - @nbr_circles).times do %>
+              <% if i + 1 <= Order.statuses[@order.status] %>
+                <i class="fa fa-circle done" aria-hidden="true"> </i>
+              <% else %>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+              <% end %>
+              <div class="bar-text"><%= Order.statuses.keys[i] %></div>
+            </div>
+            <% if i < 4 && i < Order.statuses[@order.status] - 1%>
+            <span class="bar done"></span>
+            <% elsif i < 3 && i >= Order.statuses[@order.status] - 1 %>
             <span class="bar"></span>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
+            <%  end %>
           <% end %>
+
+
 
         <% else %>
 
-          <div class="label label-warning">Canceled</div>
+          <div class="label label-warning">Annulée</div>
         <% end %>
 
       </div>
@@ -57,14 +60,21 @@
           <% end %>
       </div>
       <div class="action-buttons text-center">
-        <%= link_to order_path(@order, order: {status: :ready}), method: :patch,
-          class: "btn btn-success btn-block ", data:{confirm: "Are you sure?"} do %>
-           Confirmer
+        <%= link_to order_path(@order, order: {status: :prête}), method: :patch,
+          class: "btn btn-success btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+           Commande prête
         <% end %>
-        <%= link_to order_path(@order, order: {status: :canceled}), method: :patch,
-          class: "btn btn-danger btn-block ", data:{confirm: "Are you sure?"} do %>
+        <%= link_to order_path(@order, order: {status: :annulée}), method: :patch,
+          class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
            Annuler
         <% end %>
+
+        <%= link_to order_path(@order, order: {status: :récupérée}), method: :patch,
+          class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+           Commande récupérée
+        <% end %>
+
+
       </div>
     </div>
   </div>

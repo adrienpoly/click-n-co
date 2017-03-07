@@ -44,10 +44,10 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update(order_params)
-    if order.ready?
-      OrderMailer.ready(order).deliver_now
-    elsif order.canceled?
-      OrderMailer.canceled(order).deliver_now
+    if order.prête?
+      OrderMailer.prête(order).deliver_now
+    elsif order.annulée?
+      OrderMailer.annulée(order).deliver_now
     end
     redirect_to retailer_shop_path(order.shop)
     #notice: ''
@@ -74,6 +74,8 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:status, :instructions)
   end
 end
+
+
 
 
 

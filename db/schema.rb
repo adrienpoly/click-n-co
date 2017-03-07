@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20170306113518) do
     t.json     "payment"
     t.index ["shop_id"], name: "index_orders_on_shop_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+    t.index ["ordered_product_id"], name: "index_orders_on_ordered_product_id", using: :btree
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -144,6 +145,7 @@ ActiveRecord::Schema.define(version: 20170306113518) do
 
   add_foreign_key "opening_hours", "shops"
   add_foreign_key "ordered_products", "products"
+  add_foreign_key "orders", "ordered_products"
   add_foreign_key "orders", "shops"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_categories"
