@@ -1,0 +1,21 @@
+<div class="container text-center">
+  <h1 class="text-center">My Click-n-co order #<%= @order.id %></h1>
+  <%= form_tag order_payments_path(@order) do %>
+    <article>
+      <label class="total_price">
+        <span>Total de la commande: <%= humanized_money_with_symbol(@order.total_price) %></span>
+      </label>
+    </article>
+
+    <!-- Commented for the lecture, remove comments.   -->
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-name="Click-n-co"
+      data-email="<%= current_user.email %>"
+      data-description="<%= @order.shop.name %>"
+      data-amount="<%= @order.total_price_cents %>"
+      data-currency="<%= @order.total_price.currency %>"
+      data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
+    </script>
+  <% end %>
+</div>

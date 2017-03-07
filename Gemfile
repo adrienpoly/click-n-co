@@ -28,12 +28,16 @@ gem "gmaps4rails"
 gem "geocoder"
 gem 'bootsy'
 gem 'turbolinks', '~> 5.0.0'
+gem 'money-rails'
+gem 'stripe'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
 group :development, :test do
+  gem 'oauth2'
+  gem 'yelp', require: 'yelp'
   gem 'binding_of_caller'
   gem 'better_errors'
 

@@ -22,8 +22,10 @@ Rails.application.routes.draw do
 
   end
   resources :orders, only: [:index, :create, :update]
+  resources :orders, only: [:create] do
+    resources :payments, only: [:new, :create]
+  end
+
   get '/style', to: 'pages#bootstrap_components'
   get '/clear-session', to: 'orders#clear_session_cart'
-
-
 end
