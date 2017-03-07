@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      order:
+        statuses:
+          pending:    "Pending"
+          processing: "Processing"
+          confirmed:  "Confirmé"
+          ready:      "Ready"
+          picked_up:  "Picked up"
+          canceled:   "Canceled"
