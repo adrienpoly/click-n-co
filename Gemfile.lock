@@ -106,7 +106,6 @@ GEM
     faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.17)
-    ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
     font-awesome-rails (4.7.0.1)
@@ -333,8 +332,8 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
-  oauth2
   money-rails
+  oauth2
   omniauth-facebook
   pg
   pg_search
