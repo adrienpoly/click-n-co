@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     # @open_hours = OpeningHour.where(shop_id: params[:id])
     # @collection = OpenHourSort.new(@open_hours).call  ## unless @open_hours.empty?
     @cart = session[:cart] || {} #set to empty hash if empty (new cart)
-    @product_hash = Product.search(params[:search])
+    @product_hash = Product.search(params[:search], session[:address])
   end
 
 

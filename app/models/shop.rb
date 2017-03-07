@@ -1,7 +1,9 @@
 class Shop < ApplicationRecord
-  # attr_accessor :distance
+  include PgSearch
+
   belongs_to :user
   belongs_to :category
+
   has_many :opening_hours
   has_many :products
   has_many :orders
@@ -15,6 +17,15 @@ class Shop < ApplicationRecord
   has_many :product_categories, through: :products
   has_attachment :photo
   after_create :set_owner
+
+
+  belongs_to :cracker
+  has_many :cheeses, :through => :cracker
+
+  pg_search_scope :search_products_shops,
+    associated_against: {
+      products: [ :name, :short_description, :description ]
+    }
 
   def to_hash
     categories = self.product_categories.distinct
