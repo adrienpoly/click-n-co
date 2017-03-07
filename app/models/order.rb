@@ -3,7 +3,11 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :shop
   enum status: [:pending, :confirmed, :ready, :picked_up, :canceled]
+  monetize :total_price_cents
 end
+
+
+
 
 
 

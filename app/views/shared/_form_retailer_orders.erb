@@ -15,7 +15,7 @@
       <tr>
         <th scope="row"><%= order.id %></th>
         <td><%= order.user.email %></td>
-        <td><%= order.pick_up_at %></td>
+        <td><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</td>
         <td><%= order.total_price %>€</td>
         <td><%= order.status %></td>
         <td>

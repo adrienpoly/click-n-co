@@ -7,7 +7,7 @@
 .bar.done{
    border: 2px solid #00ccbc;
 }
-.progress{
+.progres{
  display:flex;
  align-items: center;
  font-size: 20px;
@@ -15,8 +15,27 @@
  box-shadow: none;
  margin-left: 80px;
  color: #626666;
+ .bar-label {
+  position: relative;
+ }
 }
 
 .done{
  color: #00ccbc;
 }
+
+.bar-text {
+  position: absolute;
+  bottom: -50px;
+  left: 0px;
+  color: red;
+  z-index: 100;
+}
+
+// .canceled {
+//    color: red;
+// }
+
+// .bar.canceled {
+//   border: 2px solid red;
+// }
