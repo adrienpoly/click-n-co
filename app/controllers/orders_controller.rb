@@ -10,12 +10,12 @@ class OrdersController < ApplicationController
   def create
     session[:cart].each do |shop_id, orders|
       sum = 0
-      order = Order.new()
-      order.user = current_user
-      order.shop_id = shop_id
-      order.pick_up_at = build_date(params[:other][:day], params[:other][:hour])
-      order.instructions = params[:order][:instructions]
-      order.save
+      @order = Order.new()
+      @order.user = current_user
+      @order.shop_id = shop_id
+      @order.pick_up_at = build_date(params[:other][:day], params[:other][:hour])
+      @order.instructions = params[:order][:instructions]
+      @order.save
       orders.each do |product_id, product|
         ordered_product = OrderedProduct.new(
           order: @order,
@@ -25,10 +25,8 @@ class OrdersController < ApplicationController
         ordered_product.save
         sum += ordered_product.order_price * ordered_product.quantity
       end
-      order.total_price = sum
-      order.confirmed!
-      order.save
-      OrderMailer.register(order).deliver_now
+      @order.total_price = sum
+      @order.save
       # redirect_to orders_path, notice: 'Order was successfully created.'
     end
     @order.pending!
