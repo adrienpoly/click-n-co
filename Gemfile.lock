@@ -321,7 +321,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
-  money-rails (= 1.8.0)
+  money-rails
   omniauth-facebook
   pg
   pry-byebug
