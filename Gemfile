@@ -34,6 +34,8 @@ source 'https://rails-assets.org' do
 end
 
 group :development, :test do
+  gem 'oauth2'
+  gem 'yelp', require: 'yelp'
   gem 'binding_of_caller'
   gem 'better_errors'
 

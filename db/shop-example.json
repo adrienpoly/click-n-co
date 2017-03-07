@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": "BUSINESS_UNAVAILABLE",
+    "description": "We may not be able to provide details for certain businesses, for example if they do not have any reviews yet."
+  }
+}
