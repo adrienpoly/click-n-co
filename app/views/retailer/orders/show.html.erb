@@ -18,7 +18,7 @@
       <p><strong>Statut</strong> : <%= @order.status %></p>
       <div class="progres">
 
-        <% if !@order.annulée? %>
+        <% if !@order.canceled? %>
         <div class="bar-label">
 
         </div>

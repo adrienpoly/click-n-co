@@ -4,11 +4,12 @@ class Order < ApplicationRecord
   belongs_to :shop
   #enum status: [:pending, :confirmed, :ready, :picked_up, :canceled]
   enum status: {
-    :attente => 1,
-    :préparation => 2,
-    :prête => 3,
-    :récupérée => 4,
-    :annulée => 5
+    :pending => 1,
+    :processing => 2,
+    :confirmed => 3,
+    :ready => 4,
+    :picked_up => 5,
+    :canceled => 6
   }
   #[:en_attente, :en_cours_de_préparation, :commande_prête, :commande_récupérée, :commande_annulée]
 end
