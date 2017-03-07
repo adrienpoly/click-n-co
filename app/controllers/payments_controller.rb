@@ -16,6 +16,8 @@ class PaymentsController < ApplicationController
     currency:    @order.total_price.currency)
 
     @order.update(payment: charge.to_json, status: :confirmed)
+    OrderMailer.register(@order).deliver_now
+
     redirect_to orders_path
 
     rescue Stripe::CardError => e

@@ -27,17 +27,17 @@
           <% 5.times do |i| %>
 
             <div class="bar-label">
-              <% if i + 1 <= Order.statuses[@order.status] %>
+              <% if i + 1 <= @index %>
                 <i class="fa fa-circle done" aria-hidden="true"> </i>
               <% else %>
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
               <% end %>
-              <div class="bar-text"><%= Order.statuses.keys[i] %></div>
+              <div class="bar-text"><%= Order.human_enum_name(:status, Order.statuses.keys[i]) %></div>
             </div>
-            <% if i < 5 && i < Order.statuses[@order.status] - 1%>
-              <span class="bar done"></span>
-            <% elsif i < 4 && i >= Order.statuses[@order.status] - 1 %>
-              <span class="bar"></span>
+            <% if i < 5 && i < @index - 1%>
+            <span class="bar done"></span>
+            <% elsif i < 4 && i >= @index - 1 %>
+            <span class="bar"></span>
             <%  end %>
           <% end %>
 
