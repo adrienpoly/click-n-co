@@ -1,31 +1,41 @@
-<div class="container">
-  <table class="table table-bordered order-table">
-    <thead>
-      <tr>
-        <th class="text-center col-sm-1">N°</th>
-        <th class="text-center col-sm-3">Client</th>
-        <th class="text-center col-sm-2">Date de retrait</th>
-        <th class="text-center col-sm-2">Prix</th>
-        <th class="text-center col-sm-2">Statut</th>
-        <th class="text-center col-sm-2">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% orders.each do |order| %>
-      <tr>
-        <th scope="row"><%= order.id %></th>
-        <td><%= order.user.email %></td>
-        <td><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</td>
-        <td><%= order.total_price %>€</td>
-        <td><%= order.status %></td>
-        <td>
-        <%= link_to retailer_shop_order_path(@shop, order),
-          class: "btn btn-primary btn-block " do %>
-           Voir détails
-        <% end %>
-        </td>
-      </tr>
+<div class="order-">
+
+  <div class="order-list">
+    <div class="order-informations header">
+
+    <div class="order-retailer-numero"><p>N°</p></div>
+    <div class="order-retailer-client"><p>Client</p></div>
+    <div class="order-retailer-date"><p>Date de retrait</p></div>
+    <div class="order-retailer-price"><p>Prix</p></div>
+    <div class="order-retailer-status"><p>Statut</p></div>
+    </div>
+  </div>
+
+  <div class="order-list">
+    <% orders.each do |order| %>
+    <div class="order-informations">
+      <p class="order-retailer-numero"><%= order.id %></p>
+      <p class="order-retailer-client"><%= order.user.email %>
+      <p class="order-retailer-date"><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</p>
+      <p class="order-retailer-price"><%= order.total_price %>€</p>
+      <p class="order-retailer-status"><%= Order.human_enum_name(:status, order.status) %></p>
+      <p><%= link_to retailer_shop_order_path(@shop, order),
+        class: "btn btn-success btn-block see-details" do %>
+         Voir détails
       <% end %>
-    </tbody>
-  </table>
-</div>
+    </div>
+    <% end %>
+
+  </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+

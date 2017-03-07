@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(version: 20170306113518) do
 
   add_foreign_key "opening_hours", "shops"
   add_foreign_key "ordered_products", "products"
+  add_foreign_key "orders", "ordered_products"
   add_foreign_key "orders", "shops"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_categories"
