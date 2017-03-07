@@ -24,7 +24,7 @@
         </div>
 
 
-          <% 4.times do |i| %>
+          <% 5.times do |i| %>
 
             <div class="bar-label">
               <% if i + 1 <= Order.statuses[@order.status] %>
@@ -34,10 +34,10 @@
               <% end %>
               <div class="bar-text"><%= Order.statuses.keys[i] %></div>
             </div>
-            <% if i < 4 && i < Order.statuses[@order.status] - 1%>
-            <span class="bar done"></span>
-            <% elsif i < 3 && i >= Order.statuses[@order.status] - 1 %>
-            <span class="bar"></span>
+            <% if i < 5 && i < Order.statuses[@order.status] - 1%>
+              <span class="bar done"></span>
+            <% elsif i < 4 && i >= Order.statuses[@order.status] - 1 %>
+              <span class="bar"></span>
             <%  end %>
           <% end %>
 
@@ -60,16 +60,16 @@
           <% end %>
       </div>
       <div class="action-buttons text-center">
-        <%= link_to order_path(@order, order: {status: :prête}), method: :patch,
+        <%= link_to order_path(@order, order: {status: :ready}), method: :patch,
           class: "btn btn-success btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
            Commande prête
         <% end %>
-        <%= link_to order_path(@order, order: {status: :annulée}), method: :patch,
+        <%= link_to order_path(@order, order: {status: :canceled}), method: :patch,
           class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
            Annuler
         <% end %>
 
-        <%= link_to order_path(@order, order: {status: :récupérée}), method: :patch,
+        <%= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
           class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
            Commande récupérée
         <% end %>

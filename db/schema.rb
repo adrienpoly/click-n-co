@@ -58,18 +58,19 @@ ActiveRecord::Schema.define(version: 20170306113518) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer  "ordered_product_id"
     t.datetime "pick_up_at"
     t.integer  "user_id"
     t.text     "instructions"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "shop_id"
-    t.integer  "status",            default: 0, null: false
-    t.integer  "total_price_cents", default: 0, null: false
+    t.integer  "status",             default: 0, null: false
+    t.integer  "total_price_cents",  default: 0, null: false
     t.json     "payment"
+    t.index ["ordered_product_id"], name: "index_orders_on_ordered_product_id", using: :btree
     t.index ["shop_id"], name: "index_orders_on_shop_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
-    t.index ["ordered_product_id"], name: "index_orders_on_ordered_product_id", using: :btree
   end
 
   create_table "product_categories", force: :cascade do |t|
