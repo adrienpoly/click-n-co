@@ -22,7 +22,7 @@
               <% @shops.each do |shop| %>
                 <%# dist = distance shop.try(:distance) %>
                 <div class="shop-nearby">
-                  <%= cl_image_tag "click-n-co/background2.jpg", width: 40, height: 45, quality: "auto:eco", crop: :fill %>
+                  <%= cl_image_tag shop.photo.path, width: 40, height: 45, quality: "auto:eco", crop: :fill unless shop.photo.blank? %>
                   <div class="shop-nearby-content">
                     <%= link_to "#{shop.name.capitalize}",
                      shop_path(shop) %>
