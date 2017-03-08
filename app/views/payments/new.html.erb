@@ -1,56 +1,64 @@
 <div class="container payments text-center">
-  <h1 class="text-center">
-    Ma <strong>'Click-n-co'</strong> commande n°<%= @order.id %>
-  </h1>
+<div class="payments-content">
+   <h1 class="text-center payments-title">
+     Ma <strong>'Click-n-co'</strong> commande n°<%= @order.id %>
+   </h1>
+
+  <div class="order-list">
+    <div class="order-informations header">
+      <p class="order-retailer text-center col-sm-3">Shop</p>
+      <p class="order-retailer text-center col-sm-3">Date de retrait</p>
+      <p class="order-retailer text-center col-sm-3">Prix</p>
+      <p class="order-retailer text-center col-sm-3">Produits</p>
+    </div>
+  </div>
+
+
+
   <%= form_tag order_payments_path(@order) do %>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th class="text-center col-sm-3">Shop</th>
-        <th class="text-center col-sm-2">Date de retrait</th>
-        <th class="text-center col-sm-2">Prix</th>
-        <th class="text-center col-sm-2">Produits</th>
-      </tr>
-    </thead>
-    <tbody>
+    <div class="order-list">
+
       <% @table.each do |order| %>
-        <tr>
-          <td class="text-center"><strong><%= order.shop.name.capitalize %></strong>
-            <p></p>
+        <div class="order-informations">
+          <p class="order-retailer"><strong><%= order.shop.name.capitalize %></strong>,
             <%= order.shop.address %>
-          </td>
-          <td class="text-center"><%= order.pick_up_at.strftime('%A %d %b - %Hh%M') %>h</td>
-          <td class="text-center"><%= order.total_price %>€</td>
-          <td>
+          </p>
+          <p class="order-retailer"><%= order.pick_up_at.strftime('%A %d %b - %Hh%M') %>h</p>
+          <p class="order-retailer"><%= order.total_price %>€</p>
+          <p class="order-retailer">
             <% order.ordered_products.each do |ordprods| %>
               <%= ordprods.product.name %> x <%= ordprods.quantity %>
-              <br>
+
             <% end %>
-          </td>
-
-        </tr>
+          </p>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
 
-  <%= hidden_field_tag 'my_cart', params[:my_cart] %>
+   <%= hidden_field_tag 'my_cart', params[:my_cart] %>
 
-  <article>
-    <label class="total_price">
-      <% @order.total_price = @sum %>
-      <span>Total de la commande: <%= humanized_money_with_symbol(@order.total_price) %></span>
-    </label>
-  </article>
 
+  <div class="total_price_div">
+    <article>
+      <label class="total_price">
+        <% @order.total_price = @sum %>
+        <span>Total : <%= humanized_money_with_symbol(@order.total_price) %></span>
+      </label>
+    </article>
+  </div>
+
+  <div class="pay">
     <!-- Commented for the lecture, remove comments.   -->
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-name="Click-n-co"
-      data-email="<%= current_user.email %>"
-      data-description="<%= @order.shop.name %>"
-      data-amount="<%= @order.total_price_cents %>"
-      data-currency="<%= @order.total_price.currency %>"
-      data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
-    </script>
-  <% end %>
+     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+       data-name="Click-n-co"
+       data-email="<%= current_user.email %>"
+       data-description="<%= @order.shop.name %>"
+       data-amount="<%= @order.total_price_cents %>"
+       data-currency="<%= @order.total_price.currency %>"
+       data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
+     </script>
+   <% end %>
+  </div>
+
 </div>
