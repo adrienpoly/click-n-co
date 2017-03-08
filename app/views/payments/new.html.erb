@@ -1,11 +1,46 @@
-<div class="container text-center">
-  <h1 class="text-center">My Click-n-co order #<%= @order.id %></h1>
+<div class="container payments text-center">
+  <h1 class="text-center">
+    Ma <strong>'Click-n-co'</strong> commande n°<%= @order.id %>
+  </h1>
   <%= form_tag order_payments_path(@order) do %>
-    <article>
-      <label class="total_price">
-        <span>Total de la commande: <%= humanized_money_with_symbol(@order.total_price) %></span>
-      </label>
-    </article>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center col-sm-3">Shop</th>
+        <th class="text-center col-sm-2">Date de retrait</th>
+        <th class="text-center col-sm-2">Prix</th>
+        <th class="text-center col-sm-2">Produits</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @table.each do |order| %>
+        <tr>
+          <td class="text-center"><strong><%= order.shop.name.capitalize %></strong>
+            <p></p>
+            <%= order.shop.address %>
+          </td>
+          <td class="text-center"><%= order.pick_up_at.strftime('%A %d %b - %Hh%M') %>h</td>
+          <td class="text-center"><%= order.total_price %>€</td>
+          <td>
+            <% order.ordered_products.each do |ordprods| %>
+              <%= ordprods.product.name %> x <%= ordprods.quantity %>
+              <br>
+            <% end %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= hidden_field_tag 'my_cart', params[:my_cart] %>
+
+  <article>
+    <label class="total_price">
+      <% @order.total_price = @sum %>
+      <span>Total de la commande: <%= humanized_money_with_symbol(@order.total_price) %></span>
+    </label>
+  </article>
 
     <!-- Commented for the lecture, remove comments.   -->
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

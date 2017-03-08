@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @mycart = []
     session[:cart].each do |shop_id, orders|
       sum = 0
       @order = Order.new()
@@ -26,12 +27,13 @@ class OrdersController < ApplicationController
         sum += ordered_product.order_price * ordered_product.quantity
       end
       @order.total_price = sum
+      @order.pending!
       @order.save
-      # redirect_to orders_path, notice: 'Order was successfully created.'
+      @mycart << @order
     end
-    @order.pending!
     session[:cart] = {}
-    redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
+    #redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
+    redirect_to new_order_payment_path(@order, my_cart: @mycart), notice: 'Order was successfully created.'
   end
 
   def show
