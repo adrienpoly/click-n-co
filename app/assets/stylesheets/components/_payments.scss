@@ -1,7 +1,16 @@
 .total_price {
-  background-color: #888888;
-  color: white;
+  font-size: 25px;
+  color: black;
   padding: 10px 15px;
+}
+
+.total_price_div {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.pay {
+  margin-bottom: 70px;
 }
 
 .payments {
@@ -12,5 +21,14 @@
   th {
     background-color: #00CCC2;
   }
+}
+
+.payments-content {
+  margin-top: 70px;
+}
+
+.payments-title {
+  margin-bottom: 30px;
+  color: $green;
 }
 
