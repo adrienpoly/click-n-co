@@ -16,13 +16,13 @@
     <div class="order-informations">
       <p class="order-retailer"><%= order.id %></p>
       <p class="order-retailer">
-        <%= order.shop.name.capitalize %><br><%= order.shop.address %>
+        <%= order.shop.name.capitalize %>
       </p>
       <p class="order-retailer"><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</p>
       <p class="order-retailer"><%= order.total_price %>€</p>
       <p class="order-retailer">
-        <% order.ordered_products.each do |ordprods| %>
-          <%= ordprods.product.name %> x <%= ordprods.quantity %>
+        <%= link_to "#order-show", class: "", data: { toggle: "modal", orderid: "#{order.id}" } do %>
+          <button class="btn btn-primary">Detail</button>
         <% end %>
       </p>
     </div>

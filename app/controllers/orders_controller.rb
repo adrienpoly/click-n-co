@@ -37,8 +37,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    #@order = Order.new
-    @order = Order.where(status: :confirmed).find(params[:id])
+    #@order = Order.where(status: :confirmed).find(params[:id])
+    render layout: false
   end
 
   def update
