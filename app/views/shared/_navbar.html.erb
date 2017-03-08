@@ -8,12 +8,20 @@
   <div class="navbar-wagon-right ">
 
     <!-- Search form -->
-    <form action="/products" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" name="search" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn" >
-        <i class="fa fa-search"></i>
-      </button>
+    <form action="/products">
+      <div class="products-search">
+        <input type="text" id ="products-search-txt" class="navbar-wagon-search-input" name="search" placeholder="Un produit à coté de chez vous">
+        <div class="results" id="products-search-results"></div>
+
+        <button type="submit" class="navbar-wagon-search-btn" >
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
     </form>
+
+      <!-- <input type="text" id="products-search-txt" autofocus> -->
+      <!-- <div class="results" id="products-search-results"></div> -->
+
 
     <!-- <%#= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
       <div class="badge-container">
@@ -112,3 +120,12 @@
   </div>
 </div>
 
+<% content_for(:after_js) do %>
+  <script>
+   $(function() {
+      new app.Products;
+    });
+
+  </script>
+
+<% end %>

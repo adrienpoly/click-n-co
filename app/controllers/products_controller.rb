@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  skip_before_action :authenticate_user!, only: [ :index, :search ]
 
   def index
     # @shops = Shop.near(@shop,5).limit(4).offset(1)
@@ -11,5 +11,14 @@ class ProductsController < ApplicationController
     @product_hash = Product.search(params[:search], session[:address])
   end
 
+  def search
+    # respond_to do |format|
+      @products = Product.search_autocomplete(params[:term])
 
+      # @products.each { |e| e.name = e.pg_search_highlight }
+
+      # @products
+      # format.json
+    # end
+  end
 end

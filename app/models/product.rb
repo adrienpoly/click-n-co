@@ -15,6 +15,23 @@ class Product < ApplicationRecord
       }
     }
 
+    pg_search_scope :autocomplete,
+    against: [ :name ],
+    using: {
+      tsearch: {
+        prefix:     true,
+        dictionary: "french",
+        highlight: {
+          start_sel:  '<b>',
+          stop_sel:   '</b>'
+        }
+      }
+    }
+
+
+  def self.search_autocomplete(search)
+    Product.autocomplete(search).with_pg_search_highlight.limit(5)
+  end
 
   def self.search(search, address = "")
       if address.blank?
