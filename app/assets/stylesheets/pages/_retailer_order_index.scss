@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
   background: white;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -16,6 +18,7 @@
     background-color: $grey-platinum;
     * {
       background-color: $grey-platinum;
+      color: #626666;
     }
   }
 }
@@ -30,10 +33,13 @@
 }
 
 
-.order-retailer-numero {
-  //width: 25px;
-  flex: 0 0 40px;
+.order-retailer {
+  width: 150px;
+  text-align: center;
+  overflow: hidden;
 }
+
+
 
 .order-retailer-client {
   //width: 25px;
@@ -45,48 +51,47 @@
 }
 
 
+.order-table {
+  border: none ;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .order-table {
-//   margin-top: 50px;
-//   //border-top: 0px;
-//   td {
-//     text-align: center;
-//     padding: 10px;
-//     background-color: #E8EBEB;
-//   }
-//   th {
-//     padding-bottom: 30px;
-//   }
-//   tbody tr {
-//     margin-bottom: 50px !important;
-//   }
-// }
-
-
-.inactive{
-  a{
+  .inactive a {
     color:#626666;
+    &:hover{
+    border: none ;
+    background-color: $grey-platinum !important;
+    }
   }
+
+
 }
 
-// .table-background {
-//   //background-color: #E8EBEB;
+.order-table > li.active > a {
+  background-color: $grey-platinum !important;
+  border: none ;
+
+  border-bottom: 2px $green solid !important;
+  //color: $green;
+  &:hover {
+    border: none ;
+    background-color: $grey-platinum !important;
+  }
+
+  &:focus {
+      border: none ;
+      background-color: $grey-platinum !important;
+      border-bottom: 2px $green solid;
+    }
+  }
+
+
+// .active {
+//   a {
+//     background-color: $grey-platinum;
+//   }
 // }
 
-
-
+.no-order-yet {
+  margin-top: 50px;
+}
 
 

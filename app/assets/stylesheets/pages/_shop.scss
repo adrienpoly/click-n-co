@@ -168,6 +168,7 @@
 .shop-cart{
   background-color: $grey_platinum;
   height: calc(100vh - #{$navbar-heigth} );
+  overflow: scroll;
   &.shop-cart-dropdown{
     height: auto;
     padding: 30px 30px;
@@ -208,4 +209,7 @@
 .action-buttons {
   margin-right: 20px;
 }
+
+
+
 
