@@ -1,31 +1,32 @@
-<% if @orders.empty? %>
+
+<div class="container order-recap">
+
+  <ul class="nav nav-tabs order-table" role="tablist">
+    <li role="presentation" class="inactive active"><a class="onglet" href="#futur" data-toggle="tab">Commandes à retirer</a></li>
+    <li role="presentation" class="inactive"><a class="onglet" href="#past" data-toggle="tab">Commandes passées</a></li>
+  </ul>
+  <p></p>
+
+<div class="no-order-yet">
+  <% if @orders.empty? %>
     Vous n'avez pas encore de commande !
   <% end %>
+</div>
 
-
-
-<div class="padded">
-  <div class="container">
-
-    <ul class="nav nav-tabs order-table" role="tablist">
-      <li role="presentation" class="inactive active"><a href="#futur" data-toggle="tab">Commandes à retirer</a></li>
-      <li role="presentation" class="inactive"><a href="#past" data-toggle="tab">Commandes passées</a></li>
-    </ul>
-    <p></p>
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="futur">
-        <% unless @orders_in.nil? %>
-          <%= render 'shared/form_retailer_orders', orders: @orders_in, futur: true %>
-        <% end %>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="past">
-        <% unless @orders_out.nil? %>
-          <%= render 'shared/form_retailer_orders', orders: @orders_out, past: true %>
-        <% end %>
-      </div>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="futur">
+      <% unless @orders_in.nil? %>
+        <%= render 'shared/form_retailer_orders', orders: @orders_in, futur: true %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="past">
+      <% unless @orders_out.nil? %>
+        <%= render 'shared/form_retailer_orders', orders: @orders_out, past: true %>
+      <% end %>
     </div>
   </div>
 </div>
+
 
 <% content_for :after_js do %>
   <script>
@@ -37,10 +38,14 @@
     // Change hash for page-reload
     $('.nav-tabs a').on('shown.bs.tab', function (e) {
         window.location.hash = e.target.hash;
-    })
-  </script>
-<% end %>
-
+    });
+    $('.onglet').click(function(){
+      setTimeout(function(){
+        window.scrollTo(0, 0);
+      }, 5)
+    });
+    <% end %>
+</script>
 
 
 

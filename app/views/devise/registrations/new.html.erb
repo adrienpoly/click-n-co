@@ -5,7 +5,6 @@
     </div>
       <div class="row omb_row-sm-offset-3 ">
         <div class="col-xs-12 col-sm-6 col-centered">
-          <form class="omb_loginForm" action="" autocomplete="off" method="POST">
             <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
 
@@ -42,7 +41,6 @@
             <% end %>
               <p class="text-center"> Already with us? </p>
               <%= render "devise/shared/links" %>
-          </form>
         </div>
       </div>
   </div>

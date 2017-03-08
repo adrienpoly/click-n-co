@@ -1,32 +1,31 @@
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th class="text-center col-sm-1">N°</th>
-        <th class="text-center col-sm-3">Shop</th>
-        <th class="text-center col-sm-2">Date de retrait</th>
-        <th class="text-center col-sm-2">Prix</th>
-        <th class="text-center col-sm-2">Content</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% order.each do |order| %>
-      <tr>
-        <th class="text-center" scope="row"><%= order.id %></th>
-        <td class="text-center"><%= order.shop.name.capitalize %>
-          <p></p>
-          <%= order.shop.address %>
-        </td>
-        <td class="text-center"><%= order.pick_up_at.strftime('%A %d %b - %Hh%M') %>h</td>
-        <td class="text-center"><%= order.total_price %>€</td>
-        <td>
-          <% order.ordered_products.each do |ordprods| %>
-            <%= ordprods.product.name %> x <%= ordprods.quantity %>
-          <% end %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="order-">
 
+  <div class="order-list">
+    <div class="order-informations header">
 
+    <p class="order-retailer text-center"><strong>N°</strong></p>
+    <p class="order-retailer text-center"><strong>Shop</strong></p>
+    <p class="order-retailer text-center"><strong>Date de retrait</strong></p>
+    <p class="order-retailer text-center"><strong>Prix</strong></p>
+    <p class="order-retailer text-center"><strong>Produits</strong></p>
+    </div>
+  </div>
 
+  <div class="order-list">
+    <% order.each do |order| %>
+    <div class="order-informations">
+      <p class="order-retailer"><%= order.id %></p>
+      <p class="order-retailer">
+        <%= order.shop.name.capitalize %>
+      </p>
+      <p class="order-retailer"><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</p>
+      <p class="order-retailer"><%= order.total_price %>€</p>
+      <p class="order-retailer">
+        <%= link_to "#order-show", class: "", data: { toggle: "modal", orderid: "#{order.id}" } do %>
+          <button class="btn btn-primary">Detail</button>
+        <% end %>
+      </p>
+    </div>
+    <% end %>
+  </div>
+</div>

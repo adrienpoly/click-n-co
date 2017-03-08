@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
 
   end
-  resources :orders, only: [:index, :create, :update]
+  resources :orders, only: [:index, :create, :update, :show]
   resources :orders, only: [:create] do
     resources :payments, only: [:new, :create]
   end

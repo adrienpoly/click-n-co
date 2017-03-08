@@ -13,7 +13,7 @@ module ShopsHelper
     carts.each do |shop_id, cart|
       sum += cart_sub_total(cart)
     end
-    sum
+    sum.round(2)
   end
 
   def cart_sub_total(cart)
