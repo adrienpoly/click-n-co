@@ -1,0 +1,12 @@
+
+  <div class="text-center">
+    <p><strong>Commande N° <%= @order.id %></strong></p>
+    <h3>Auprès de: <%= @order.shop.name %></h3>
+    <h3><%= @order.shop.address %></h3>
+  </div>
+  <div>
+    <p><strong>Produits achétés:</strong></p>
+    <% @order.ordered_products.each do |ordprods| %>
+      <li><%= ordprods.product.name %> x <%= ordprods.quantity %></li>
+    <% end %>
+  </div>
