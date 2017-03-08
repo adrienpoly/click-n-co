@@ -3,23 +3,25 @@
   <div class="order-list">
     <div class="order-informations header">
 
-    <div class="order-retailer-numero"><p>N°</p></div>
-    <div class="order-retailer-client"><p>Client</p></div>
-    <div class="order-retailer-date"><p>Date de retrait</p></div>
-    <div class="order-retailer-price"><p>Prix</p></div>
-    <div class="order-retailer-status"><p>Statut</p></div>
+    <p class="order-retailer text-center">N°</p>
+    <p class="order-retailer text-center">Client</p>
+    <p class="order-retailer text-center">Date de retrait</p>
+    <p class="order-retailer text-center">Prix</p>
+    <p class="order-retailer text-center">Statut</p>
+    <p class="order-retailer text-center">Action</p>
     </div>
   </div>
 
   <div class="order-list">
     <% orders.each do |order| %>
     <div class="order-informations">
-      <p class="order-retailer-numero"><%= order.id %></p>
-      <p class="order-retailer-client"><%= order.user.email %>
-      <p class="order-retailer-date"><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</p>
-      <p class="order-retailer-price"><%= order.total_price %>€</p>
-      <p class="order-retailer-status"><%= Order.human_enum_name(:status, order.status) %></p>
-      <p><%= link_to retailer_shop_order_path(@shop, order),
+      <p class="order-retailer"><%= order.id %></p>
+      <p class="order-retailer"><% avatar_url = order.user.facebook_picture_url || 'sylvain.png' %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %></p>
+      <p class="order-retailer"><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</p>
+      <p class="order-retailer"><%= order.total_price %>€</p>
+      <p class="order-retailer"><%= Order.human_enum_name(:status, order.status) %></p>
+      <p class="order-retailer"><%= link_to retailer_shop_order_path(@shop, order),
         class: "btn btn-success btn-block see-details" do %>
          Voir détails
       <% end %>

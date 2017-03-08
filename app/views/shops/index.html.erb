@@ -43,7 +43,7 @@
         <div class="row">
           <% @shops.each do |shop|  %>
             <div class="col-sm-4 card">
-              <%= render 'card', shop: shop %>
+                <%= render 'card', shop: shop %>
             </div>
           <% end %>
         </div>
@@ -54,6 +54,7 @@
     </div>
   </div>
 </div>
+
 
 <% content_for(:after_js) do %>
   <script>
@@ -72,3 +73,4 @@
     });
   </script>
 <% end %>
+
