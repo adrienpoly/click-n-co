@@ -3,7 +3,11 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  z-index: 3000;
   text-align: center;
   color: white;
 }
@@ -13,3 +17,4 @@
 .alert-warning {
   background: $red;
 }
+
