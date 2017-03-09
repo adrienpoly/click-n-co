@@ -1,7 +1,7 @@
 <div class="shop-cat">
-  <h4>Catégories de produits</h4>
+  <h4>Commerces</h4>
   <% @product_hash.keys.each_with_index do |product_category, index| %>
-    <%= link_to request.url, anchor: "cat-#{index}" do %>
+    <%= link_to products_path(search: params[:search], anchor: "cat-#{index}") do %>
       <p><%= product_category %></p>
     <% end %>
   <% end %>
