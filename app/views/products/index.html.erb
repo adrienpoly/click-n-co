@@ -1,13 +1,13 @@
-
-
-
   <div class="shop">
     <div class="container">
+    <div class="products-search-results">
+      <h2 class="text-center"><%= @product_hash.keys.size %> commerces près de chez vous vendent du : <%= params[:search] %> </h2>
+    </div>
       <div class="row no-gutter">
         <div class="col-md-3 hidden-xs hidden-sm">
           <div class="shop-categories shop-nav" data-spy="affix" id="product-categories">
 
-            <%= render 'shops/product_categories' %>
+            <%= render 'shops/shops_categories' %>
             <div class="shops-nearby">
               <h4>Autres commerces proches</h4>
               <% @shops.each do |shop| %>

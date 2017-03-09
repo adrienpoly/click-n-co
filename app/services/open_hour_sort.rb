@@ -4,7 +4,8 @@ class OpenHourSort
   end
 
   def call
-    def_hrs = ["12h - 12h30", "15h - 15h30", "16h - 16h30", "17h - 17h30", "18h - 18h30"]
+    # def_hrs = ["12h - 12h30", "15h - 15h30", "16h - 16h30", "17h - 17h30", "18h - 18h30"]
+    def_hrs = ["9h", "10h", "11h", "12h", "12h", "13h", "15h", "16h", "17h", "18h"]
     my_day = Date.today
     date_now = @open_hours.find_by(day: my_day.wday.to_s)
     ### 1 = Mon, ... 6 = Sat, 0 = Sun !!!!!!!

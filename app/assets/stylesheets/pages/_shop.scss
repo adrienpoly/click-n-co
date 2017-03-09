@@ -25,7 +25,14 @@
     }
 
   }
-
+  .products-search-results{
+    padding: 20px 0;
+    h2{
+      text-align: center;
+      color: $green;
+      font-size: 30px;
+    }
+  }
   .shops-nearby{
     border-top: 1px solid #e8ebeb;
 
@@ -168,7 +175,7 @@
 .shop-cart{
   background-color: $grey_platinum;
   height: calc(100vh - #{$navbar-heigth} );
-  overflow: scroll;
+  // overflow: scroll;
   &.shop-cart-dropdown{
     height: auto;
     padding: 30px 30px;
