@@ -23,7 +23,7 @@ def create_users
   user.admin = true
   user.save
 
-  user = User.new(email: ' piergiovanni@cegetel.net', password: '123456')
+  user = User.new(email: 'piergiovanni@cegetel.net', password: '123456')
   user.admin = true
   user.save
   owner

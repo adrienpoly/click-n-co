@@ -6,7 +6,7 @@ class ShopsController < ApplicationController
     if params[:category].nil? || params[:category].empty?
       params[:where].blank? ? @shops = Shop.all : @shops = Shop.near(params['where'], 1000)
     else
-      @shops = Shop.near(params['where'], 1000).where(category_id: params[:category])
+      params[:where].blank? ? @shops = Shop.where(category_id: params[:category]) : @shops = Shop.near(params['where'], 1000).where(category_id: params[:category])
     end
     session[:address] = params['where']
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
