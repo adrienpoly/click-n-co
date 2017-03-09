@@ -1,3 +1,30 @@
+.shop-informations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+    p {
+      background: white;
+    }
+  &.header {
+    margin: 60px 50px 20px 50px;
+
+    // margin-right: 200px;
+    background-color: $grey-platinum;
+    * {
+      background-color: $grey-platinum;
+      color: #626666;
+      padding-top: 20px;
+    }
+  }
+}
+
 .retailer-shops {
   margin-left: 20px;
   border-style: solid;
@@ -14,5 +41,37 @@
   &:hover {
     text-decoration: none;
   }
+}
+
+
+
+.orders-and-shops {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin: 15px 50px 0px 50px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.order-count {
+  font-weight: 20px;
+  color: #626666;
+  font-weight: bold;
+}
+
+.shop-retailer {
+  width: 150px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.details-button {
+  margin-right: 10px;
+}
+
+.shop-list {
+  //padding-bottom: 10px;
 }
 

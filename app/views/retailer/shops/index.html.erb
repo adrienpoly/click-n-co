@@ -1,17 +1,33 @@
+<div class="shops-retailer">
 
+  <div class="shop-list">
+    <div class="shop-informations header">
 
+    <p class="shop-retailer text-center">N°</p>
+    <p class="shop-retailer text-center">Adresse</p>
+    <p class="shop-retailer text-center">Nombre de commandes</p>
+    <p class="shop-retailer text-center">Action</p>
+    </div>
+  </div>
+
+<div class="shop-list">
   <% if @shops.empty? %>
     You have no shops, go buy one
-  <% end %>
 
-<% @shops.each do |shop| %>
-  <div class="retailer-shops">
-    <%= link_to retailer_shop_path(shop), class: "shop-name-address" do %>
-    <h3><%= shop.name %></h3>
-    <p><%= shop.address %></p>
+  <% else %>
+    <% @shops.each do |shop|  %>
+      <% if !shop.orders.empty? %>
+        <div class="orders-and-shops">
+          <p class="shop-retailer text-center"><%= shop.name %></p>
+          <p class="shop-retailer text-center"><%= shop.address %></p>
+          <p class="shop-retailer text-center"> <%= shop.orders.count %></p>
+          <p class="shop-retailer text-center details-button"><%= link_to retailer_shop_path(shop),
+            class: "btn btn-success btn-block see-details" do %>
+           Voir détails
+          <% end %></p>
+        </div>
+      <% end %>
     <% end %>
+  <% end %>
   </div>
-<% end %>
-
-
-
+</div>
