@@ -47,6 +47,11 @@
         <% end %>
         </div>
       </div>
+      <div class="text-center">
+        <%= link_to_previous_page @shops, 'Page préc.' %>
+        <%= link_to_next_page @shops, 'Page suiv.' %>
+        <!-- <%= paginate @shops %> -->
+      </div>
     </div>
     <div class="pois-map" id="map"></div>
   </div>
