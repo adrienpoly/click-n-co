@@ -1,0 +1,28 @@
+.index-shops {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 166px);
+  align-items: stretch;
+  padding-top: 20px;
+}
+
+.pois {
+  display: flex;
+  flex-grow: 10;
+
+}
+
+.pois-list {
+  flex-grow: 1;
+  //background: purple;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pois-map {
+  width: 560px;
+  height: calc(100vh - 200px);
+  margin-right: 10px;
+  background: blue;
+}
+

@@ -31,7 +31,6 @@ gem 'bootsy'
 gem 'turbolinks', '~> 5.0.0'
 gem 'money-rails'
 gem 'stripe'
-gem "select2-rails"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
