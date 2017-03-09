@@ -34,28 +34,45 @@
   </form>
 </div>  <! end CONTAINER -->
 
-<div class="map-wrapper">
-  <div class="container padded">
-    <!-- <div id="map" style="width: 100%; height: 400px;"></div> -->
-    <div class="row">
+<div class="index-shops">
 
-      <div class="col-md-8">
+  <div class="pois">
+    <div class="pois-list">
+      <div class="container-fluid">
         <div class="row">
-          <% @shops.each do |shop|  %>
-            <div class="col-sm-4 card">
-                <%= render 'card', shop: shop %>
-            </div>
-          <% end %>
+        <% @shops.each do |shop|  %>
+          <div class="col-xs-6">
+            <%= render 'card', shop: shop %>
+          </div>
+        <% end %>
         </div>
       </div>
-      <div class="col-md-4" id="map">
+    </div>
+    <div class="pois-map" id="map"></div>
+  </div>
 
+</div>
+
+<!-- <div class="index-shops">
+  <div class="map-wrapper">
+    <div class="container padded">
+        <div class="pois">
+          <div class="pois-list">
+            <div class="row">
+              <#% @shops.each do |shop|  %>
+                <div class="col-sm-4 card">
+                    <#%= render 'card', shop: shop %>
+                </div>
+              <#% end %>
+            </div>
+        </div>
+        <div class="pois-map" id="map">
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
+ -->
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
@@ -73,4 +90,6 @@
     });
   </script>
 <% end %>
+
+
 
