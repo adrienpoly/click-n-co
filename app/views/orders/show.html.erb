@@ -1,8 +1,8 @@
 
   <div class="text-center">
-    <p><strong>Commande N° <%= @order.id %></strong></p>
-    <h3>Auprès de: <%= @order.shop.name %></h3>
-    <h3><%= @order.shop.address %></h3>
+    <p class="color-commande"><strong>Commande N° <%= @order.id %></strong></p>
+    <h3>Chez: <%= @order.shop.name %></h3>
+    <h4><%= @order.shop.address %></h4>
   </div>
   <div>
     <p><strong>Produits achétés:</strong></p>
@@ -10,3 +10,9 @@
       <li><%= ordprods.product.name %> x <%= ordprods.quantity %></li>
     <% end %>
   </div>
+  <% unless @order.instructions.empty? %>
+    <br>
+    <div><strong>Instructions pour le vendeur:</strong>
+      <%= @order.instructions %>
+    </div>
+  <% end %>

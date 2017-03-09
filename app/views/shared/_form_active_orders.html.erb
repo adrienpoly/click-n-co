@@ -22,7 +22,7 @@
       <p class="order-retailer"><%= order.total_price %>€</p>
       <p class="order-retailer">
         <%= link_to "#order-show", class: "", data: { toggle: "modal", orderid: "#{order.id}" } do %>
-          <button class="btn btn-primary">Detail</button>
+          <button class="btn btn-success btn-block">Voir détails</button>
         <% end %>
       </p>
     </div>
