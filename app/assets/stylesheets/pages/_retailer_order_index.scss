@@ -20,6 +20,8 @@
     * {
       background-color: $grey-platinum;
       color: #626666;
+      font-size: 20px;
+      font-weight: bolder;
     }
   }
 }
@@ -35,7 +37,18 @@
 
 
 .order-retailer {
-  width: 150px;
+  // width: 150px;
+  flex: 1 1 150px;
+  text-align: center;
+  overflow: hidden;
+  a {
+    text-decoration: none;
+  }
+}
+
+.order-retailer-products {
+  width: 350px;
+  flex: 1 0 350px;
   text-align: center;
   overflow: hidden;
 }

@@ -1,14 +1,28 @@
 
-  <div class="text-center">
-    <p class="color-commande"><strong>Commande N° <%= @order.id %></strong></p>
+    <p class="color-commande text-center"><strong>Commande N° <%= @order.id %></strong></p>
     <h3>Chez: <%= @order.shop.name %></h3>
-    <h4><%= @order.shop.address %></h4>
-  </div>
+    <p><%= @order.shop.address %></p>
   <div>
     <p><strong>Produits achétés:</strong></p>
-    <% @order.ordered_products.each do |ordprods| %>
-      <li><%= ordprods.product.name %> x <%= ordprods.quantity %></li>
-    <% end %>
+    <div class="order-manifest">
+      <% @order.ordered_products.each do |ordprods| %>
+        <div class="order-line">
+          <div class="order-line-content">
+            <span class="order-line-quantity">
+              <%= ordprods.quantity.to_i  %> x
+            </span>
+            <span class="order-product-name">
+              <%= ordprods.product.name %>
+            </span>
+          </div>
+          <div class="order-line-price">
+            <%= ordprods.product.price * ordprods.quantity.to_i  %> €
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
   </div>
   <% unless @order.instructions.empty? %>
     <br>
