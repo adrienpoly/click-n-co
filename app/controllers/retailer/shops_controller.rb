@@ -7,6 +7,7 @@ class Retailer::ShopsController < ApplicationController
     end
     # Let's anticipate on next week (with login)
     @shops = current_user.shops
+    # @shop = current_user.shops.find(params[:id])
   end
 
   def show
@@ -17,5 +18,7 @@ class Retailer::ShopsController < ApplicationController
   end
 
 end
+
+
 
 
