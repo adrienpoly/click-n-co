@@ -15,7 +15,7 @@ class OrderMailer < ApplicationMailer
     @order = order
     @user = @order.user
 
-    mail(to: @user.email, subject: 'Vous avez passez commande !')
+    mail(to: @user.email, subject: 'Vous avez passé commande !')
   end
 
   def ready(order)
