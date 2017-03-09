@@ -1,0 +1,21 @@
+.order-manifest{
+  padding: 20px;
+  .order-lines{
+    padding-bottom: 20px;
+  }
+  .order-line{
+    display: flex;
+    align-items: center;
+    // font-size: 14px;
+    // color: $gray;
+    .order-line-content{
+      flex: 1 1 auto;
+      text-align: left;
+
+    }
+    .order-line-price{
+      text-align: right;
+      flex: 1 0 50px;
+    }
+  }
+}

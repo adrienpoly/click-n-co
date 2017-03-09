@@ -4,8 +4,8 @@
     <div class="col-sm-offset-1 col-sm-10">
       <form class="form-searchbar" action=<%= shops_path %>>
         <div class="form-location">
-          <Label>0ù</Label>
-          <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Lyon, Bordeaux, Toulouse" value="<%= session[:address] %>">
+          <Label>Où</Label>
+          <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Bordeaux" value="<%= session[:address] %>">
         </div>
 
         <div class="form-guests hidden-xs hidden-sm">
@@ -13,6 +13,7 @@
 
           <select class="form-control input-lg" id="shop_categ" name="category">
             <option></option>
+            <option value="" disabled selected style="display: none;">Boucherie, primeur...</option>
             <% @categories.each do |i| %>
               <option value="<%= i.id %>"><%= i.name %></option>
             <% end %>

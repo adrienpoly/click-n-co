@@ -6,10 +6,11 @@
 
   <div class="order-list">
     <div class="order-informations header">
-      <p class="order-retailer text-center col-sm-3">Shop</p>
-      <p class="order-retailer text-center col-sm-3">Date de retrait</p>
-      <p class="order-retailer text-center col-sm-3">Prix</p>
-      <p class="order-retailer text-center col-sm-3">Produits</p>
+      <p class="order-retailer text-center">Commerce</p>
+      <p class="order-retailer text-center">Adresse</p>
+      <p class="order-retailer text-center">Date de retrait</p>
+      <p class="order-retailer text-center">Prix</p>
+      <p class="order-retailer-products text-center">Produits</p>
     </div>
   </div>
 
@@ -20,17 +21,30 @@
 
       <% @table.each do |order| %>
         <div class="order-informations">
-          <p class="order-retailer"><strong><%= order.shop.name.capitalize %></strong>,
-            <%= order.shop.address %>
-          </p>
-          <p class="order-retailer"><%= order.pick_up_at.strftime('%A %d %b - %Hh%M') %>h</p>
+          <p class="order-retailer"><strong><%= order.shop.name.capitalize %></strong></p>
+          <p class="order-retailer"><%= order.shop.address %></p>
+          <p class="order-retailer"><%= order.pick_up_at.strftime('%d %b %Y- %Hh') %></p>
           <p class="order-retailer"><%= order.total_price %>€</p>
-          <p class="order-retailer">
-            <% order.ordered_products.each do |ordprods| %>
-              <%= ordprods.product.name %> x <%= ordprods.quantity %>
+          <div class="order-retailer-products">
+            <div class="order-manifest">
+              <% order.ordered_products.each do |ordprods| %>
+                <div class="order-line">
+                  <div class="order-line-content">
+                    <span class="order-line-quantity">
+                      <%= ordprods.quantity.to_i  %> x
+                    </span>
+                    <span class="order-product-name">
+                      <%= ordprods.product.name %>
+                    </span>
+                  </div>
+                  <div class="order-line-price">
+                    <%= ordprods.product.price * ordprods.quantity.to_i  %> €
+                  </div>
+                </div>
+              <% end %>
+            </div>
 
-            <% end %>
-          </p>
+          </div>
         </div>
       <% end %>
     </div>
@@ -39,24 +53,26 @@
 
 
   <div class="total_price_div">
-    <article>
+    <!-- <article> -->
       <label class="total_price">
         <% @order.total_price = @sum %>
         <span>Total : <%= humanized_money_with_symbol(@order.total_price) %></span>
       </label>
-    </article>
+    <!-- </article> -->
   </div>
 
   <div class="pay">
     <!-- Commented for the lecture, remove comments.   -->
      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-       data-name="Click-n-co"
-       data-email="<%= current_user.email %>"
-       data-description="<%= @order.shop.name %>"
-       data-amount="<%= @order.total_price_cents %>"
-       data-currency="<%= @order.total_price.currency %>"
-       data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
+      value="Payer"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-name="Click & Co"
+      data-email="<%= current_user.email %>"
+      data-description="<%= @order.shop.name %>"
+      data-locale= "auto"
+      data-amount="<%= @order.total_price_cents %>"
+      data-currency="<%= @order.total_price.currency %>"
+      data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
      </script>
    <% end %>
   </div>
