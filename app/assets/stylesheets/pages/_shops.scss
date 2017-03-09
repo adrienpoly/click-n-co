@@ -1,9 +1,9 @@
 .index-shops {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 166px);
+  height: calc(100vh - 70px);
   align-items: stretch;
-  padding-top: 20px;
+  padding: 30px 10px;
 }
 
 .pois {
@@ -20,9 +20,9 @@
 }
 
 .pois-map {
-  width: 560px;
-  height: calc(100vh - 200px);
-  margin-right: 10px;
+  width: 35vw;
+  height: calc(100vh - 130px);
+  margin: 0 10px;
   //background: blue;
 }
 

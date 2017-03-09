@@ -2,37 +2,6 @@
   Search for the best local shops around you
 <% end %>
 
-<!-- div class="container text-center index-shop">
-  <form class="form-shop">
-    <div class="form-dates">
-      <Label>Where</Label>
-      <input type="text" class="form-control input-lg" id="where" name="where" value= <%= params[:where] %> >
-    </div> <! end LOCATION
-    <! <div class="form-dates">
-                <! <div> -->
-      <!-- <Label>Dates</Label> -->
-     <!--  <Label>Km around</Label>
-                <! </div> -->
-      <!-- <div class="form-checkinout">
-        <input type="number" class="form-control input-lg" id="dist" name="dist" placeholder="insert a distance">
-      </div> -->
-          <!-- <input type="text" class="form-control datepicker input-lg" data-provide='datepicker' name="checkin" value= <%#= params[:checkin] %> >
-          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-          <input type="text" class="form-control input-lg" id="checkout" name="checkout" placeholder="checkout"> -->
-   <!--  </div> -->
-    <!-- <div class="form-guests">
-      <Label>Guests</Label>
-      <select class="form-control input-lg" id="nbguest" name="guests">
-        <option value="1">1 guest</option>
-        <option value="2">2 guests</option>
-        <option value="3">3 guests</option>
-      </select>
-    </div> -->
-   <!--  <div class="form-search">
-      <button type="submit" class="btn btn-success btn-lg">Search</button>
-    </div>
-  </form>
-</div>  <! end CONTAINER -->
 
 <div class="index-shops">
 
@@ -48,9 +17,9 @@
         </div>
       </div>
       <div class="text-center">
-        <%= link_to_previous_page @shops, 'Page préc.' %>
-        <%= link_to_next_page @shops, 'Page suiv.' %>
-        <!-- <%= paginate @shops %> -->
+        <%#= link_to_previous_page @shops, 'Page préc.' %>
+        <%#= link_to_next_page @shops, 'Page suiv.' %>
+        <%= paginate @shops %>
       </div>
     </div>
     <div class="pois-map" id="map"></div>
@@ -58,26 +27,7 @@
 
 </div>
 
-<!-- <div class="index-shops">
-  <div class="map-wrapper">
-    <div class="container padded">
-        <div class="pois">
-          <div class="pois-list">
-            <div class="row">
-              <#% @shops.each do |shop|  %>
-                <div class="col-sm-4 card">
-                    <#%= render 'card', shop: shop %>
-                </div>
-              <#% end %>
-            </div>
-        </div>
-        <div class="pois-map" id="map">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- -->
+
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {

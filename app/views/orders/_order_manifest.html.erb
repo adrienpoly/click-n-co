@@ -1,0 +1,18 @@
+<div class="order-manifest">
+  <p><strong>Produits commandés</strong> :</p>
+  <% @order.ordered_products.each do |ordprods| %>
+    <div class="order-line">
+      <div class="order-line-content">
+        <span class="order-line-quantity">
+          <%= ordprods.quantity.to_i  %> x
+        </span>
+        <span class="order-product-name">
+          <%= ordprods.product.name %>
+        </span>
+      </div>
+      <div class="order-line-price">
+        <%= ordprods.product.price * ordprods.quantity.to_i  %> €
+      </div>
+    </div>
+  <% end %>
+</div>

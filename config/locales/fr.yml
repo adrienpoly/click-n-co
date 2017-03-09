@@ -30,3 +30,9 @@ fr:
           ready:      "Prête"
           picked_up:  "Récupérée"
           canceled:   "Annulée"
+  views:
+    pagination:
+      next:   "Suivant"
+      last:   "Dernier"
+      first:  "Premier"
+      previous: "Précédent"

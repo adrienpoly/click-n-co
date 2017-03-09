@@ -3,6 +3,10 @@
   min-height: 100vh;
   padding-top: 50px;
   padding-bottom: 50px;
+  // display:flex;
+  // .order-manifest{
+  //   flex: 1 0 350px;
+  // }
 }
 
 .order-show {
@@ -10,16 +14,30 @@
   border-radius: 10px;
   display: flex;
   // position: absolute;
-  flex-direction: column;
+  // flex-direction: column;
   // width: 100%;
   //margin-top: 60px;
   margin-left: 60px;
   margin-right: 60px;
+  .order-first-column{
+    flex-direction: column;
+    flex: 1 0 auto;
+  }
+  .order-second-column{
+    border-left: 1px solid #e8ebeb;
+    padding: 20px;
+    flex: 1 1 300px;
+  }
   .user-infos {
     padding-right: 10px;
+    display: flex;
     flex-direction: row;
+    align-items: center;
     position: relative;
     margin: 20px;
+    .user-image{
+      padding-right: 30px;
+    }
   }
   .order-details {
     display: flex;

@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     end
     session[:cart] = {}
     #redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
-    redirect_to new_order_payment_path(@order, my_cart: @mycart), notice: 'Order was successfully created.'
+    redirect_to new_order_payment_path(@order, my_cart: @mycart)
   end
 
   def show
