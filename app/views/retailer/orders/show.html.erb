@@ -2,7 +2,7 @@
   <div class="order-show">
     <div class="order-first-column">
       <div class="user-infos">
-        <% avatar_url = current_user.facebook_picture_url || 'sylvain.png' %>
+        <% avatar_url = @order.user.facebook_picture_url || 'sylvain.png' %>
         <div class="user-image">
           <%= image_tag avatar_url, class: "avatar-large" %>
         </div>
