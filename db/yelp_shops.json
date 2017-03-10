@@ -17,6 +17,14 @@
       "url": "https://www.yelp.fr/biz/fromagerie-deruelle-bordeaux?adjust_creative=YE6j_U8K3vzG9regkPEXQQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YE6j_U8K3vzG9regkPEXQQ"
     },
     {
+      "address": "2 Cours Marechal Gallieni, 33400 Talence",
+      "name": "Les Fromages de Manon",
+      "category": "Fromagerie",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/DGJEmXWfEk2sE9HF3bq3cg/l.jpg",
+      "phone": "+33556901141",
+      "url": "https://www.yelp.fr/biz/les-fromages-de-manon-talence"
+    },
+    {
       "address": "24 place de la Ferme de Richemont, 33000 Bordeaux",
       "name": "My Terroir",
       "category": "Fromagerie",
