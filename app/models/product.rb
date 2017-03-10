@@ -37,7 +37,7 @@ class Product < ApplicationRecord
       if address.blank?
         products = Product.search_by_name_and_description(search.downcase)
       else
-        @shop_ids = Shop.near(address, 3).to_a.pluck(:id)
+        @shop_ids = Shop.near(address, 1.5).to_a.pluck(:id)
         products = Product.where(shop_id: @shop_ids).search_by_name_and_description(search)
       end
 

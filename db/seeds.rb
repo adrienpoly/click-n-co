@@ -10,12 +10,12 @@ def clean_database
 end
 
 def create_users
-  owner = User.new(email: 'adrienpoly@gmail.com', password: '123456')
+  owner = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
   owner.admin = true
   owner.save
 
 
-  user = User.new(email: 'lucie.lasagna@essec.edu', password: '123456')
+  user = User.new(email: 'adrienpoly@gmail.com', password: '123456')
   user.admin = true
   user.save
 
@@ -35,9 +35,9 @@ def create_shops(owner)
 
   shops_by_cat.each do |category, shops|
     new_cat = Category.create!(name: category)
-    if Rails.env = "development"
-      shops = shops.first(4)
-    end
+    # if Rails.env = "development"
+    #   shops = shops.first(4)
+    # end
     shops.each do |shop|
       new_shop = Shop.new(
         name: shop['name'],
@@ -72,7 +72,8 @@ def read_csv
     # products << params
     products[row[:shop_category]] = {} if products[row[:shop_category]].nil?
     products[row[:shop_category]][row[:product_category]] = [] if products[row[:shop_category]][row[:product_category]].nil?
-    product = { name: row[:name], short_description: row[:short_description], price: (row[:price].to_f / 100) }
+    price = ((row[:price].to_f / 100) * (1 + ((rand(10) - 5).to_f / 20))).round(1)
+    product = { name: row[:name], short_description: row[:short_description], price: price }
     products[row[:shop_category]][row[:product_category]] << product
     # products[row[:shop_category]][row[:product_category]] = 1
   end
@@ -110,7 +111,11 @@ def create_products
   end
 end
 
+owner = nil
+
 clean_database
+
 owner = create_users
+owner = User.first if owner.blank?
 create_shops(owner)
 create_products

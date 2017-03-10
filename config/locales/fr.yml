@@ -36,3 +36,4 @@ fr:
       last:   "Dernier"
       first:  "Premier"
       previous: "Précédent"
+      truncate: "..."
