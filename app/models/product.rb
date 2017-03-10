@@ -17,6 +17,7 @@ class Product < ApplicationRecord
 
     pg_search_scope :autocomplete,
     against: [ :name ],
+    ignoring: :accents,
     using: {
       tsearch: {
         prefix:     true,
