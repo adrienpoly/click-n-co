@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
         sum += ordered_product.order_price * ordered_product.quantity
       end
       @order.total_price = sum
-      @order.pending!
+      @order.confirmed!
       @order.save
       @mycart << @order
     end

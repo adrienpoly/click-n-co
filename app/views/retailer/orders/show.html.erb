@@ -29,7 +29,7 @@
           </div>
 
 
-            <% 5.times do |i| %>
+            <% 3.times do |i| %>
 
               <div class="bar-label">
                 <% if i  <= @index %>
@@ -39,9 +39,9 @@
                 <% end %>
                 <div class="bar-text"><%= Order.human_enum_name(:status, Order.statuses.keys[i]) %></div>
               </div>
-              <% if i < 5 && i < @index %>
+              <% if i < 3 && i < @index %>
               <span class="bar done"></span>
-              <% elsif i < 4 && i >= @index  %>
+              <% elsif i < 2 && i >= @index  %>
               <span class="bar"></span>
               <%  end %>
             <% end %>
@@ -61,52 +61,56 @@
 
 
         <div class="action-buttons text-center">
-        <% if @order.pending? %>
-          <%= link_to order_path(@order, order: {status: :processing}), method: :patch,
+        <% if @order.confirmed? %>
+          <%#= link_to order_path(@order, order: {status: :pending}), method: :patch,
             class: "btn btn-warning btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-             Commande en cours
-          <% end %>
+             <!-- Commande en attente -->
+          <%# end %>
+          <%#= link_to order_path(@order, order: {status: :processing}), method: :patch,
+            class: "btn btn-warning btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+             <!-- Commande en cours -->
+          <%# end %>
           <%= link_to order_path(@order, order: {status: :ready}), method: :patch,
-            class: "btn btn-success btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-             Commande prête
-          <% end %>
-          <%= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
-            class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-             Commande récupérée
-          <% end %>
-          <%= link_to order_path(@order, order: {status: :canceled}), method: :patch,
-            class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-             Annuler
-          <% end %>
-        <% elsif  @order.processing? %>
-          <%= link_to order_path(@order, order: {status: :ready}), method: :patch,
-            class: "btn btn-success btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-             Commande prête
-          <% end %>
-          <%= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
-            class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-             Commande récupérée
-          <% end %>
-          <%= link_to order_path(@order, order: {status: :canceled}), method: :patch,
-            class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-             Annuler
-          <% end %>
-        <% elsif @order.confirmed? %>
-          <%= link_to order_path(@order, order: {status: :ready}), method: :patch,
-              class: "btn btn-success btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+              class: "btn btn-success btn-block bigger-btn " do %>
                Commande prête
             <% end %>
-          <%= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
-              class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
-               Commande récupérée
-            <% end %>
             <%= link_to order_path(@order, order: {status: :canceled}), method: :patch,
-              class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+              class: "btn btn-danger btn-block bigger-btn " do %>
                Annuler
             <% end %>
+        <%# elsif @order.pending? %>
+          <%#= link_to order_path(@order, order: {status: :processing}), method: :patch,
+            class: "btn btn-warning btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+             <!-- Commande en cours -->
+          <%# end %>
+          <%#= link_to order_path(@order, order: {status: :ready}), method: :patch,
+            class: "btn btn-success btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+            <!--  Commande prête -->
+          <%# end %>
+          <%#= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
+            class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+        <!--      Commande récupérée -->
+          <%# end %>
+          <%# link_to order_path(@order, order: {status: :canceled}), method: :patch,
+            class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+        <!--      Annuler -->
+          <%# end %>
+        <%# elsif  @order.processing? %>
+          <%#= link_to order_path(@order, order: {status: :ready}), method: :patch,
+            class: "btn btn-success btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+           <!--   Commande prête -->
+          <%# end %>
+          <%#= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
+            class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+       <!--       Commande récupérée -->
+          <%# end %>
+          <%#= link_to order_path(@order, order: {status: :canceled}), method: :patch,
+            class: "btn btn-danger btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+             <!-- Annuler -->
+          <%# end %>
         <% elsif @order.ready?  %>
           <%= link_to order_path(@order, order: {status: :picked_up}), method: :patch,
-             class: "btn btn-primary btn-block bigger-btn ", data:{confirm: "Are you sure?"} do %>
+             class: "btn btn-primary btn-block bigger-btn " do %>
              Commande récupérée
           <% end %>
           <%= link_to order_path(@order, order: {status: :canceled}), method: :patch,

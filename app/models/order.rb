@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   has_many :ordered_products, dependent: :destroy
   belongs_to :user
   belongs_to :shop
-  enum status: [:confirmed, :pending, :processing, :ready, :picked_up, :canceled]
+  enum status: [:confirmed, :ready, :picked_up, :canceled]
   # enum status: {
   #   :pending => 1,
   #   :processing => 2,

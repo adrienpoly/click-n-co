@@ -17,8 +17,8 @@
     <div class="order-informations">
       <p class="order-retailer"><%= order.id %></p>
       <p class="order-retailer"><% avatar_url = order.user.facebook_picture_url || 'sylvain.png' %>
-          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %></p>
-      <p class="order-retailer"><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</p>
+          <span><%= image_tag avatar_url, class: "avatar" %></span><span> </span><%= order.user.f_name %> <%= order.user.l_name %></p>
+      <p class="order-retailer"><%= order.pick_up_at.strftime('%d %b %Y - %Hh') %></p>
       <p class="order-retailer"><%= order.total_price %>€</p>
       <p class="order-retailer"><%= Order.human_enum_name(:status, order.status) %></p>
       <p class="order-retailer"><%= link_to retailer_shop_order_path(@shop, order),
