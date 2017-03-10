@@ -68,7 +68,7 @@
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
       data-name="Click & Co"
       data-email="<%= current_user.email %>"
-      data-description="<%= @order.shop.name %>"
+      data-description="Click & co"
       data-locale= "auto"
       data-amount="<%= @order.total_price_cents %>"
       data-currency="<%= @order.total_price.currency %>"

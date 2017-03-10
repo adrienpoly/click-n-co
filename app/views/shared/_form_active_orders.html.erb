@@ -4,7 +4,7 @@
     <div class="order-informations header">
 
     <p class="order-retailer text-center"><strong>N°</strong></p>
-    <p class="order-retailer text-center"><strong>Shop</strong></p>
+    <p class="order-retailer text-center"><strong>Commerce</strong></p>
     <p class="order-retailer text-center"><strong>Date de retrait</strong></p>
     <p class="order-retailer text-center"><strong>Prix</strong></p>
     <p class="order-retailer text-center"><strong>Produits</strong></p>
@@ -18,7 +18,7 @@
       <p class="order-retailer">
         <%= order.shop.name.capitalize %>
       </p>
-      <p class="order-retailer"><%= order.pick_up_at.strftime('%A %d %b - %H%M') %>h</p>
+      <p class="order-retailer"><%= order.pick_up_at.strftime('%d %b %Y- %Hh') %></p>
       <p class="order-retailer"><%= order.total_price %>€</p>
       <p class="order-retailer">
         <%= link_to "#order-show", class: "", data: { toggle: "modal", orderid: "#{order.id}" } do %>
