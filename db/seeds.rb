@@ -112,6 +112,8 @@ def create_products
 end
 
 def clean_products
+  OrderedProduct.destroy_all
+  Order.destroy_all
   Product.destroy_all
   ProductCategory.destroy_all
 end

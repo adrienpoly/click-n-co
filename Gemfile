@@ -32,6 +32,7 @@ gem 'turbolinks', '~> 5.0.0'
 gem 'money-rails'
 gem 'stripe'
 gem 'kaminari'
+gem 'rails_admin-i18n'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
