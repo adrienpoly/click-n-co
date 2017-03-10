@@ -13,8 +13,12 @@ class Retailer::ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @orders = @shop.orders
-    @orders_in  = @orders.where("pick_up_at > ?", Date.today )
-    @orders_out = @orders.where("pick_up_at < ?", Date.today )
+    # @orders_in  = @orders.where("pick_up_at > ?", Date.today )
+    # @orders_out = @orders.where("pick_up_at < ?", Date.today )
+    @orders_confirmed  = @orders.where(status: :confirmed)
+    @orders_ready = @orders.where(status: :ready)
+    @orders_history = @orders.where(status: :picked_up)
+
   end
 
 end

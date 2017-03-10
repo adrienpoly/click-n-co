@@ -2,8 +2,9 @@
 <div class="container order-recap">
 
   <ul class="nav nav-tabs order-table" role="tablist">
-    <li role="presentation" class="inactive active"><a class="onglet" href="#futur" data-toggle="tab">Commandes à retirer</a></li>
-    <li role="presentation" class="inactive"><a class="onglet" href="#past" data-toggle="tab">Commandes passées</a></li>
+    <li role="presentation" class="inactive active"><a class="onglet" href="#confirmed" data-toggle="tab">Commandes à préparer</a></li>
+    <li role="presentation" class="inactive"><a class="onglet" href="#ready" data-toggle="tab">Commandes à retirer</a></li>
+    <li role="presentation" class="inactive"><a class="onglet" href="#history" data-toggle="tab">Historique</a></li>
   </ul>
   <p></p>
 
@@ -14,14 +15,19 @@
 </div>
 
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="futur">
-      <% unless @orders_in.nil? %>
-        <%= render 'shared/form_retailer_orders', orders: @orders_in, futur: true %>
+    <div role="tabpanel" class="tab-pane active" id="confirmed">
+      <% unless @orders_confirmed.nil? %>
+        <%= render 'shared/form_retailer_orders', orders: @orders_confirmed, futur: true %>
       <% end %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="past">
-      <% unless @orders_out.nil? %>
-        <%= render 'shared/form_retailer_orders', orders: @orders_out, past: true %>
+    <div role="tabpanel" class="tab-pane" id="ready">
+      <% unless @orders_ready.nil? %>
+        <%= render 'shared/form_retailer_orders', orders: @orders_ready, past: true %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="history">
+      <% unless @orders_history.nil? %>
+        <%= render 'shared/form_retailer_orders', orders: @orders_history, past: true %>
       <% end %>
     </div>
   </div>
