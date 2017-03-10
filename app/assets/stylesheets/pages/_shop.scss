@@ -88,6 +88,8 @@
   @media (min-width: 1200px) {
     .affix {
       width: 292.5px;
+      max-height: 90vh;
+      overflow: auto;
     }
   }
   .affix-bottom {
