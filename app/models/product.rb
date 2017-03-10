@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   include PgSearch
   pg_search_scope :search_by_name_and_description,
     against: [ :name, :short_description, :description ],
+    ignoring: :accents,
     using: {
       tsearch: {
         dictionary: "french",
