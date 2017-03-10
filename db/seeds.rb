@@ -72,7 +72,7 @@ def read_csv
     # products << params
     products[row[:shop_category]] = {} if products[row[:shop_category]].nil?
     products[row[:shop_category]][row[:product_category]] = [] if products[row[:shop_category]][row[:product_category]].nil?
-    price = ((row[:price].to_f / 100) * (1 + ((rand(10) - 5).to_f / 20))).round(1)
+    price = (row[:price].to_f / 100).round(1)
     product = { name: row[:name], short_description: row[:short_description], price: price }
     products[row[:shop_category]][row[:product_category]] << product
     # products[row[:shop_category]][row[:product_category]] = 1
@@ -111,11 +111,16 @@ def create_products
   end
 end
 
-owner = nil
+def clean_products
+  Product.destroy_all
+  ProductCategory.destroy_all
+end
+# owner = nil
 
-clean_database
+# clean_database
 
-owner = create_users
-owner = User.first if owner.blank?
-create_shops(owner)
+# owner = create_users
+# owner = User.first if owner.blank?
+# create_shops(owner)
+clean_products
 create_products
