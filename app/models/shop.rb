@@ -33,6 +33,23 @@ class Shop < ApplicationRecord
     end
     hash
   end
+
+  def self.search_by_address(params)
+    if params[:category].nil? || params[:category].empty?
+      params[:where].blank? ? shops = Shop.all.page(params[:page]) : shops = Shop.near(params['where'], 1000).page(params[:page])
+    else
+      params[:where].blank? ? shops = Shop.where(category_id: params[:category]).page(params[:page]) : shops = Shop.near(params['where'], 1000).where(category_id: params[:category]).page(params[:page])
+    end
+    shops
+  end
+
+  def self.search_by_latlng(params)
+    dist = params[:dist] || 5
+    latlng = [params[:lat], params[:lng]] || [44.84044, -0.5805]
+    category_id = Category.find_by name: params[:category].capitalize
+    shops = Shop.near(latlng, dist).where(category_id: category_id)
+  end
+
   private
 
   def set_owner

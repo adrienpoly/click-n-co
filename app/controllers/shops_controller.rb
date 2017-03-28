@@ -3,16 +3,15 @@ class ShopsController < ApplicationController
   before_action :find_shop, only: [:show]
 
   def index
-    if params[:category].nil? || params[:category].empty?
-      params[:where].blank? ? @shops = Shop.all.page(params[:page]) : @shops = Shop.near(params['where'], 1000).page(params[:page])
-    else
-      params[:where].blank? ? @shops = Shop.where(category_id: params[:category]).page(params[:page]) : @shops = Shop.near(params['where'], 1000).where(category_id: params[:category]).page(params[:page])
-    end
-    session[:address] = params['where']
-    @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
-      marker.lat shop.latitude
-      marker.lng shop.longitude
-      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { shop: shop })
+    respond_to do |format|
+      format.html {
+        @shops = Shop.search_by_address(params)
+        session[:address] = params['where']
+        @hash = build_markers(@shops)
+      }
+      format.json {
+        @shops = Shop.search_by_latlng(params)
+      }
     end
   end
 
@@ -26,6 +25,15 @@ class ShopsController < ApplicationController
   end
 
   private
+
+  def build_markers(shops)
+    markers = Gmaps4rails.build_markers(shops) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { shop: shop })
+    end
+    markers
+  end
 
   def find_shop
     @shop = Shop.find(params[:id])
