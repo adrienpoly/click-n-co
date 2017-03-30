@@ -128,7 +128,8 @@ STOP_WORDS = [
     # TODO: implement your louchebem translator
     louchebem_sentence = ""
 
-    louchebem_words = sentence.scan(/([a-zA-Z]+'?[a-zA-Z]+|[^\s]+)/).map { |e| e[0] }
+    # louchebem_words = sentence.scan(/([a-zA-Z]+'?[a-zA-Z]+|[^\s]+)/).map { |e| e[0] }
+    louchebem_words = sentence.scan(/([a-zA-Z]+'?\w+|[^\s]+)/).map { |e| e[0] }
 
 
     louchebem_words.each do |word|
@@ -156,12 +157,15 @@ STOP_WORDS = [
   def self.louchebemize_word(word)
     # split the word to remove trailling special caracters.
     # Currently this method is assuming that special caracters are at the end of the word
+    is_cap = (word.capitalize == word)
     words = word.split(/\s+|\b/)
+    word = word.downcase
     # word = words.first
     # return word if word.gsub(/[^0-9A-Za-z]/, '').size <= 2
     return word if word.size <= 2 || STOP_WORDS.include?(word)
     return KNOWN_WORDS[word] if KNOWN_WORDS.key?(word)
     louchebem_word = louchebemize_cleaned_word(word)
+    louchebem_word = louchebem_word.capitalize if is_cap
     # louchebemize_cleaned_word(word)
     # add special caracters where present initially
     return words.size == 1 ? louchebem_word : louchebem_word << words.last
