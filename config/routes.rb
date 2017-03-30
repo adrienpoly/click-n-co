@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       post 'translations/translate', to: 'translations#translate'
       get 'shops/search', to: 'shops#search'
 
-      # resources :translations, only: [ :new ]
+      resources :translations, only: [ :new ]
     end
   end
   # get '/style', to: 'pages#bootstrap_components'

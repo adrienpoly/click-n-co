@@ -1,7 +1,7 @@
 class Api::V1::TranslationsController < Api::V1::BaseController
   def new
     @response = { argomuch: "" }
-    @response[:argomuch] = Louch.translate(params[:translate]) if params[:translate]
+    @response[:argomuch] = Louch.translate(params[:sentence]) if params[:sentence]
   end
 
   def translate
