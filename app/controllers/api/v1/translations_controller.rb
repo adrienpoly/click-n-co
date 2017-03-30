@@ -12,7 +12,8 @@ class Api::V1::TranslationsController < Api::V1::BaseController
   end
 
   def dictionnary
-    render json: Louch.dictionnary
+    @words = Louch.dictionnary
+    # render json: Louch.dictionnary
   end
 end
 
