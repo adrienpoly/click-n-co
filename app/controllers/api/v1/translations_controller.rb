@@ -5,6 +5,7 @@ class Api::V1::TranslationsController < Api::V1::BaseController
   end
 
   def translate
+    # byebug
     @response = { argomuch: "" }
     @response[:argomuch] = Louch.translate(params[:sentence]) if params[:sentence]
     render json: @response

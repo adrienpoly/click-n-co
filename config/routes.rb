@@ -31,10 +31,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      post '/translate', to: 'translations#translate'
-      resources :translations, only: [ :new ]
+      post 'translations/translate', to: 'translations#translate'
+      get 'shops/search', to: 'shops#search'
+
+      # resources :translations, only: [ :new ]
     end
   end
-  get '/style', to: 'pages#bootstrap_components'
+  # get '/style', to: 'pages#bootstrap_components'
   get '/clear-session', to: 'orders#clear_session_cart'
 end
