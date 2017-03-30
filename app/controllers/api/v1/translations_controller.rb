@@ -10,6 +10,10 @@ class Api::V1::TranslationsController < Api::V1::BaseController
     @response[:argomuch] = Louch.translate(params[:sentence]) if params[:sentence]
     render json: @response
   end
+
+  def dictionnary
+    render json: Louch.dictionnary
+  end
 end
 
 

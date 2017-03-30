@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      get 'translations/dictionnary', to: 'translations#dictionnary'
       post 'translations/translate', to: 'translations#translate'
       get 'shops/search', to: 'shops#search'
 

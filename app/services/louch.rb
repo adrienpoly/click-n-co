@@ -5,6 +5,7 @@ class Louch
   @know_words = JSON.parse(open("app/services/dictionnary.json","r").read)
   SUFFIX = %w(em é ji oc ic uche ès).freeze
 
+
   def self.translate(sentence)
     louchebem_sentence = ""
     louchebem_words = sentence.scan(/([a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'-_]+|[^\s]+)/).map { |e| e[0] }
@@ -14,6 +15,10 @@ class Louch
       louchebem_word =~ /[a-zA-Z]/ ? louchebem_sentence << " " + louchebem_word : louchebem_sentence << louchebem_word
     end
     return louchebem_sentence.strip
+  end
+
+  def self.dictionnary
+    @know_words
   end
 
   private
