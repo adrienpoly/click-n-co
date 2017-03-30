@@ -21,13 +21,20 @@ Rails.application.routes.draw do
     resources :shops, only: [:index, :show] do
       resources :orders, only: [:show, :update]
     end
-
   end
+
   resources :orders, only: [:index, :create, :update, :show]
+
   resources :orders, only: [:create] do
     resources :payments, only: [:new, :create]
   end
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      post '/translate', to: 'translations#translate'
+      resources :translations, only: [ :new ]
+    end
+  end
   get '/style', to: 'pages#bootstrap_components'
   get '/clear-session', to: 'orders#clear_session_cart'
 end
