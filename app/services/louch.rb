@@ -39,7 +39,7 @@ class Louch
   def self.louchebemize_word(word)
     return @know_words[word.downcase] if @know_words.key?(word.downcase)
 
-    # is_cap = (word.capitalize == word)
+    is_cap = (word.capitalize == word)
     # split the word to remove trailling special caracters.
     # Currently this method is assuming that special caracters are at the end of the word
     words = word.split(/\s+|\b/)
@@ -47,15 +47,16 @@ class Louch
     words.each do |word|
       louchebem_word += louchebemize_cleaned_word(word)
     end
+    louchebem_word = louchebem_word.capitalize if is_cap
     louchebem_word
   end
 
 
 end
 
-p Louch.translate("Très d'objets!!")
+# p Louch.translate("Très d'objets!!")
 
-p Louch.translate("un chat c'est fou aujourd'hui!!")
+# p Louch.translate("un chat c'est fou aujourd'hui!!")
 
-p Louch.translate("Uber à mis en ligne une liste d’objets «les plus singuliers» trouvés dans les voitures du réseau en Amérique du Nord.")
-p Louch.translate("Uber à mis en ligne une liste d'objets «les plus singuliers» trouvés dans les voitures du réseau en Amérique du Nord.")
+# p Louch.translate("Uber à mis en ligne une liste d’objets «les plus singuliers» trouvés dans les voitures du réseau en Amérique du Nord.")
+# p Louch.translate("Uber à mis en ligne une liste d'objets «les plus singuliers» trouvés dans les voitures du réseau en Amérique du Nord.")
