@@ -1,8 +1,8 @@
 # Encoding: utf-8
 require 'json'
 class Louch
-  @stopwords = JSON.parse(open("stopwords_fr.json","r").read)
-  @know_words = JSON.parse(open("dictionnary.json","r").read)
+  @stopwords = JSON.parse(open("app/services/stopwords_fr.json","r").read)
+  @know_words = JSON.parse(open("app/services/dictionnary.json","r").read)
   SUFFIX = %w(em é ji oc ic uche ès).freeze
 
   def self.translate(sentence)
