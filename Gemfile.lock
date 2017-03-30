@@ -339,6 +339,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   jquery-ui-rails
+  json
   kaminari
   letter_opener
   listen (~> 3.0.5)

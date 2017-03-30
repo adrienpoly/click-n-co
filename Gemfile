@@ -11,6 +11,7 @@ gem 'redis'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'pg_search'
+gem 'json'
 
 gem 'sass-rails'
 gem 'jquery-rails'
