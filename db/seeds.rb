@@ -119,10 +119,10 @@ def clean_products
 end
 # owner = nil
 
-# clean_database
+clean_database
 
-# owner = create_users
-# owner = User.first if owner.blank?
-# create_shops(owner)
+owner = create_users
+owner = User.first if owner.blank?
+create_shops(owner)
 clean_products
 create_products
